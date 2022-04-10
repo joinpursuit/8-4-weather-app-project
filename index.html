@@ -16,16 +16,19 @@
         <form id='locationForm'>
             <label>Pick a Location</label>
             <input type="text" name="location" />
-            <button type="submit">Get Weather</button>
+            <input type="submit" name="getWeather" />
         </form>
     </header>
     <main>
         <div id='mainContainer'>
             <article id='mainWeather'>
                 Choose a location to view the weather
-            </article>
+            </article>    
             <aside id="previousSearches">
-                <h4>Previous Searches</h4>
+                <section>
+                    <h4>Previous Searches</h4>
+                    <p>No previous searches</p>
+                </section>
             </aside>
             <aside id="threeDay">
                 <article id="today" class="three">today</article>
