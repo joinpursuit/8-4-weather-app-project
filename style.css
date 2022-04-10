@@ -52,3 +52,12 @@ header {
     flex-direction: column;
     justify-content: center;
 }
+
+
+/* FOR SEARCH HISTORY */
+
+#searchHistory {
+    list-style: none;
+    border: 1px solid yellow;
+}
+

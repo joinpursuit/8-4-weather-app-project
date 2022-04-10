@@ -15,17 +15,30 @@ const threeDay = document.getElementById('threeDay');
 const today = document.getElementById('today');
 const tomorrow = document.getElementById('tomorrow');
 const dayAfter = document.getElementById('dayAfter');
+const history = document.getElementById('searchHistory');
 
+//stores previous searches
+let searches = {};
+
+//history click event listener
+history.addEventListener("click", (e) => handleHistoryClick(e))
 
 
 const handleSubmit = (e) => {
     e.preventDefault();
     const { target } = e;
 
-    const input = target.location.value;
+    const input = target.location.value.trim();
     if (!input) return;
     target.location.value = '';
 
+    fetcher(input);
+}
+
+const handleHistoryClick = (e) => {
+    e.preventDefault();
+    const input  = e.target.textContent.split('-')[0].trim();
+    console.log (input);
     fetcher(input);
 }
 
@@ -45,6 +58,8 @@ const populate = (res, input) => {
     tomorrow.textContent = '';
     dayAfter.textContent = '';
 
+    //save search and add new search to sidebar
+    searchHistory(input, `${res.current_condition[0].FeelsLikeF}${String.fromCharCode(176)}F`)
 
     //populate main area
     const location = document.createElement("p");
@@ -107,6 +122,18 @@ const populate = (res, input) => {
 
     dayAfter.innerHTML = `<h3 class="threeDayHeaders">Day After Tomorrow</h3>`;
     dayAfter.append(average3, max3, min3);
+}
+
+const searchHistory = (input, feelsLike) => {
+    document.getElementById('firstSearch').textContent = '';
+
+    if (!(input in searches)) {
+        searches = {[input]: feelsLike, ...searches}
+        let newLi = document.createElement('li');
+        newLi.setAttribute("class", "historyItems");
+        newLi.textContent = `${input} - ${feelsLike}`
+        history.append(newLi);
+    } 
 }
 
 const handleError = (err) => {
