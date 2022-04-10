@@ -1,0 +1,17 @@
+#search{
+    display: grid;
+    border: 2px black solid;
+    text-align: center;
+    background-color: cadetblue;
+    margin: 60px;
+    padding: 25px;
+}
+
+main {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+    width: 70%;
+  }
+
