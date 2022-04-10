@@ -11,7 +11,26 @@
 <body>
     <header>
         <h1>Weather App</h1>
+        <form class='event'>
+            <section>
+            <label for='location'>
+                <input type='text'name='location' id='location'/>
+                <input type='submit'value='Get Weather'/>
+            </label>
+        </section>
+        </form>
     </header>
-    
+    <div id='main'>
+    <main class='display'>
+        Choose a location to view the weather
+    </main>
+    <aside id='previous search' class='past'>
+        <section>
+            <h3>Previous Searches</h3> 
+            <p class='previous search'>No previous searches</p>
+            <ul></ul>
+        </section>
+    </aside>
+</div>
 </body>
 </html>
