@@ -1,0 +1,23 @@
+header {
+    text-align: center;
+    border: 3px black solid;
+    background-color: teal;
+    padding-bottom: 10px;
+    color: white;
+    margin: 0 20% 0 20%
+}
+
+main {
+    border: 3px teal solid;
+    margin-left: 21%;
+    margin-right: 40%;
+    margin-top: 15px;
+    padding: 35px;
+    text-align: center;
+    background-color: lightgray;
+}
+
+.weather-history {
+    margin-left: 900px;
+    margin-bottom: 1000px;
+}
