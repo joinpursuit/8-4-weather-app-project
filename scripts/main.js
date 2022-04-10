@@ -20,10 +20,6 @@ const history = document.getElementById('searchHistory');
 //stores previous searches
 let searches = {};
 
-//history click event listener
-history.addEventListener("click", (e) => handleHistoryClick(e))
-
-
 const handleSubmit = (e) => {
     e.preventDefault();
     const { target } = e;
@@ -32,13 +28,6 @@ const handleSubmit = (e) => {
     if (!input) return;
     target.location.value = '';
 
-    fetcher(input);
-}
-
-const handleHistoryClick = (e) => {
-    e.preventDefault();
-    const input  = e.target.textContent.split('-')[0].trim();
-    console.log (input);
     fetcher(input);
 }
 
@@ -125,14 +114,19 @@ const populate = (res, input) => {
 }
 
 const searchHistory = (input, feelsLike) => {
-    document.getElementById('firstSearch').textContent = '';
+    if (document.getElementById('firstSearch')) {
+        document.getElementById('firstSearch').remove();
+    }
 
-    if (!(input in searches)) {
-        searches = {[input]: feelsLike, ...searches}
+    if (!(input.toLowerCase() in searches)) {
+        searches = {[input.toLowerCase()]: feelsLike, ...searches}
         let newLi = document.createElement('li');
-        newLi.setAttribute("class", "historyItems");
-        newLi.textContent = `${input} - ${feelsLike}`
+        let newAnchor = document.createElement('a');
+        newAnchor.textContent = `${input} - ${feelsLike}`
+        newAnchor.setAttribute("href", `javascript:fetcher('${input}');`);
+        newLi.append(newAnchor);
         history.append(newLi);
+
     } 
 }
 
