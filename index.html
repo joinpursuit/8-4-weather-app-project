@@ -32,7 +32,17 @@
                 </section>
             </aside>
             <aside id="tempWidget">
-                Temp widget here
+                <form id="tempForm">
+                    <label>Convert the temperature:</label>
+                    <input type="number" id="temp-to-convert" name="temp">
+                    <label>to-c</label>
+                    <input type="radio" id="to-c" name="convert-temp" value="c" checked/>
+                    <label>to-f</label>
+                    <input type="radio" id="to-f" name="convert-temp" value="f" />
+                    <input type="submit" />
+                    <h4 id="tempResult"></h4>
+
+                </form>
             </aside>
             <aside id="threeDay">
                 <article id="today" class="three"></article>

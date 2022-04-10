@@ -94,6 +94,12 @@ header {
     margin: 8px;
 }
 
+#tempForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 #threeDay {
     display: flex;
     justify-content: space-around;

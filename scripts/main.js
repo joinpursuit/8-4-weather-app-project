@@ -4,9 +4,12 @@
 //API Link
 const API = "https://wttr.in/"
 
-// form submit event listener
+// event listeners
 const locationForm = document.querySelector("#locationForm");
 locationForm.addEventListener("submit", (e) => handleSubmit(e));
+
+const temperatureForm = document.getElementById("tempForm");
+temperatureForm.addEventListener("submit", (e) => convertTemp(e));
 
 //global variables for key html elements
 const mainWeather = document.getElementById('mainWeather');
@@ -167,6 +170,20 @@ const searchHistory = (input, feelsLike) => {
         history.append(newLi);
 
     } 
+}
+
+const convertTemp = (e) => {
+    e.preventDefault();
+    console.log (e);
+    const tempToConvert = e.target.temp.value;
+    if (!tempToConvert) return;
+    const resultBox = document.getElementById("tempResult")
+    if (e.target[1].checked) {
+        resultBox.textContent = ((tempToConvert - 32) * (5 / 9)).toFixed(2);
+    } else {
+        resultBox.textContent = (tempToConvert * (9 / 5) + 32).toFixed(2);
+    }
+
 }
 
 const handleError = (err) => {
