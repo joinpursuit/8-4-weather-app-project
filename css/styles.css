@@ -1,0 +1,26 @@
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+header {
+  display: grid;
+  margin: 25px auto;
+  width: 60%;
+  text-align: center;
+  border: 2px solid black;
+  color: azure;
+  background-color: rgb(49, 150, 117);
+}
+
+main {
+  display: grid;
+  margin: 0 auto;
+  text-align: center;
+  width: 45%;
+  border: 1px solid aquamarine;
+  background-color: lightgray;
+}
+
+form {
+  padding: 15px;
+}
