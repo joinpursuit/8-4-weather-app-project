@@ -51,7 +51,7 @@ const populate = (res, input) => {
     searchHistory(input, `${res.current_condition[0].FeelsLikeF}${String.fromCharCode(176)}F`)
 
     //populate main area
-    const location = document.createElement("p");
+    const location = document.createElement("h2");
     location.setAttribute("id", "locationP");
     location.setAttribute("class", "mainWeatherP");
     location.innerHTML = `<strong>${input}</strong>`;
@@ -59,7 +59,11 @@ const populate = (res, input) => {
     const area = document.createElement("p");
     area.setAttribute("id", "areaP");
     area.setAttribute("class", "mainWeatherP");
-    area.innerHTML = `<strong>Area: </strong>${res.nearest_area[0].areaName[0].value}`;
+    const areaName = res.nearest_area[0].areaName[0].value;
+    area.innerHTML = areaName.toLowerCase().includes(input.toLowerCase()) ||
+                    input.toLowerCase().includes(areaName.toLowerCase()) ? 
+                    `<strong>Area: </strong>${areaName}` :
+                    `<strong>Nearest Area: </strong>${areaName}`;
 
     const region = document.createElement("p");
     region.setAttribute("id", "regionP");
@@ -76,7 +80,42 @@ const populate = (res, input) => {
     currently.setAttribute("class", "mainWeatherP");
     currently.innerHTML = `<strong>Currently: </strong>Feels Like ${res.current_condition[0].FeelsLikeF}${String.fromCharCode(176)}F`;
 
-    mainWeather.append(location, area, region, country, currently)
+    const sunshine = document.createElement("p");
+    const sunChance = res.weather[0].hourly[0].chanceofsunshine;
+    sunshine.setAttribute("id", "sunshineP");
+    sunshine.setAttribute("class", "mainWeatherP");
+    sunshine.innerHTML = `<strong>Chance of Sunshine: </strong>${sunChance}%`;
+
+    const rain = document.createElement("p");
+    const rainChance = res.weather[0].hourly[0].chanceofrain;
+    rain.setAttribute("id", "rainP");
+    rain.setAttribute("class", "mainWeatherP");
+    rain.innerHTML = `<strong>Chance of Rain: </strong>${rainChance}%`;
+
+    const snow = document.createElement("p");
+    const snowChance = res.weather[0].hourly[0].chanceofsnow;
+    snow.setAttribute("id", "snowP");
+    snow.setAttribute("class", "mainWeatherP");
+    snow.innerHTML = `<strong>Chance of Snow: </strong>${snowChance}%`;
+
+    const icon =  document.createElement("img");
+    const iconDiv = document.createElement("div");
+    if (snowChance > 50) {
+        icon.setAttribute("src", "./assets/icons8-light-snow.gif");
+        icon.setAttribute("alt", "snow");
+    } else if (rainChance > 50) {
+        icon.setAttribute("src", "./assets/icons8-torrential-rain.gif");
+        icon.setAttribute("alt", "rain");
+    } else if (sunChance > 50) {
+        icon.setAttribute("src", "./assets/icons8-summer.gif");
+        icon.setAttribute("alt", "sun");
+    } else {
+        icon.setAttribute("src", "./assets/icons8-night.gif");
+        icon.setAttribute("alt", "clouds");
+    }
+    icon.setAttribute("id", "icon");
+
+    mainWeather.append(icon, location, area, region, country, currently, sunshine, rain, snow)
     
     //populate 3 day forecast
     const average1 = document.createElement("p");
