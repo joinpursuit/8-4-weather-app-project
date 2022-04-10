@@ -48,4 +48,7 @@ header {
 .three {
     border: 1px solid yellow;
     margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
