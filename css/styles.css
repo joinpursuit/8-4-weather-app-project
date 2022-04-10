@@ -9,7 +9,8 @@ header {
   text-align: center;
   border: 2px solid black;
   color: azure;
-  background-color: rgb(49, 150, 117);
+  background-color: rgb(24, 145, 145);
+  font-weight: 700;
 }
 
 main {
