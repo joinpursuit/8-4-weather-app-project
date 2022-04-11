@@ -2,10 +2,26 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
+/* .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  justify-content: center;
+} */
+
+/* .child1 {
+  grid-row: 2;
+  grid-column: 2 / 4;
+} */
+
+.child2 p {
+  padding: 15px;
+}
+
 header {
   display: grid;
   margin: 25px auto;
-  width: 60%;
+  /* width: 60%; */
   text-align: center;
   border: 2px solid black;
   color: azure;
@@ -14,14 +30,31 @@ header {
 }
 
 main {
-  display: grid;
-  margin: 0 auto;
+  display: inline-block;
+  margin-left: 0 auto;
   text-align: center;
-  width: 45%;
+  width: 65%;
   border: 1px solid aquamarine;
   background-color: lightgray;
 }
 
 form {
   padding: 15px;
+}
+
+.next{
+  display: block;
+  padding-top: 0;
+}
+
+.child3 {
+  display: inline-block;
+}
+
+.next article {
+  display: inline-block;
+}
+
+.tomorrow {
+  display: inline-block;
 }

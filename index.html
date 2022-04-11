@@ -9,44 +9,41 @@
     <script defer src="js/script.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Weather App</h1>
-        <form id="weather">
-            <label>
-                Pick a location
-                <input id="search-weather" name="search" type="text" />
-                <input type="submit" value="Get Weather" />
-            </label>
-        </form>
-    </header>
-    <aside>
-
-    </aside>
-    <main>
-        <p>Choose a location to view the weather.</p>
-        <article>
-            <aside>
-                <article>
+    <div class="container">
+        <header class="child1">
+            <h1>Weather App</h1>
+            <form id="weather">
+                <label>
+                    Pick a Location
+                    <input id="search-weather" name="search" type="text" />
+                    <input type="submit" value="Get Weather" />
+                </label>
+            </form>
+        </header>
+        <aside></aside>
+        <main class="child2">
+            <p>Choose a location to view the weather.</p>
+            <article></article>
             
-                </article>
-                <article>
-            
-                </article>
-                <article>
-            
-                </article>
-            </aside>
-        </article>
-    </main>
-    <aside>
+        </main>
+        <aside class="next">
+            <article id="today">
         
-        <section>
-
-        </section>
-        <ul>
-
-        </ul>
-        <p></p>
-    </aside>
+            </article>
+            <article id="tomorrow">
+        
+            </article>
+            <article id="after">
+        
+            </article>
+        </aside>
+        <aside class="child3"> 
+            <section>
+                <h4>Previous Searches</h4>
+            </section>
+            <ul></ul>
+            
+        </aside>
+    </div>
 </body>
 </html>
