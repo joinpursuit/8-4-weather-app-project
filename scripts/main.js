@@ -67,7 +67,7 @@ const populate = (res, input) => {
                     input.toLowerCase().includes(areaName.toLowerCase()) ? 
                     `<strong>Area: </strong>${areaName}` :
                     `<strong>Nearest Area: </strong>${areaName}`;
-
+    
     const region = document.createElement("p");
     region.setAttribute("id", "regionP");
     region.setAttribute("class", "mainWeatherP");
@@ -121,6 +121,11 @@ const populate = (res, input) => {
     mainWeather.append(icon, location, area, region, country, currently, sunshine, rain, snow)
     
     //populate 3 day forecast
+
+    //first establish styles of the the 3 day articles
+    
+
+
     const average1 = document.createElement("p");
     const max1 = document.createElement("p");
     const min1 = document.createElement("p");
@@ -174,7 +179,6 @@ const searchHistory = (input, feelsLike) => {
 
 const convertTemp = (e) => {
     e.preventDefault();
-    console.log (e);
     const tempToConvert = e.target.temp.value;
     if (!tempToConvert) return;
     const resultBox = document.getElementById("tempResult")
