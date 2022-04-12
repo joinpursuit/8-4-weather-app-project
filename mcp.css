@@ -4,10 +4,29 @@
 }
 #search {
     display:flex;
+    background-color: #407e7f;
+    padding-left: 50%;
+    padding-right: 50%;
+}
+#search h1 {
+    color:white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#currentWeather{
+    display:flexbox;
+}
+#day1{
+    display:flexbox;
+}
+#day2{
+    display:flexbox;
+}
+#day3{
+    display:flexbox;
 }
 #conversion {
-    display:flex;
+    display:flexbox;
 }
-#weather{
-    display:flex;  
+#prevSearches{
+    display:flexbox
 }
