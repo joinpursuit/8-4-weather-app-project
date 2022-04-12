@@ -7,27 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Project</title>
     <script defer src="./index.js"></script>
+    <link rel="stylesheet" href="./mcp.css">
 </head>
 
 <body>
+    <header id="search">
+        <h1>Weather App</h1>
+        <p>Search bar to come!</p>
+    </header>
+
+    <aside id="conversion">This will be the temperature conversion widget</aside>
+
     <div id="primaryContainer">
-        <header>
-            <h1>Weather App</h1>
-            <p>Search bar to come!</p>
-        </header>
-        <aside>This will be the temperature conversion widget</aside>
-        <main>
-            <article>This is where the current weather will be
-                <aside>Future weather #1</aside>
-                <aside>Future weather #2</aside>
-                <aside>Future weather #3</aside>
+        <main id="weather">
+            <article id="currentWeather">This is where the current weather will be
+                <aside id="day1">Future weather #1</aside>
+                <aside id="day2">Future weather #2</aside>
+                <aside id="day3">Future weather #3</aside>
             </article>
         </main>
+
         <aside>
-            <section>
+            <section id="prevSearches">
                 <h4>Previous searches (to come!)</h4>
             </section>
         </aside>
+
     </div>
 </body>
 

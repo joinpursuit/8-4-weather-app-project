@@ -1,0 +1,13 @@
+#primaryContainer {
+    display:grid;
+    row-gap: 50px;
+}
+#search {
+    display:flex;
+}
+#conversion {
+    display:flex;
+}
+#weather{
+    display:flex;  
+}
