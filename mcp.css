@@ -1,32 +1,62 @@
 #primaryContainer {
-    display:grid;
-    row-gap: 50px;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  /* grid-template-rows : 60% 40%; */
 }
-#search {
-    display:flexbox;
-    background-color: #407e7f;
-    padding-left: 40%;
-    padding-right: 40%;
-}
-#search h1 {
-    color:white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-#currentWeather{
-    display:flexbox;
-}
-#day1{
-    display:flexbox;
-}
-#day2{
-    display:flexbox;
-}
-#day3{
-    display:flexbox;
+#currentWeather {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  border: 1px solid black;
+  background: lightgray;
+  margin: 5px;
+  border-radius: 5px;
 }
 #conversion {
-    display:flexbox;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  border: 1px solid black;
+  background: lightgray;
+  margin: 5px;
+  border-radius: 5px;
 }
-#prevSearches{
-    display:flexbox
+#prevSearches {
+  display: flexbox;
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+  border: 1px solid black;
+  background: lightgray;
+  margin: 5px;
+  border-radius: 5px;
+}
+#threeDayForcast {
+  grid-column: 1 / 4;
+  grid-row: 2 / 3;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-around; /* Spreads available space to all elements */
+}
+.threeDay {
+  border: 1px solid black;
+  background: lightgray;
+  margin: 5px;
+  border-radius: 5px;
+}
+#search {
+  display: flex;
+  background-color: #407e7f;
+  flex-direction: column; /* This along with row determines how things are "stacked" Column for one on top of the other, row for all on one line */
+  text-align: center;
+  border-radius: 5px;
+}
+#search h1 {
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+#search form {
+  margin-bottom: 30px; /* Adds a little bit of empty space beneath the search */
+}
+#search form label {
+    color:white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
 }

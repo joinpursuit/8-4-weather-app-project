@@ -13,22 +13,24 @@
 <body>
     <header id="search">
         <h1>Weather App</h1>
-        <label for="location">Pick a location</label>
-        <input id="location" name="location" type="text" />
-        <button type="submit">Get the weather</button>
+        <form>
+            <label for="location">Pick a location</label>
+            <input id="location" name="location" type="text" />
+            <input type="submit" value="Get the weather"></button>
+        </form>
     </header>
     <main id="primaryContainer">
         <article id="currentWeather">This is where the current weather will be</article>
-        <aside id="threeDayForcast">
-             id="day1">Future weather #1<>
-             id="day2">Future weather #2<>
-             id="day3">Future weather #3<>
-        </aside>
         <aside id="conversion">This will be the temperature conversion widget</aside>
-        <aside>
-            <section id="prevSearches">
+        <aside id="prevSearches">
+            <section>
                 <h4>Previous searches (to come!)</h4>
             </section>
+        </aside>
+        <aside id="threeDayForcast">
+            <article id="day1" class="threeDay">Future weather #1</article>
+            <article id="day2" class="threeDay">Future weather #2</article>
+            <article id="day3" class="threeDay">Future weather #3</article>
         </aside>
     </main>
 </body>
