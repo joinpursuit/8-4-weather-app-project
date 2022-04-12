@@ -122,8 +122,15 @@ const populate = (res, input) => {
     
     //populate 3 day forecast
 
-    //first establish styles of the the 3 day articles
-    
+    //first establish background and border 3 day articles
+    //so they're not visible until they need to be
+
+    const forecastArticles = document.getElementsByClassName("three");
+    console.log (forecastArticles);
+    for (let article of forecastArticles) {
+        article.style.border = "2px solid #407e7f";
+        article.style.backgroundColor = "lightgray";
+    }
 
 
     const average1 = document.createElement("p");
@@ -173,7 +180,6 @@ const searchHistory = (input, feelsLike) => {
         newAnchor.setAttribute("href", `javascript:fetcher('${input}');`);
         newLi.append(newAnchor);
         history.append(newLi);
-
     } 
 }
 

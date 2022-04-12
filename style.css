@@ -13,12 +13,9 @@ header {
     margin-bottom: 20px;
 }
 
-#mainContainer {
+main {
     display: grid;
-    /* min-height: 400px; */
     grid-template-columns: 25% 50% 25%;
-    /* grid-template-rows: 70% 30%; */
-    border: 1px solid yellow;
     margin-top: 15px;
 }
 
@@ -31,6 +28,14 @@ header {
 #previousSearches {
     grid-column: 3 / 4;
     grid-row: 1 / 2;
+}
+
+#previousSearches section ul li a {
+    text-decoration: none;
+}
+
+#previousSearches section ul li a:hover {
+    color: green;
 }
 
 #threeDay {
@@ -100,21 +105,49 @@ header {
     justify-content: space-between;
 }
 
+#tempLabel {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#temp-to-convert {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+#tempRadios {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#tempButton {
+    margin-top: 10px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+#tempResult {
+    text-align: center;
+    margin-top: 10px;
+}
+
 #threeDay {
     display: flex;
     justify-content: space-around;
 }
 
 .three {
-    background-color: lightgray;
-    border: 2px solid #407e7f;
     border-radius: 5px;
     width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 10px;
-    border: 2px solid #407e7f;
     border-radius: 5px;
     margin: 8px;
 }
@@ -133,11 +166,9 @@ header {
 
 #searchHistory {
     /* list-style: none; */
-    border: 1px solid yellow;
 }
 
 #searchHistory li {
-    border: 1px solid black;
     margin-left: 0px;
     text-align: left;
 }
