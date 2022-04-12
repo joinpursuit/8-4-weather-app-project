@@ -3,10 +3,10 @@
     row-gap: 50px;
 }
 #search {
-    display:flex;
+    display:flexbox;
     background-color: #407e7f;
-    padding-left: 50%;
-    padding-right: 50%;
+    padding-left: 40%;
+    padding-right: 40%;
 }
 #search h1 {
     color:white;
