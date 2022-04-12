@@ -1,0 +1,16 @@
+header {
+    padding: 10px;  
+    text-align: center;
+    border: solid black 2px;
+    background-color: teal;
+    color: white;
+    font-family: Arial;
+}
+
+body{
+    display: grid;
+}
+
+main {
+    grid-template-columns: repeat(4, 1fr);
+}
