@@ -31,12 +31,12 @@ const pagePopulation = ((weather, location) => {
 
     currentWeather.innerHTML = `
         <h2>${location}</h2>
-        <p>Nearest Area ${nearestArea}</p>
-        <p>Region ${region}</p>
-        <p>Country : ${country}</p>
-        <p>Currently : Feels like ${currentTemp}</p>
-        <p>Chance of Sunshine : </p>
-        <p>Chance of Rain : ${rainChance}</p>
-        <p>Chance of Snow : ${snowChance}</p>
+        <p><label>Nearest Area</label> ${nearestArea}</p>
+        <p><label>Region</label> ${region}</p>
+        <p><label>Country :</label> ${country}</p>
+        <p><label>Currently : </label>Feels like ${currentTemp}</p>
+        <p><label>Chance of Sunshine :</label> </p>
+        <p><label>Chance of Rain :</label> ${rainChance}</p>
+        <p><label>Chance of Snow :</label> ${snowChance}</p>
     `;
 });
