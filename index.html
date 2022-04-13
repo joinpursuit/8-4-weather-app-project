@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="index.js"></script>
+    <title>Weather App</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Weather App</h1>
+            <form>
+                <label>Pick a Location
+                    <input id="pick_location" type='text' required />
+                </label>
+                <input type="submit" value="Get Weather"></input>
+            </form>
+        </header>
+        </br>
+        <main class="view_weather">
+            <p>Choose a location to view the weather</p>
+        </main>
+        <main class="forecast">
+            <div class="threeDay">
+                <div id="today"></div>
+                <div id="tmrrw"></div>
+                <div id="afterTmrw"></div>
+            </div>
+        </main>
+
+        <aside class="previous_searches">
+            <section>
+                <h3>Previous Searches</h3>
+                <p>No previous searches</p>
+
+                <ul>
+
+                </ul>
+
+            </section>
+        </aside>
+
+        <aside>
+            <form class="convertTemp">
+                <p>Convert the temperature:</p>
+                <input type="number" id="temp-to-convert">
+                <label>To Celcius
+                    <input type="radio" id="to-c" name="convert-temp" value="c" required>
+                </label>
+                </br>
+                <label>To Fahrenheit
+                    <input type="radio" id="to-f" name="convert-temp" value="f">
+                </label>
+                <input type="submit">
+                <h4>
+                    0.00
+                </h4>
+            </form>
+        </aside>
+
+    </div>
+
+</body>
+
+</html>
