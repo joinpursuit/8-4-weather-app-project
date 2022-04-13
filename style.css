@@ -7,10 +7,32 @@ header {
     font-family: Arial;
 }
 
-body{
+body {
     display: grid;
 }
 
 main {
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    height: auto;
+    align-items: stretch;
+}
+
+#current {
+    border: solid teal 1px;
+    text-align: center;
+    background-color: rgb(220, 223, 225);
+    padding: 5px;
+    width: 75%;
+    height: auto;
+}
+#today {
+    text-align: center;
+}
+
+#sidebar {
+    width: 25%;
+    height: auto;
 }
