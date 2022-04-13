@@ -39,8 +39,8 @@ function getWeatherData (input) {
     .then((json) => {   
     data = json;
     // console.log(data);
-    findWeatherInfo(data);
-    previousHistory(data);
+    findWeatherInfo(data,input);
+    previousHistory(data,input);
     //run function that actually use the data to find stuff and fill it to the HTML 
     })
     .catch((err) => {
@@ -57,10 +57,12 @@ function getWeatherData (input) {
 
 
 //Melbourne
-function findWeatherInfo(data) {//loop the data to look for things we need. / making changes to HTML. 
+function findWeatherInfo(data,input) {//loop the data to look for things we need. / making changes to HTML. 
 
 currentWeather.innerHTML = "";//remove all of the text so it starts over clean. 
 
+
+if (input === data.nearest_area[0].areaName[0].value){//if name is the same = use area. 
 
 //uodate info for #currentWeather
 const h2 = document.createElement("h2");
@@ -69,9 +71,26 @@ currentWeather.append(h2);
 
 //<strong> Area: </strong> ...data. 
 const area = document.createElement("p");
-area.innerHTML = `<strong> Area: </strong> ${data.nearest_area[0].areaName[0].value}`;
+area.innerHTML = `<strong> Area: </strong> ${data.nearest_area[0].areaName[0].value}`;//area but sometimes needs to change?
 //area.textContent = `Area: ${data.nearest_area[0].areaName[0].value}`;
 currentWeather.append(area);
+
+} else {
+
+//uodate info for #currentWeather
+const h2 = document.createElement("h2");
+h2.textContent = input;
+currentWeather.append(h2);
+
+//<strong> Area: </strong> ...data. 
+const area = document.createElement("p");
+area.innerHTML = `<strong> Nearest Area: </strong> ${data.nearest_area[0].areaName[0].value}`;//area but sometimes needs to change?
+//area.textContent = `Area: ${data.nearest_area[0].areaName[0].value}`;
+currentWeather.append(area);
+
+
+}
+
 
 const region = document.createElement("p");
 region.innerHTML = `<strong> Region: </strong> ${data.nearest_area[0].region[0].value}`;
@@ -84,6 +103,29 @@ currentWeather.append(country);
 const currently = document.createElement("p");
 currently.innerHTML = `<strong> Currently: </strong> Feels Like ${data.current_condition[0].FeelsLikeF}°F`;
 currentWeather.append(currently);
+
+
+
+//addition - chance of sunshine/ chance of rain/ chance of snow. 
+
+//chanceOfSunshine
+const sunshine = document.createElement("p");
+sunshine.innerHTML = `<strong> Chance of Sunshine: </strong> ${data.weather[0].hourly[0].chanceofsunshine}`;
+currentWeather.append(sunshine);
+
+//chanceOfRain
+const rain = document.createElement("p");
+rain.innerHTML = `<strong> Chance of Rain: </strong> ${data.weather[0].hourly[0].chanceofrain}`;
+currentWeather.append(rain);
+
+//chanceOfSnow
+const snow = document.createElement("p");
+snow.innerHTML = `<strong> Chance of Snow: </strong> ${data.weather[0].hourly[0].chanceofsnow}`;
+currentWeather.append(snow);
+
+
+
+
 
 //update info for futureWeather
 const futureWeather = document.querySelectorAll(".futureWeather");//get nodelist of all the article for futureWeather
@@ -112,11 +154,6 @@ futureWeather1.append(maxTemp);
 const minTemp = document.createElement("p");
 minTemp.innerHTML = `<strong> Min Temperature: </strong> ${data.weather[0].mintempF}°F`;
 futureWeather1.append(minTemp);
-
-// const date = document.createElement("p");
-// date.innerHTML = `<strong> Min Temperature: </strong> ${data.weather[0].date}`;
-// futureWeather1.append(date);
-
 
 
 //futureWeather1.innerHTML = `<strong> Country: </strong> ${data.nearest_area[0].country[0].value}`;
@@ -175,7 +212,7 @@ futureWeather3.append(dayAfterTomorrowMinTemp);
 //eventlisterner if clicked- runn the functions again. 
 
 //a link to the api ?? why 
-function previousHistory (data){//MAYBE DONT NEED THIS FUNCTION? JUST CODE IT IN ONE?
+function previousHistory (data,input){//MAYBE DONT NEED THIS FUNCTION? JUST CODE IT IN ONE?
 
 //<li><a onclick="setSelectedTestPlan(this);" href="javascript:void(0);">New Test</a></li>
  const span = document.createElement("span");
@@ -194,7 +231,7 @@ li.textContent = ` - ${data.current_condition[0].FeelsLikeF}°F`;
 
 a.addEventListener("click", (event) => {//how to target the li. - im not sure. // rn just a is clickable.
     //when its click - update page to the info. remove the ul from the list. 
-    findWeatherInfo(data);
+    findWeatherInfo(data,input);
 })
 
 }
