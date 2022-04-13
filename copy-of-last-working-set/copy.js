@@ -27,27 +27,28 @@ form.addEventListener("submit", (event) => {
     form.reset();
 });
 
-// ------------------------- FOR MAIN WEATHER CONTENT ------------------------- //
+// function 
+
 function locationWeather(cityAPIData) {
-    deleteContent('article') //> deletes section content & needs a string
+    deleteContent('main') //> deletes section content & needs a string
     const objCity = cityAPIData['nearest_area'][0];
     const cityName = objCity['areaName'][0]['value'];
-    const article = document.querySelector('article');
+    const main = document.querySelector('main');
     const weather = cityAPIData['weather'][0]['hourly'][0]
     // ----------------- Creates Header using function ----------------- //
-    createHeader('article', cityName);
+    createHeader('main', cityName);
     // ----------------- Creates PTags using function ----------------- //
     
-    createPTags("article", "Area", cityName);
-    createPTags("article", "Region", objCity['region'][0]['value']);
-    createPTags("article", "Country", objCity['country'][0]['value']);
+    createPTags("main", "Area", cityName);
+    createPTags("main", "Region", objCity['region'][0]['value']);
+    createPTags("main", "Country", objCity['country'][0]['value']);
     // Sentence is different so I did not use the createPTags function !
     const temp = cityAPIData['current_condition'][0]['FeelsLikeF']
-    article.innerHTML += `<p><span class='bolded'>Currently:</span> Feels like ${temp}°F </p>`
+    main.innerHTML += `<p><span class='bolded'>Currently:</span> Feels like ${temp}°F </p>`
     // ------------------- Additional Data Needed ------------------- //
-    createPTags("article", "Chance of Sunshine", weather['chanceofsunshine']);
-    createPTags("article", "Chance of Rain", weather['chanceofrain']);
-    createPTags("article", "Chance of Snow", weather['chanceofsnow']);
+    createPTags("main", "Chance of Sunshine", weather['chanceofsunshine']);
+    createPTags("main", "Chance of Rain", weather['chanceofrain']);
+    createPTags("main", "Chance of Snow", weather['chanceofsnow']);
     // ---------------- Previous Search Saving data ----------------- //
     previousSearches[objCity['areaName'][0]['value']] = temp;
 
@@ -55,7 +56,6 @@ function locationWeather(cityAPIData) {
     getImage(weather);
 }
 
-// ------------------ CREATES HEADER & P TAGS ------------------ //
 function createHeader(location, name) {
     const search = document.querySelector(location);
     search.innerHTML += `<h2></span>${name}</p>`
@@ -78,7 +78,7 @@ function deleteContent(location) {
     }
 }
 
-// ------- GATHER TODAY'S / TOMORROW'S / AFTER TMRRW'S TEMP ------- //
+
 function forecast(cityAPIData) {
     let array = ['#today', '#tmrrw', '#afterTmrw']
     array.forEach(x => deleteContent(x))
@@ -144,11 +144,15 @@ function previousSearch(previousSearches) {
         aTags.forEach(x => x.remove());
         liTags.forEach(x => x.remove());
         for (const [key, value] of Object.entries(previousSearches)) {
-            aside.innerHTML += `<li><a href='#' onclick="getWeather('${key}')">${key}</a> - ${value}°F</li>`
+            aside.innerHTML += `<li><a href='#' onclick="clickedOnSearch('${key}')">${key}</a> - ${value}°F</li>`
         }
     }
 }
 
+function clickedOnSearch(city){
+    console.log("im here");
+    getWeather(city); 
+}
 // ------------------------------------------------------------------ //
 
 // ------------------ WORKING TEMPERATURE CONVERTER ------------------ //
@@ -164,6 +168,7 @@ temp.addEventListener("submit", (event) => {
 
 });
 
+
 function convertTemp(temp, selectedbtn) {
     const h4 = document.querySelector('.convertTemp h4')
     let answer;
@@ -175,4 +180,3 @@ function convertTemp(temp, selectedbtn) {
         h4.innerHTML = answer;
     }
 }
-// ------------------------------------------------------------------ //
