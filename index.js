@@ -1,23 +1,23 @@
 const API_URL = "https://wttr.in/";
 const wttrJSON = "?format=j1";
-const currentWeather  = document.getElementById("currentWeather");
+const currentWeather = document.getElementById("currentWeather");
 
 const searchForm = document.getElementById("form");
 searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
     apiCall(searchForm.location.value);
-    searchForm.location.value="";
+    searchForm.location.value = "";
 });
 
 const apiCall = ((location) => {
     let search = API_URL + location + wttrJSON;
     let results;
     fetch(search)
-    .then((weather) => weather.json())
-    .then((weather) => {
-        pagePopulation(weather, location);
-    })
-    .catch((error) => console.log("ERROR HERE: ", error));
+        .then((weather) => weather.json())
+        .then((weather) => {
+            pagePopulation(weather, location);
+        })
+        .catch((error) => console.log("ERROR HERE: ", error));
 });
 
 const pagePopulation = ((weather, location) => {
@@ -27,4 +27,16 @@ const pagePopulation = ((weather, location) => {
     let country = weather.nearest_area[0].country[0].value;
     let currentTemp = weather.current_condition[0].FeelsLikeF;
     let rainChance = weather.weather[0].hourly[0].chanceofrain;
+    let snowChance = weather.weather[0].hourly[0].chanceofsnow;
+
+    currentWeather.innerHTML = `
+        <h2>${location}</h2>
+        <p>Nearest Area ${nearestArea}</p>
+        <p>Region ${region}</p>
+        <p>Country : ${country}</p>
+        <p>Currently : Feels like ${currentTemp}</p>
+        <p>Chance of Sunshine : </p>
+        <p>Chance of Rain : ${rainChance}</p>
+        <p>Chance of Snow : ${snowChance}</p>
+    `;
 });
