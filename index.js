@@ -32,23 +32,24 @@ const pagePopulation = ((weather, location) => {
     let snowChance = weather.weather[0].hourly[0].chanceofsnow;
     let praiseTheSun = weather.weather[0].hourly[0].chanceofsunshine;
 
-    let weatherImage = (praiseTheSun, snowChance, rainChance) => {
+    let weatherImage = (sun, snow, rain) => {
         let sunIcon = "./assets/icons8-summer.gif";
         let snowIcon = "./assets/icons8-light-snow.gif";
         let rainIcon = "./assets/icons8-torrential-rain.gif";
         let alt = "";
 
-        if (praiseTheSun > 50) {
+        if (sun > 50) {
             alt = "sun";
             return [sunIcon, alt];
-        } else if (snowChance > 50) {
+        } else if (snow > 50) {
             alt = "snow";
             return [snowIcon, alt];
-        } else if (rainChance > 50) {
+        } else if (rain > 50) {
             alt = "rain";
             return [rainIcon, alt];
         } else {
-
+            alt = "nothing";
+            return ["./assets/icons8-night.gif", ]
         }
     };
 
@@ -57,13 +58,13 @@ const pagePopulation = ((weather, location) => {
     currentWeather.innerHTML = `
         <img src="${weatherImage(praiseTheSun, snowChance, rainChance)[0]}" alt="${weatherImage(praiseTheSun, snowChance, rainChance)[1]}">
         <h2>${location}</h2>
-        <p><label>Nearest Area:</label> ${nearestArea}</p>
-        <p><label>Region:</label> ${region}</p>
-        <p><label>Country:</label> ${country}</p>
-        <p><label>Currently: </label>Feels like ${currentTemp}º</p>
-        <p><label>Chance of Sunshine:</label> ${praiseTheSun}% </p>
-        <p><label>Chance of Rain:</label> ${rainChance}%</p>
-        <p><label>Chance of Snow:</label> ${snowChance}%</p>
+        <p><label>Nearest Area:</label>&nbsp${nearestArea}</p>
+        <p><label>Region:</label>&nbsp${region}</p>
+        <p><label>Country:</label>&nbsp${country}</p>
+        <p><label>Currently:</label>&nbspFeels like&nbsp${currentTemp}º</p>
+        <p><label>Chance of Sunshine:</label>&nbsp${praiseTheSun}% </p>
+        <p><label>Chance of Rain:</label>&nbsp${rainChance}%</p>
+        <p><label>Chance of Snow:</label>&nbsp${snowChance}%</p>
     `;
 
     prevSearchPopulation(currentTemp, nearestArea, location);
@@ -77,11 +78,14 @@ const prevSearchPopulation = ((currentTemp, nearestArea, location) => {
         Display temperature to the right of prev. search
     */
     let prevSearchItem = document.createElement("li");
-    prevSearchItem.setAttribute("id", "lineItem");
+        prevSearchItem.setAttribute("id", "lineItem");
+
     let searchLocation = location;
-    if (searchLocation === "") {
+
+    if (!searchLocation) {
         searchLocation = nearestArea;
     }
+
     //console.log(searchLocation);
     prevSearchItem.textContent = `${searchLocation} - ${currentTemp}ºF`;
     prevSearchList.append(prevSearchItem);

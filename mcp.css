@@ -1,29 +1,44 @@
 #primaryContainer {
   display: grid;
   grid-template-columns: 25% 50% 25%;
+  background-color:#414240;
+  margin-top: 10px;
+  border-radius: 5px;
   /* grid-template-rows : 60% 40%; */
 }
 #currentWeather {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
-  background: lightgray;
+  background: rgba(211, 211, 211, 0.68);
   margin: 5px;
   border-radius: 5px;
+  box-shadow: -5px 5px silver;
+  line-height: 40%;
   text-align: center;
+  font-size: larger;
 }
+#currentWeather p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #conversion {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-  border: 1px solid black;
-  background: lightgray;
+  display:flex;
+  box-shadow: -5px 5px silver;
+  background: rgba(211, 211, 211, 0.68);
   margin: 5px;
   border-radius: 5px;
+  align-items:center;
+  text-align: center;
 }
 #prevSearches {
   grid-column: 3 / 4;
   grid-row: 1 / 2;
-  border: 1px solid black;
-  background: lightgray;
+  box-shadow: -5px 5px silver;
+  background: rgba(211, 211, 211, 0.68);
   margin: 5px;
   border-radius: 5px;
   font-size: large;
@@ -31,13 +46,12 @@
 #threeDayForcast {
   grid-column: 1 / 4;
   grid-row: 2 / 3;
-  border: 1px solid black;
   display: flex;
   justify-content: space-around; /* Spreads available space to all elements */
 }
 .threeDay {
   border: 1px solid black;
-  background: lightgray;
+  background: rgba(211, 211, 211, 0.68);
   margin: 5px;
   border-radius: 5px;
 }
@@ -75,5 +89,8 @@ label {
   text-align: center;
   font-style: italic;
 }
-
+body{
+  background-color:#151615;
+  color:rgb(237, 237, 237);
+}
 
