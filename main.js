@@ -61,6 +61,31 @@ function findWeatherInfo(data,input) {//loop the data to look for things we need
 
 currentWeather.innerHTML = "";//remove all of the text so it starts over clean. 
 
+const img = document.createElement("img");//makes img tag. 
+
+// img.src = "assets/icons8-summer.gif";
+//     currentWeather.append(img);
+//console.log(data.weather[0].hourly[0].chanceofsunshine);
+
+if (data.weather[0].hourly[0].chanceofsunshine >= 50) {
+    //change the icon display and append. 
+    img.src = "./assets/icons8-summer.gif";
+    img.alt = "sun";
+    currentWeather.append(img);
+    //img.innerHTML = ;
+} else if (data.weather[0].hourly[0].chanceofrain >= 50) {
+    //change icon to rain and append.
+    img.src = "./assets/icons8-torrential-rain.gif";
+    img.alt = "rain";
+    currentWeather.append(img);
+} else if (data.weather[0].hourly[0].chanceofsnow >= 50) {
+    //change icon to snow and append. 
+    img.src = "./assets/icons8-light-snow.gif";
+    img.alt = "snow"
+    currentWeather.append(img);
+}
+
+
 
 if (input === data.nearest_area[0].areaName[0].value){//if name is the same = use area. 
 
