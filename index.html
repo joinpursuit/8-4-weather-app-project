@@ -1,55 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App Project</title>
-     <link rel="stylesheet" href="./main.css" />
-     <script defer src="./main.js"></script>
-</head>
-<body>
-    <header>
-       <h1>Weather App</h1>
-        <form>
-            <label> 
-                Pick a Location. 
-                <input id="city" name="" type="text" />
-                <input type="submit" value="Get Weather" />
-            </label>
+    <link rel="stylesheet" href="./main.css" />
+    <script defer src="./main.js"></script>
+  </head>
+  <body>
+    <div class="'grid-container">
+      <header>
+        <h1>Weather App</h1>
+        <form id="weather">
+          <label>
+            Pick a Location.
+            <input id="city" name="search" type="text" />
+            <input type="submit" value="Get Weather" />
+          </label>
         </form>
-    </header>
-    <aside>
-
-    </aside>
-    <main>
+      </header>
+      <aside></aside>
+      <main>
         <h2></h2>
-      <article>
-
-      </article>
-      <aside>
-          <article>
-
-          </article>
-          <article>
-
-          </article>
-          <article>
-
-          </article>
+        <article></article>
+      </main>
+      <aside class="'next">
+        <article id="'today"></article>
+        <article id="'tomorrow"></article>
+        <article id="'after"></article>
       </aside>
-      
-    </main>
-    <aside>
-        <section>
 
-        </section>
+      <aside>
+        <!-- will contain weather history -->
+        <section></section>
+
         <h4>Previous Searches</h4>
-        
-    </aside>
-   <aside>
-    <ul></ul>
-
-   </aside>
-</body>
+      </aside>
+      <aside>
+        <p>No previous searches.</p>
+        <ul></ul>
+      </aside>
+    </div>
+  </body>
 </html>
