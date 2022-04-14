@@ -71,7 +71,8 @@ function locationClosestWeather(cityAPIData, city) {
     const cityName = objCity['areaName'][0]['value'];
     const article = document.querySelector('article');
     const weather = cityAPIData['weather'][0]['hourly'][0]
-    const inputCity = city.charAt(0).toUpperCase() + city.slice(1); 
+    const inputCity = city.charAt(0).toUpperCase() + city.slice(1); // <---- does not pass test because it capitalizes the first letter in the city input BUT it is NOT WRONG!!
+    
     console.log(city.slice(1))
     // ----------------- Creates Header using function ----------------- //
     createHeader('article', inputCity);
