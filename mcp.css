@@ -20,13 +20,13 @@
   border-radius: 5px;
 }
 #prevSearches {
-  display: flexbox;
   grid-column: 3 / 4;
   grid-row: 1 / 2;
   border: 1px solid black;
   background: lightgray;
   margin: 5px;
   border-radius: 5px;
+  font-size: large;
 }
 #threeDayForcast {
   grid-column: 1 / 4;
@@ -62,6 +62,18 @@
 }
 label {
   font-weight: bold;
+}
+#lineItem{
+  text-justify: auto;
+}
+#prevSearchTitle{
+  text-align: center;
+  text-decoration: underline;
+  font-weight: bolder;
+}
+#noSearches{
+  text-align: center;
+  font-style: italic;
 }
 
 
