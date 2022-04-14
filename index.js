@@ -7,8 +7,18 @@ function getWeather(city) {
         .then((res) => res.json())
         .then((data) => {
             cityAPIData = data;
+            console.log(city);
+
+            const actualCityCapitalized = (cityAPIData['nearest_area'][0]['areaName'][0]['value']).toUpperCase();
+            if (city.toUpperCase() === actualCityCapitalized) {
+                console.log('match')
+                locationWeather(cityAPIData);
+            } else {
+                console.log('nearest')
+                locationClosestWeather(cityAPIData, city);
+            }
             // console.log(cityAPIData['nearest_area'][0]['areaName'])
-            locationWeather(cityAPIData);
+
             previousSearch(previousSearches);
 
         })
@@ -37,7 +47,7 @@ function locationWeather(cityAPIData) {
     // ----------------- Creates Header using function ----------------- //
     createHeader('article', cityName);
     // ----------------- Creates PTags using function ----------------- //
-    
+
     createPTags("article", "Area", cityName);
     createPTags("article", "Region", objCity['region'][0]['value']);
     createPTags("article", "Country", objCity['country'][0]['value']);
@@ -54,6 +64,36 @@ function locationWeather(cityAPIData) {
     forecast(cityAPIData);
     getImage(weather);
 }
+
+function locationClosestWeather(cityAPIData, city) {
+    deleteContent('article') //> deletes section content & needs a string
+    const objCity = cityAPIData['nearest_area'][0];
+    const cityName = objCity['areaName'][0]['value'];
+    const article = document.querySelector('article');
+    const weather = cityAPIData['weather'][0]['hourly'][0]
+    const inputCity = city.charAt(0).toUpperCase() + city.slice(1); 
+    console.log(city.slice(1))
+    // ----------------- Creates Header using function ----------------- //
+    createHeader('article', inputCity);
+    // ----------------- Creates PTags using function ----------------- //
+
+    createPTags("article", "Nearest Area", cityName);
+    createPTags("article", "Region", objCity['region'][0]['value']);
+    createPTags("article", "Country", objCity['country'][0]['value']);
+    // Sentence is different so I did not use the createPTags function !
+    const temp = cityAPIData['current_condition'][0]['FeelsLikeF']
+    article.innerHTML += `<p><span class='bolded'>Currently:</span> Feels like ${temp}°F </p>`
+    // ------------------- Additional Data Needed ------------------- //
+    createPTags("article", "Chance of Sunshine", weather['chanceofsunshine']);
+    createPTags("article", "Chance of Rain", weather['chanceofrain']);
+    createPTags("article", "Chance of Snow", weather['chanceofsnow']);
+    // ---------------- Previous Search Saving data ----------------- //
+    previousSearches[objCity['areaName'][0]['value']] = temp;
+
+    forecast(cityAPIData);
+    getImage(weather);
+}
+
 
 // ------------------ CREATES HEADER & P TAGS ------------------ //
 function createHeader(location, name) {
@@ -87,21 +127,21 @@ function forecast(cityAPIData) {
     const afterTmrw = cityAPIData['weather'][2];
     // ------------------ For TODAY's Forecast!!! ------------------ //
     createHeader('#today', 'Today');
-    createPTags('#today', 'Average Temperature', today['avgtempF']);
-    createPTags('#today', 'Max Temperature', today['maxtempF']);
-    createPTags('#today', 'Min Temperature', today['mintempF']);
+    createPTags('#today', 'Average Temperature (°F)', today['avgtempF']);
+    createPTags('#today', 'Max Temperature (°F)', today['maxtempF']);
+    createPTags('#today', 'Min Temperature (°F)', today['mintempF']);
 
     // ------------------ For TOMORROW's Forecast!!! ------------------ //
     createHeader('#tmrrw', 'Tomorrow');
-    createPTags('#tmrrw', 'Average Temperature', tomorrow['avgtempF']);
-    createPTags('#tmrrw', 'Max Temperature', tomorrow['maxtempF']);
-    createPTags('#tmrrw', 'Min Temperature', tomorrow['mintempF']);
+    createPTags('#tmrrw', 'Average Temperature (°F)', tomorrow['avgtempF']);
+    createPTags('#tmrrw', 'Max Temperature (°F)', tomorrow['maxtempF']);
+    createPTags('#tmrrw', 'Min Temperature (°F)', tomorrow['mintempF']);
 
     // --------------- For DAY AFTER TMRW's Forecast!!! --------------- //
     createHeader('#afterTmrw', 'Day After Tomorrow');
-    createPTags('#afterTmrw', 'Average Temperature', afterTmrw['avgtempF']);
-    createPTags('#afterTmrw', 'Max Temperature', afterTmrw['maxtempF']);
-    createPTags('#afterTmrw', 'Min Temperature', afterTmrw['mintempF']);
+    createPTags('#afterTmrw', 'Average Temperature (°F)', afterTmrw['avgtempF']);
+    createPTags('#afterTmrw', 'Max Temperature (°F)', afterTmrw['maxtempF']);
+    createPTags('#afterTmrw', 'Min Temperature (°F)', afterTmrw['mintempF']);
 }
 
 // ----------------------- For Weather Images ----------------------- //
@@ -118,7 +158,7 @@ function getImage(weather) {
     // CHANCE OF RAIN 
     if (weather['chanceofrain'] > 50) {
         imgTag.setAttribute('src', './assets/icons8-torrential-rain.gif');
-        imgTag.setAttribute('alt', 'rain');
+        imgTag.setAttribute('alt', "rain");
         imagePlacement.prepend(imgTag)
     }
     // CHANCE OF SNOW 
@@ -127,6 +167,25 @@ function getImage(weather) {
         imgTag.setAttribute('alt', 'snow');
         imagePlacement.prepend(imgTag)
     }
+    // CHANCE OF FOG 
+    if (weather['chanceoffog'] > 50) {
+        imgTag.setAttribute('src', './assets/icons8-fog.gif');
+        imgTag.setAttribute('alt', 'fog');
+        imagePlacement.prepend(imgTag)
+    }
+    // CHANCE OF THUNDER 
+    if (weather['chanceofthunder'] > 50) {
+        imgTag.setAttribute('src', './assets/icons8-storm.gif');
+        imgTag.setAttribute('alt', 'thunder');
+        imagePlacement.prepend(imgTag)
+    }
+    // CHANCE OF WIND 
+    if (weather['chanceofwindy'] > 50) {
+        imgTag.setAttribute('src', './assets/icons8-wind.gif');
+        imgTag.setAttribute('alt', 'windy');
+        imagePlacement.prepend(imgTag)
+    }
+
 }
 
 
@@ -136,7 +195,7 @@ function previousSearch(previousSearches) {
     const pTag = document.querySelector('#one p');
     const aTags = document.querySelectorAll('ul a');
     const liTags = document.querySelectorAll('ul li');
-    if (Object.keys(previousSearches).length > 1) {
+    if (Object.keys(previousSearches).length) {
         if (pTag !== null) {
             pTag.remove();
         }
