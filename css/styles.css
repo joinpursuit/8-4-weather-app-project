@@ -58,3 +58,7 @@ form {
 .tomorrow {
   display: inline-block;
 }
+
+.widget form {
+  display: inline-block;
+}
