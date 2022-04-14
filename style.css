@@ -1,0 +1,45 @@
+body{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+    padding: 25px;
+}
+
+.header{
+    background-color: cadetblue;
+    border: 3px solid black;
+    color: azure;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    grid-column: 2/7;
+    font-weight: bold;
+    text-align: center;
+    padding: 25px;
+}
+
+#location{
+    grid-column: 2/6;
+}
+
+.current-weather{
+    border: 2px solid cadetblue;
+    color: black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: lightgrey;
+    text-align: center;
+    padding: 25px;
+}
+
+.previous{
+    grid-column: 6/7;
+}
+
+.request{
+    font-size: large;
+}
+
+#three-day{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+}
