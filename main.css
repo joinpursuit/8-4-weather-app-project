@@ -39,6 +39,18 @@ main {
  
 }
 
+#today {
+    display: inline-block;
+}
+
+#tomorrow {
+    display: inline-block;
+}
+
+#after {
+    display: inline-block;
+}
+
 /* .grid-container {
     display: inline-block;
 } */

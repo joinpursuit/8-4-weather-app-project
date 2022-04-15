@@ -38,12 +38,56 @@ form.addEventListener('submit', (event)=>{
         // 
         mainArticle.innerHTML = `<strong>Area:</strong> ${area}<br><strong>Region:</strong> ${region}<br><strong>Country:</strong> ${country}<br><strong>Currently:</strong> Feels Like ${currentCondition}℉`;
 
+        form.reset();
+        const today = document.getElementById('today');
+        // console.log(today);
+        const tomorrow = document.getElementById('tomorrow');
+        // console.log(tomorrow);
+        const afterTomorrow = document.getElementById('after');
+        // console.log(after);
+    
+        const h31 = document.createElement('h3');
+        // console.log(h3);
+        today.append(h31);
+        console.log(today);
+        const h32 = document.createElement('h3');
+        tomorrow.append(h32)
+        const h33 = document.createElement('h3');
+        afterTomorrow.append(h33);
+    
+        const todayAveTemp = jsonWeatherData.weather[0].avgtempF;
+        console.log(todayAveTemp)
+        const todayMaxTemp = jsonWeatherData.weather[0].maxtempF;
+        console.log(todayMaxTemp )
+        const todayMinTemp = jsonWeatherData.weather[0].mintempF;
+        
+        const tomorrowAveTemp = jsonWeatherData.weather[1].avgtempF;
+        
+        const tomorrowMaxTemp = jsonWeatherData.weather[1].maxtempF;
+        const tomorrowMinTemp = jsonWeatherData.weather[1].mintempF;
+        const afToAveTemp = jsonWeatherData.weather[2].avgtempF;
+        
+        const afToMaxTemp = jsonWeatherData.weather[2].maxtempF;
+        const afToMinTemp = jsonWeatherData.weather[02].mintempF;
+        
+
+
+    
+        today.innerHTML = `<h3>Today</h3><br><strong>Average Temperature:</strong> ${todayAveTemp}<br><strong>MaxTemperature:</strong> ${todayMaxTemp}<br><strong>Min Temperature:</strong>${todayMinTemp}`;
+
+        tomorrow.innerHTML = `<h3>Tomorrow</h3><br><strong>AverageTemperature: </strong>${tomorrowAveTemp}<br><strong>MaxTemperature:</strong> ${tomorrowMaxTemp}<br><strong>Min Temperature:</strong> ${tomorrowMinTemp}`;
+
+        afterTomorrow.innerHTML = `<h3>Day After Tomorrow</h3><br><strong>AverageTemperature:</strong> ${afToAveTemp}<br><strong>MaxTemperature:</strong> ${afToMaxTemp}<br><strong>MinTemperature:</strong> ${afToMinTemp}`;
+
+
+
         p1.remove();
 
         
     })
     
-    form.reset();
+
+
 })
 
 
@@ -104,15 +148,6 @@ form.addEventListener('submit', (event)=>{
 
 
 
-// const h2 = document.querySelector('h2');
-// const form = document.querySelector('form');
-// const main = document.querySelector('main');
-// const ul = document.querySelector('ul');
-// const li = document.createElement('li');
-// const a = document.createElement('a');
-// li.append(a);
-
-// let response;
 
 
 
@@ -121,16 +156,3 @@ form.addEventListener('submit', (event)=>{
 
 
 
-// form.addEventListener('submit', (event) =>{
-//     event.preventDefault();
-//     console.log(event.target.city.value);
-//     const inputCity = document.querySelector('#city').value;
-    
-//     const BASE_URL = `https://wttr.in/${inputCity}?format=j1`;
-
-//     fetch(BASE_URL)
-//     .then((response) => response.json())
-//     .then((json) =>{
-//         console.log(json);
-//     })
-// })
