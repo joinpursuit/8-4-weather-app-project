@@ -13,13 +13,13 @@ body {
     height: 100vh;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-auto-columns: minmax(10px, auto);
+    grid-gap: 5px;
     font-family: Georgia, serif;
-    /* grid-template-rows: 1.25fr 1.5fr 1.5fr 1.5fr; */
     grid-template-areas: 
     "a a a a"
     "b c c d"
     "b c c d"
-    "b e e d";
+    "b ef ef d";
 }
 
 span {
@@ -29,51 +29,57 @@ span {
 header {
     text-align: center;
     padding: 2%;
-    border-style: double;
+    border:double black;
+    border-width: 5px;
     grid-area: a;
+    background: rgba(179, 227, 245, 0.323);
 }
 
-main {
+.view_weather { /* Main with search info */
     text-align: center;
-    border: dotted;
+    border: solid black;
     grid-area: c;
+    background: rgba(179, 227, 245, 0.323);
 
 }
+
+.forecast {
+    grid-area: ef;
+    display:grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: auto;
+    grid-auto-columns: auto;
+    grid-gap: 2px;
+    /* border: solid green; */
+}
+
 #one {
     padding-left: 10%;
-    border: dotted;
     grid-area: d;
 
 }
 
 #two {
-    padding-left: 10%;
-    border: dotted;
+    padding-left: 5%;
     grid-area: b;
+} 
+
+
+
+.forecast > div {
+    border:solid #2c3e50;
+    background:  rgba(179, 227, 245, 0.323);
+    padding: 5px;
 }
 
-.forecast {
-    grid-area: e;
-    display:grid;
-    text-align: center;
-    /* border: dotted green; */
-}
-
-.forecast #today {
-    /* border: dashed yellow; */
-    /* padding: 2%; */
-}
-
-.forecast #tmrrw {
-    /* display: */
-    /* padding: 2%; */
-    /* border: dashed grey; */
-}
-
-.forecast #afterTmrw {
-    /* padding: 2%; */
-    /* border: dashed; */
-}
+@media (min-width: 662px) and (max-width: 850px) {
+    .forecast  {
+      font-size: 80%;
+      width: auto;
+      height: max-content;
+    }
+  }
 
 @media only screen and (max-width: 661px){
     .container {
@@ -83,14 +89,20 @@ main {
         grid-template-areas: 
         "a"
         "c"
-        "e"
+        "ef"
         "d"
         "b";
     }
 
-    #one 
-    #two {
+    #one {
+        padding-left: 30%;
         text-align: justify;
+        border: solid black;
+    }
+    #two {
+        padding-left: 30%;
+        text-align: justify;
+        border: solid black;
     }
 
 }

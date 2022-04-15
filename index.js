@@ -8,7 +8,7 @@ function getWeather(city) {
         .then((data) => {
             cityAPIData = data;
             console.log(city);
-
+            
             const actualCityCapitalized = (cityAPIData['nearest_area'][0]['areaName'][0]['value']).toUpperCase();
             if (city.toUpperCase() === actualCityCapitalized) {
                 console.log('match')
@@ -17,8 +17,6 @@ function getWeather(city) {
                 console.log('nearest')
                 locationClosestWeather(cityAPIData, city);
             }
-            // console.log(cityAPIData['nearest_area'][0]['areaName'])
-
             previousSearch(previousSearches);
 
         })
@@ -89,7 +87,7 @@ function locationClosestWeather(cityAPIData, city) {
     createPTags("article", "Chance of Rain", weather['chanceofrain']);
     createPTags("article", "Chance of Snow", weather['chanceofsnow']);
     // ---------------- Previous Search Saving data ----------------- //
-    previousSearches[objCity['areaName'][0]['value']] = temp;
+    previousSearches[inputCity] = temp;
 
     forecast(cityAPIData);
     getImage(weather);
