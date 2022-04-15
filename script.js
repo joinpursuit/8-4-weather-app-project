@@ -1,38 +1,55 @@
 
 const form = document.querySelector('form');
+var cloc = document.getElementById("citylocation")
+var carea = document.getElementById("cityarea")
+var cregion = document.getElementById("cityregion")
+var ccountry= document.getElementById("citycountry")
+var ccurrent= document.getElementById("citycurrent")
+const ps=document.querySelector(".previous-search")
+const psl=document.querySelector(".previous-search-list")
 previousSearches = [];
 form.addEventListener('submit', (event) => {
     event.preventDefault();
 
+    // let input = 
     let location = event.target.location.value;
 
     let url = `https://wttr.in/${location}?format=j1`;
 
-    // console.log(url)
+    console.log(url)
 
     fetch(url)
     .then((res) => res.json())
     .then((data) => {
+        console.log("DATA:",data)
 
         // ASSIGN VARIABLES TO THE DATA RECEIVED FROM API VIA FETCH .THEN .. WHICH ARE ARRANGED AS AN ARRAY OF OBJECTS
 
         // create a variable for the city location which in API form is access through nearest_area array first element areaName array first element key value - MELBORNE
-        const cityLocation  = data.nearest_area[0].areaName[0].value
+        var cityLocation  = data.nearest_area[0].areaName[0].value
         // create a variable for the country name which in API form is access through nearest_area array first element country array first element key value - AUSTRALIA
-        const countryName = data.nearest_area[0].country[0].value
+        var countryName = data.nearest_area[0].country[0].value
         // create a variable for the region which in API form is access through nearest_area array first element region array first element key value - ONTARIO
-        const region = data.nearest_area[0].region[0].value
+        var region = data.nearest_area[0].region[0].value
         // create a variable for the current condition which in API form is access through current_consition array first element areaName array second element key value - FeelsLikeF 
-        const currentCondition = data.current_condition[1].FeelsLikeF
+        var currentCondition = data.current_condition[0].FeelsLikeF
 
         console.log(cityLocation)
-        console.log(countryName)
-        console.log(region)
-        console.log(currentCondition)
-        const h2 = document.createElement('h2')
-        h2.textContent = cityLocation
-        main =  document.querySelector('main')
-        main.append(h2)
+        // console.log(countryName)
+        // console.log(region)
+        // console.log(currentCondition)
+        // const h2 = document.createElement('h2')
+        // const h2Text = document.createTextNode(`${cityLocation}`)
+        // h2.appendChild(h2Text)
+        // main =  document.getElementsByClassName("main")[1]
+        // main.appendChild(h2)
+
+        
+        cloc.innerHTML=`${location}`
+        carea.innerHTML =`<b>Area</b> : ${cityLocation}`
+        cregion.innerHTML =`<b>Region</b> : ${region}`
+        ccountry.innerHTML =`<b>Country </b>: ${countryName}`
+        ccurrent.innerHTML=`<b>Currently : </b>Feels like ${currentCondition}F`
 
 
         // CREATE 3 DIVS WITH TODAY TOMORROW AND THE DAYAFTER TOMORROW TEMPERATURES
@@ -60,17 +77,35 @@ form.addEventListener('submit', (event) => {
         console.log(tomorrowAvgTemp)
         console.log(dayAfterAvgTemp)
 
-        // create a variable for the area location in API form is access through the nearest_area first element areaName key  - 
-        // const areaLocation = data.nearest_area[0].areaName
+        
         const p = document.createElement('p')
         previous_city = {"cityName":cityLocation,"currentCondition":currentCondition}
         previousSearches.push(previous_city)
         console.log(previousSearches)
 
+        if(previousSearches){
+            for(let i=0;i<previousSearches.length;i++){
+                li=document.createElement('li')
+                link=document.createElement("a")
+                linkText=document.createTextNode(previousSearches[i].cityName)
+                current = document.createTextNode(`${currentCondition}F`)
+                link.appendChild(linkText)
+                li.appendChild(link)
+                ps.innerHTML=li
+            }
+
+            
+            
+        }else{
+            ps.innerHTML="No previous searches"
+        }
+
+        
+
 
 
     })
-    .catch((err => (err)))
+    .catch((err => alert(err)))
 
 
 
