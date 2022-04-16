@@ -18,6 +18,7 @@
   border-top: solid 1px silver;
   border-right: solid 1px silver;
   background: #414240;
+  padding-top:10px;
 }
 #currentWeather p{
   display: flex;
@@ -50,7 +51,7 @@
   border-right: solid 1px silver;
 }
 #threeDayForcast {
-  grid-column: 1 / 4;
+  grid-column: 2 / 3; /*og 1/4*/
   grid-row: 2 / 3;
   display: flex;
   justify-content: space-around; /* Spreads available space to all elements */
@@ -63,6 +64,9 @@
   box-shadow: -5px 5px silver;
   border-top: solid 1px silver;
   border-right: solid 1px silver;
+  text-align:center;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 #search {
   display: flex;
@@ -105,4 +109,8 @@ body{
 #locationRaw{
   text-transform: capitalize;
 }
+.label{
+  font-weight: bold;
+}
+
 

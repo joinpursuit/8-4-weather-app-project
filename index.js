@@ -98,10 +98,10 @@ const prevSearchPopulation = ((currentTemp, nearestArea, location) => {
 });
 
 const threeDayPopulation = (weather) => {
-    console.log("fart", weather);
-    
+    console.log("test", weather);
+
     let bomb = document.querySelectorAll("aside article p");
-    for (let p of bomb){
+    for (let p of bomb) {
         p.remove();
     }
 
@@ -121,28 +121,76 @@ const threeDayPopulation = (weather) => {
     let dayAfterMax = weather.weather[2].maxtempF;
     let dayAfterMin = weather.weather[2].mintempF;
 
+    let labelAvg1 = document.createElement("label");
+    let labelAvg2 = document.createElement("label");
+    let labelAvg3 = document.createElement("label");
+    let labelAvg4 = document.createElement("label");
+    let labelAvg5 = document.createElement("label");
+    let labelAvg6 = document.createElement("label");
+    let labelAvg7 = document.createElement("label");
+    let labelAvg8 = document.createElement("label");
+    let labelAvg9 = document.createElement("label");
+
+    labelAvg1.setAttribute("class", "label");
+    labelAvg2.setAttribute("class", "label");
+    labelAvg3.setAttribute("class", "label");
+    labelAvg4.setAttribute("class", "label");
+    labelAvg5.setAttribute("class", "label");
+    labelAvg6.setAttribute("class", "label");
+    labelAvg7.setAttribute("class", "label");
+    labelAvg8.setAttribute("class", "label");
+    labelAvg9.setAttribute("class", "label");
+
     let todayAvgElement = document.createElement("p");
-    todayAvgElement.textContent = `Average Temperature : ${todayAvg}`;
+    labelAvg1.textContent = "Average Temperature : ";
+    todayAvgElement.textContent = `${todayAvg}º`;
+
     let todayMaxElement = document.createElement("p");
-    todayMaxElement.textContent = `Maximum Temperature : ${todayMax}`;
+    labelAvg2.textContent = `Maximum Temperature : `;
+    todayMaxElement.textContent = `${todayMax}º`;
+
     let todayMinElement = document.createElement("p");
-    todayMinElement.textContent = `Minimum Temperature : ${todayMin}`;
+    labelAvg3.textContent = `Minimum Temperature : `;
+    todayMinElement.textContent = `${todayMin}º`;
 
     day1.append(todayAvgElement);
+    todayAvgElement.prepend(labelAvg1);
     day1.append(todayMaxElement);
+    todayMaxElement.prepend(labelAvg2);
     day1.append(todayMinElement);
+    todayMinElement.prepend(labelAvg3);
 
     let tomorAvgElement = document.createElement("p");
-    tomorAvgElement.textContent = `Average Temperature : ${tomorAvg}`;
+    labelAvg4.textContent=`Average Temperature : `;
+    tomorAvgElement.textContent = `${tomorAvg}`;
     let tomorMaxElement = document.createElement("p");
-    tomorMaxElement.textContent = `Maximum Temperature : ${tomorMax}`;
+    labelAvg5.textContent = `Maximum Temperature : `;
+    tomorMaxElement.textContent = `${tomorMax}`;
     let tomorMinElement = document.createElement("p");
-    tomorMinElement.textContent = `Minimum Temperature : ${tomorMin}`;
+    labelAvg6.textContent = `Minimum Temperature : `;
+    tomorMinElement.textContent = `${tomorMin}`;
+
+    day2.append(tomorAvgElement);
+    tomorAvgElement.prepend(labelAvg4);
+    day2.append(tomorMaxElement);
+    tomorMaxElement.prepend(labelAvg5);
+    day2.append(tomorMinElement);
+    tomorMinElement.prepend(labelAvg6);
 
     let dayAfterAvgElement = document.createElement("p");
-    dayAfterAvgElement.textcontent = `Average Temperature : ${dayAfterAvg}`;
+    labelAvg7.textContent = `Average Temperature : `;
+    dayAfterAvgElement.textContent = `${dayAfterAvg}º`;
     let dayAfterMaxElement = document.createElement("p");
-    dayAfterMaxElement.textcontent = `Maximum Temperature : ${dayAfterMax}`;
+    labelAvg8.textContent = `Maximum Temperature : `;
+    dayAfterMaxElement.textContent = `${dayAfterMax}º`;
     let dayAfterMinElement = document.createElement("p");
-    dayAfterMinElement.textcontent = `Minimum Temperature : ${dayAfterMin}`;
+    labelAvg9.textContent = `Minimum Temperature : `;
+    dayAfterMinElement.textContent = `${dayAfterMin}º`;
+
+    day3.append(dayAfterAvgElement);
+    dayAfterAvgElement.prepend(labelAvg7);
+    day3.append(dayAfterMaxElement);
+    dayAfterMaxElement.prepend(labelAvg8);
+    day3.append(dayAfterMinElement);
+    dayAfterMinElement.prepend(labelAvg9);
 };
