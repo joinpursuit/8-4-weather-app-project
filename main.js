@@ -1,46 +1,78 @@
-
 const locationSearch = document.querySelector("#search");
 locationSearch.addEventListener("submit", (event) => {
   event.preventDefault();
   const searchInput = event.target.location.value.replace(/\s/g, "_");
-  
+
   let appropoSearchSyntax =
-  searchInput.charAt(0).toUpperCase() + searchInput.slice(1);
-  
-  getApiData(appropoSearchSyntax);
+    searchInput.charAt(0).toUpperCase() + searchInput.slice(1);
+
+  getApiData(appropoSearchSyntax, searchInput);
   event.target.location.value = "";
 });
 
-function getApiData(appropoSearchSyntax) {
-  fetch("https://wttr.in/" + appropoSearchSyntax + "?format=j1")
-  .then((response) => response.json())
-  .then((json) => {
-      const listArr = []; 
-      showTheWeather(json, listArr, appropoSearchSyntax);
+function getApiData(appropoSearchSyntax, searchInput) {
+  fetch("https://wttr.in/" + searchInput + "?format=j1")
+    .then((response) => response.json())
+    .then((json) => {
+      const listArr = [];
+      showTheWeather(json, listArr, appropoSearchSyntax, searchInput);
     });
 }
 
-function showTheWeather(json, listArr, appropoSearchSyntax) {
+function showTheWeather(json, listArr, appropoSearchSyntax, searchInput) {
   document.querySelector("#current-weather").textContent = "";
   document.querySelector(".wrap2 p").style.display = "none";
   document.querySelector("#sideBar p").style.display = "none";
-  
 
   let h2 = document.createElement("h2");
   let area = document.createElement("p");
   let region = document.createElement("p");
   let country = document.createElement("p");
   let currently = document.createElement("p");
+  let sunshine = document.createElement("p");
+  let rain = document.createElement("p");
+  let snow = document.createElement("p");
 
-  h2.textContent = json.nearest_area[0].areaName[0].value;
-  area.innerHTML = `<strong>Area:</strong> ${json.nearest_area[0].areaName[0].value}`;
+  h2.textContent = searchInput;
+  if (appropoSearchSyntax === json.nearest_area[0].areaName[0].value) {
+    area.innerHTML = `<strong>Area:</strong> ${json.nearest_area[0].areaName[0].value}`;
+  } else {
+    area.innerHTML = `<strong>Nearest Area:</strong> ${json.nearest_area[0].areaName[0].value}`;
+  }
   region.innerHTML = `<strong>Region:</strong> ${json.nearest_area[0].region[0].value}`;
   country.innerHTML = `<strong>Country:</strong> ${json.nearest_area[0].country[0].value}`;
   currently.innerHTML = `<strong>Currently:</strong> Feels Like ${json.current_condition[0].FeelsLikeF}°F`;
+  sunshine.innerHTML = `<strong>Chance of Sunshine:</strong> ${json.weather[0].hourly[0].chanceofsunshine}%`;
+  rain.innerHTML = `<strong>Chance of Rain:</strong> ${json.weather[0].hourly[0].chanceofrain}%`;
+  snow.innerHTML = `<strong>Chance of Snow:</strong> ${json.weather[0].hourly[0].chanceofsnow}%`;
+
+  const img = document.createElement('img')
+
+  if (json.weather[0].hourly[0].chanceofsnow > 50) {
+    img.setAttribute('src', './assets/icons8-light-snow.gif')
+    img.setAttribute('alt','snow')
+    document
+      .querySelector("#current-weather")
+      .prepend(img);
+  }
+  if (json.weather[0].hourly[0].chanceofrain > 50) {
+    img.setAttribute('src','./assets/icons8-torrential-rain.gif')
+    img.setAttribute('alt','rain')
+    document
+      .querySelector("#current-weather")
+      .prepend(img);
+  }
+  if (json.weather[0].hourly[0].chanceofsunshine > 50) {
+    img.setAttribute('src', './assets/icons8-summer.gif')
+    img.setAttribute('alt','sun')
+    document
+      .querySelector("#current-weather")
+      .prepend(img);
+  }
 
   document
     .querySelector("#current-weather")
-    .append(h2, area, region, country, currently);
+    .append(h2, area, region, country, currently, sunshine, rain, snow);
 
   const todayHead = document.createElement("h3");
   const tomorrowHead = document.createElement("h3");
@@ -103,8 +135,9 @@ function showTheWeather(json, listArr, appropoSearchSyntax) {
     listArr.push(link.textContent);
     ul.append(previousSearches);
     previousSearches.prepend(link);
-    // console.log(listArr);
   }
 
-  link.addEventListener("click", () => showTheWeather(json, listArr, appropoSearchSyntax));
+  link.addEventListener("click", () =>
+    showTheWeather(json, listArr, appropoSearchSyntax, searchInput)
+  );
 }
