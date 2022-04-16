@@ -6,14 +6,24 @@ var cregion = document.getElementById("cityregion")
 var ccountry= document.getElementById("citycountry")
 var ccurrent= document.getElementById("citycurrent")
 const ps=document.querySelector(".previous-search")
-const psl=document.querySelector(".previous-search-list")
-previousSearches = [];
+const ul=document.querySelector(".previous-search-list")
+var s=document.getElementsByTagName("span")
+// previousSearches = [];
 form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     // let input = 
     let location = event.target.location.value;
+    getWeatherInfo(location)
+    ps.remove()
+    s[0].remove()
+    
 
+
+
+});
+
+function getWeatherInfo(location){
     let url = `https://wttr.in/${location}?format=j1`;
 
     console.log(url)
@@ -73,33 +83,64 @@ form.addEventListener('submit', (event) => {
         const dayAfterMinTemp =data.weather[2].mintempF
 
 
-        console.log(todayAvgTemp)
-        console.log(tomorrowAvgTemp)
-        console.log(dayAfterAvgTemp)
+        // console.log(todayAvgTemp)
+        // console.log(tomorrowAvgTemp)
+        // console.log(dayAfterAvgTemp)
 
+        const today=document.getElementById("today")
+
+        th1 =document.createElement("strong")
+        th1.textContent="Today"
+        p1=document.createElement("p")
+        p1.innerHTML=`<strong>Average Temperature :</strong> ${todayAvgTemp} F`
+        p2=document.createElement("p")
+        p2.innerHTML=`<strong>Max Temperature : </strong> ${todayMaxTemp} F`
+        p3=document.createElement("p")
+        p3.innerHTML=`<strong>Min Temperature : </strong>${todayMinTemp} F`
+
+        today.appendChild(th1)
+        today.appendChild(p1)
+        today.appendChild(p2)
+        today.appendChild(p3)
+
+        const tomorrow=document.getElementById("tomorrow")
+
+        th1 =document.createElement("strong")
+        th1.textContent="Tomorrow"
+        p4=document.createElement("p")
+        p4.innerHTML=`<strong>Average Temperature :</strong> ${dayAfterAvgTemp} F`
+        p5=document.createElement("p")
+        p5.innerHTML=`<strong>Max Temperature : </strong> ${dayAfterMaxTemp} F`
+        p6=document.createElement("p")
+        p6.innerHTML=`<strong>Min Temperature : </strong>${dayAfterMinTemp} F`
+
+        tomorrow.appendChild(th1)
+        tomorrow.appendChild(p4)
+        tomorrow.appendChild(p5)
+        tomorrow.appendChild(p6)
+
+        const dayAfter=document.getElementById("dayAfter")
+
+        th1 =document.createElement("strong")
+        th1.textContent="dayAfter"
+        p7=document.createElement("p")
+        p7.innerHTML=`<strong>Average Temperature :</strong> ${tomorrowAvgTemp} F`
+        p8=document.createElement("p")
+        p8.innerHTML=`<strong>Max Temperature : </strong> ${tomorrowMaxTemp} F`
+        p9=document.createElement("p")
+        p9.innerHTML=`<strong>Min Temperature : </strong>${tomorrowMinTemp} F`
+
+        dayAfter.appendChild(th1)
+        dayAfter.appendChild(p7)
+        dayAfter.appendChild(p8)
+        dayAfter.appendChild(p9)
         
         const p = document.createElement('p')
-        previous_city = {"cityName":cityLocation,"currentCondition":currentCondition}
-        previousSearches.push(previous_city)
-        console.log(previousSearches)
+        // previous_city = {"cityName":cityLocation,"currentCondition":currentCondition}
+        // previousSearches.push(previous_city)
+        // console.log(previousSearches)
 
-        if(previousSearches){
-            for(let i=0;i<previousSearches.length;i++){
-                li=document.createElement('li')
-                link=document.createElement("a")
-                linkText=document.createTextNode(previousSearches[i].cityName)
-                current = document.createTextNode(`${currentCondition}F`)
-                link.appendChild(linkText)
-                li.appendChild(link)
-                ps.innerHTML=li
-            }
-
-            
-            
-        }else{
-            ps.innerHTML="No previous searches"
-        }
-
+        previousSearch(data,location);
         
 
 
@@ -107,12 +148,23 @@ form.addEventListener('submit', (event) => {
     })
     .catch((err => alert(err)))
 
+}
 
 
+function  previousSearch(data,location) {
+    const li=document.createElement("li");
+    const a= document.createElement("a");
 
-});
+    a.textContent=`${data.nearest_area[0].areaName[0].value}`
+    a.setAttribute("href","#")
+    li.textContent=`${data.current_condition[0].FeelsLikeF} F`;
+    ul.append(li);
+    li.prepend(a);
 
-
-
+    a.addEventListener('click',(event)=>{
+        getWeatherInfo(location)
+    })
+    
+}
     
 
