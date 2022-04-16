@@ -9,7 +9,7 @@ const currentWeather = document.querySelector("#currentWeather");
 const ul = document.querySelector("ul");
 const hisotryPtag = document.querySelector("section p");
 
-
+tempWidget(data);
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -259,4 +259,115 @@ a.addEventListener("click", (event) => {//how to target the li. - im not sure. /
     findWeatherInfo(data,input);
 })
 
+}
+
+
+//do I want the widget to be another function???
+function tempWidget(data) {
+    const tempWidget = document.querySelector("#tempWidget");
+    //make the form 
+    const formForWidget = document.createElement("form");
+    tempWidget.append(formForWidget);
+
+    //make label.   
+    const label = document.createElement("label");
+    label.textContent = "Convert the temperature:";
+    formForWidget.append(label);
+
+    //make input
+    const input = document.createElement('input');
+    //input.setAttribute('type', 'number' );
+    input.type = "number";//both works.
+    input.id = "temp-to-convert";
+    formForWidget.append(input);
+
+    //label for to-c
+    const labelToC = document.createElement("label");
+    labelToC.textContent = "To Celsius";
+    labelToC.setAttribute('for', "to-c");
+    //labelToC.for = "to-c";
+    formForWidget.append(labelToC);
+
+    //make C radios button. 
+    const inputRadioC = document.createElement("input");
+    inputRadioC.type = 'radio';
+    inputRadioC.id = "to-c";
+    inputRadioC.name = "convert-temp";
+    inputRadioC.value = "c";
+    formForWidget.append(inputRadioC);
+
+    //add break
+    const br = document.createElement('br');
+    formForWidget.append(br);
+
+    //label for to-f
+    const labelToF = document.createElement("label");
+    labelToF.textContent = "To Fahrenheit";
+    labelToF.setAttribute('for', "to-f");
+    //labelToF.for = "to-f"; //do  not work for some reason... not sure why. 
+    formForWidget.append(labelToF);
+
+    //make F radios button
+    const inputRadioF = document.createElement("input");
+    inputRadioF.type = 'radio';
+    inputRadioF.id = "to-f";
+    inputRadioF.name = "convert-temp";
+    inputRadioF.value = "f";
+    formForWidget.append(inputRadioF);
+
+    //make submit button
+    const inputForWidget = document.createElement("input");
+    inputForWidget.type = "submit";
+    formForWidget.append(inputForWidget);
+
+    //make h4 that shows result
+    const h4 = document.createElement("h4");
+    h4.textContent = "0.00";
+    formForWidget.append(h4);
+
+    //need for a eventlistener - to run the convertion then it should be good. 
+
+
+    formForWidget.addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    // const location = document.querySelector('#location');
+    // let input = location.value;
+    // getWeatherData(input);
+    const temperature = document.querySelector("#temp-to-convert").value;
+    //console.log(temperature);
+    const radioOutput = document.querySelector('input[name="convert-temp"]:checked');//got this from https://stackoverflow.com/questions/1423777/how-can-i-check-whether-a-radio-button-is-selected-with-javascript
+    //console.log(radioOutput);
+
+    calTemp(temperature, radioOutput);
+
+    formForWidget.reset();
+    
+  });
+  
+
+}
+
+function calTemp(temperature,radioOutput) {
+    //if radio is C to c to f - else vice versa. 
+    let convertedTemp = 0;
+    let h4temp = document.querySelector('h4');
+
+    if (radioOutput === null && temperature === "") {
+        h4temp.textContent = "Please provide temp and conversion";
+    } else if (temperature === "") {
+    h4temp.textContent = "Empty Temperature";
+    //console.log("missing temp");
+   } else if (radioOutput === null) {
+    //console.log("Error empty radio")
+    h4temp.textContent = "Empty Radio";
+    }  else if (radioOutput.value === "c") {
+    //cal F to C
+    convertedTemp = (temperature - 32) * (5/9);
+    h4temp.textContent = convertedTemp.toFixed(2);
+    } else if (radioOutput.value === "f") {
+    //cal C to F
+    convertedTemp = (temperature* 1.8) + 32;
+    h4temp.textContent = convertedTemp.toFixed(2);
+    } 
 }
