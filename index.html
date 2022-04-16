@@ -25,13 +25,16 @@
         </article>
         <aside id="conversion">
             <form id="widget">
-                <label for="temperature">Convert</label>
-                <input id="temperature" name="temperature" type="text"/>
-                <input type="submit" value="to"/>
-                <p></p>
-                <input type="radio" id="F" name="type" value="F">ºF
-                <input type="radio" id="C" name="type" value="C">ºC
+                <label for="temperature">Convert the temperature:</label>
+                <input id="temp-to-convert" name="temperature" type="number" />
+                <input type="submit" value="to" />
+                <p>
+                    <input type="radio" id="to-f" name="convert-temp" value="f"> ºF
+                    <input type="radio" id="to-c" name="convert-temp" value="c" checked> ºC
+                </p>
+                <h4 id="converted"></h4>
             </form>
+
         </aside>
         <aside id="prevAside">
             <section id="prevSearches">
@@ -39,13 +42,18 @@
                 <p id="noSearches">No previous searches</p>
                 <ul hidden id="searchList"></ul>
             </section>
-        </aside>
         <aside id="threeDayForecast">
-            <article hidden id="day1" class="threeDay"><h3>Today</h4></article>
-            <article hidden id="day2" class="threeDay"><h3>Tomorrow</h3></article>
-            <article hidden id="day3" class="threeDay"><h3>Day After Tomorrow</h3></article>
+            <article hidden id="day1" class="threeDay">
+                <h3>Today</h4>
+            </article>
+            <article hidden id="day2" class="threeDay">
+                <h3>Tomorrow</h3>
+            </article>
+            <article hidden id="day3" class="threeDay">
+                <h3>Day After Tomorrow</h3>
+            </article>
         </aside>
     </main>
 </body>
-
+<marquee>THIS WAS FUN BUT REAL HARD</marquee>
 </html>

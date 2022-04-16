@@ -6,13 +6,23 @@ const hideMe = document.getElementById("noSearches");
 const prevSearchList = document.getElementById("searchList");
 const threeDayForecast = document.getElementById("threeDayForecast");
 
+
 let searches = [];
 
 const conversionForm = document.getElementById("widget");
 conversionForm.addEventListener("submit",(e)=>{
     e.preventDefault();
-    console.log(conversionForm.temperature.value);
-    console.log(conversionForm.F.value);
+    //console.log(conversionForm.temperature.value);
+    //console.log(e.target[2].checked);
+    if (e.target[3].checked){
+        let convertedTemp = (conversionForm.temperature.value-32)/1.8;
+        document.getElementById("converted").textContent = `${convertedTemp.toFixed(2)}º Celsius`;
+        console.log("To celsius");
+    } else {
+        let convertedTemp = (conversionForm.temperature.value*1.8)+32;
+        document.getElementById("converted").textContent = `${convertedTemp.toFixed(2)}º Fahrenheit`;
+        console.log("To F");
+    }
 });
 
 const searchForm = document.getElementById("form");
@@ -60,7 +70,7 @@ const pagePopulation = ((weather, location) => {
             return [rainIcon, alt];
         } else {
             alt = "nothing";
-            return ["./assets/icons8-night.gif", ]
+            return ["./assets/icons8-night.gif", "nothing going on here"];
         }
     };
 
@@ -86,7 +96,7 @@ const pagePopulation = ((weather, location) => {
 const prevSearchPopulation = ((currentTemp, nearestArea, location) => {
     //Prev search population
     /* Todo:
-        Make prev. searches a clickable link
+        Make prev. searches a clickable link (DONE)
         Display temperature to the right of prev. search (DONE)
     */
     prevSearchList.removeAttribute("hidden"); //Display the ul
@@ -190,13 +200,13 @@ const threeDayPopulation = (weather) => {
 
     let tomorAvgElement = document.createElement("p");
     labelAvg4.textContent = `Average Temperature : `;
-    tomorAvgElement.textContent = `${tomorAvg}`;
+    tomorAvgElement.textContent = `${tomorAvg}º`;
     let tomorMaxElement = document.createElement("p");
     labelAvg5.textContent = `Maximum Temperature : `;
-    tomorMaxElement.textContent = `${tomorMax}`;
+    tomorMaxElement.textContent = `${tomorMax}º`;
     let tomorMinElement = document.createElement("p");
     labelAvg6.textContent = `Minimum Temperature : `;
-    tomorMinElement.textContent = `${tomorMin}`;
+    tomorMinElement.textContent = `${tomorMin}º`;
 
     day2.append(tomorAvgElement);
     tomorAvgElement.prepend(labelAvg4);
