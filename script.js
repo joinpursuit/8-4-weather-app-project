@@ -16,9 +16,8 @@ form.addEventListener('submit', (event) => {
     let location = event.target.location.value;
     getWeatherInfo(location)
     ps.remove()
-    s[0].remove()
     
-
+    form.reset();
 
 
 });
@@ -56,10 +55,10 @@ function getWeatherInfo(location){
 
         
         cloc.innerHTML=`${location}`
-        carea.innerHTML =`<b>Area</b> : ${cityLocation}`
+        carea.innerHTML =`<b>Nearest Area</b> : ${cityLocation}`
         cregion.innerHTML =`<b>Region</b> : ${region}`
         ccountry.innerHTML =`<b>Country </b>: ${countryName}`
-        ccurrent.innerHTML=`<b>Currently : </b>Feels like ${currentCondition}F`
+        ccurrent.innerHTML=`<b>Currently : </b>Feels like ${currentCondition} F`
 
 
         // CREATE 3 DIVS WITH TODAY TOMORROW AND THE DAYAFTER TOMORROW TEMPERATURES
@@ -141,6 +140,7 @@ function getWeatherInfo(location){
         // console.log(previousSearches)
 
         previousSearch(data,location);
+        iconData(data,location);
         
 
 
@@ -162,9 +162,35 @@ function  previousSearch(data,location) {
     li.prepend(a);
 
     a.addEventListener('click',(event)=>{
+        
+
         getWeatherInfo(location)
     })
     
 }
     
+function iconData(data, location){
 
+ const article = document.getElementById("icon")
+
+ const img = document.createElement(img)
+
+ if(data.wearher[0].hourly.chanceofsunchsine >= 50){
+     img.src = "./assets/icons8-summer.gif";
+     img.alt = "sun";
+    //  article.append(img);
+ } else if (data.weather[0].hourly.chanceofrain >=50){
+     img.src = "./assets/icons8-torrential-rain.gif"
+     img.alt = "rain"
+    //  article.append(img)
+ } else if (data.weather[0].hourly.chanceofsnow >=50){
+    img.src = "./assets/icons8-light-snow.gif"
+    img.alt = "snow"
+    // article.append(img)
+ }
+
+
+
+
+
+}
