@@ -25,7 +25,6 @@
   justify-content: center;
   align-items: center;
 }
-
 #conversion {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -39,18 +38,21 @@
   border-top: solid 1px silver;
   border-right: solid 1px silver;
 }
-#prevSearches {
+#prevAside{
   grid-column: 3 / 4;
   grid-row: 1 / 2;
   box-shadow: -5px 5px silver;
-  background: rgba(211, 211, 211, 0.68);
+  background: #414240;
   margin: 5px;
   border-radius: 5px;
   font-size: large;
   border-top: solid 1px silver;
   border-right: solid 1px silver;
 }
-#threeDayForcast {
+#prevSearches {
+  text-align:center;
+}
+#threeDayForecast {
   grid-column: 2 / 3; /*og 1/4*/
   grid-row: 2 / 3;
   display: flex;
@@ -89,14 +91,6 @@
 }
 label {
   font-weight: bold;
-}
-#lineItem{
-  text-justify: auto;
-}
-#prevSearchTitle{
-  text-align: center;
-  text-decoration: underline;
-  font-weight: bolder;
 }
 #noSearches{
   text-align: center;

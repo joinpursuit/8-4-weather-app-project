@@ -8,6 +8,13 @@ const threeDayForecast = document.getElementById("threeDayForecast");
 
 let searches = [];
 
+const conversionForm = document.getElementById("widget");
+conversionForm.addEventListener("submit",(e)=>{
+    e.preventDefault();
+    console.log(conversionForm.temperature.value);
+    console.log(conversionForm.F.value);
+});
+
 const searchForm = document.getElementById("form");
 searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -82,6 +89,7 @@ const prevSearchPopulation = ((currentTemp, nearestArea, location) => {
         Make prev. searches a clickable link
         Display temperature to the right of prev. search (DONE)
     */
+    prevSearchList.removeAttribute("hidden"); //Display the ul
     if (document.getElementById("noSearches")) {
         document.getElementById("noSearches").remove();
     }
@@ -105,7 +113,6 @@ const prevSearchPopulation = ((currentTemp, nearestArea, location) => {
         //prevSearchItem.textContent = `${searchLocation} - ${currentTemp}ºF`;
         prevSearchItem.append(linkAnchor);
         prevSearchList.append(prevSearchItem);
-        prevSearchList.removeAttribute("hidden"); //Display the ul
     } else {
         console.log("What?");
     }
