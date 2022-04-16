@@ -4,46 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="style.css"/>
-    <script defer sre="main.js"></script>
+    <title>Document</title>
+    <script defer src="main.js"></script>
+    <link rel="stylesheet" href="./style.css"/>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Weather App</h1>
-            <label form="search form">Pick a location</label>
-            <input id="weather me" name="weather button" type="text"/>
-            <button type="submit">Get Weather</button>
-        </header>
-        <aside>
-
-        </aside>
-        <main>
-            <article>
-                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, ratione! Maxime vel pariatur ea autem natus eaque adipisci, explicabo porro suscipit alias odio quia soluta consectetur totam illo, fugiat quasi!
-            </article>
-        <aside>
-            <article>
-
-            </article>
-            <article>
-
-            </article>
-            <article>
-
-            </article>
-        </aside>
-        <aside>
-            <section>
-                <h4>Previous Searches</h4>
+   <header>
+        <h1>Weather App</h1>
+        <form>
+            <label for="location">Pick a Location</label>
+            <input type="text" id="location" name="location"> 
+            <input type="submit">
+        </form>
+    </header>
+    <main>
+        <article id="result"> 
+            <p>"Choose a location to view the weather."</p>
+            <section id="display">
+                <h2 id="city">City</h2>
+                <p id="area">Area</p>
+                <p id="region">Region</p>
+            </section>
+        </article>
+    </main>
+    <!-- *********************set to column to the right ************************** -->
+            <aside>
+            <section id="right">
+                "Previous Searches"
+                <p>No previous searches"</p>
             </section>
         </aside>
-        <ul>
+    <article class="dia" id="article">
+        <h3>Today</h3>
+        <p id="average1"><strong>Average Temperature:</strong></p>
+        <p id="max1"><strong>Max Temperature:</strong></p>
+        <p id="min"><strong>Min Temperature:</strong></p>
 
-        </ul>
-        <p>No search has been made yet</p>
-          </main>
-    </div> 
-</body>
+    </article>   
+    <article class="dia" id="article2">
+        <h3>Tomorrow</h3>
+        <p id="average2"><strong>Average Temperature:</strong></p>
+        <p id="max2"><strong>Max Temperature:</strong></p>
+        <p id="min2"><strong>Min Temperature:</strong></p>
+    </article>   
+    <article class="dia" id="article3">
+        <h3>Day After Tomorrow</h3>
+        <p id="average3"><strong>Average Temperature:</strong></p>
+        <p id="max3"><strong>Max Temperature:</strong></p>
+        <p id="min3"><strong>Min Temperature:</strong></p>
+    </article>   
+  </body>
 </html>

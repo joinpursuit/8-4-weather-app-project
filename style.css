@@ -1,6 +1,49 @@
-.container {
+/* body is the face the user sees, lets make the body of our weather 
+app look a peeling  */
+body {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto 1fr auto;
-    gap: 5px;
+    grid-template-areas: 
+        "header header header header"
+        "main main main main"
+        "article article2 article3 aside"; 
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 130px 1fr 1fr;     
+    }
+header {
+    grid-area: header;
+    background-color:  rgb(138, 88, 214);
+    border: 10px solid black;
+    color: white;
+    text-align: center;
+    }
+h1 {
+    color:rgb(54, 209, 57);
+   
+}
+
+main {
+    grid-area: main;
+    text-align: center;
+    border: 10px solid black;
+    background-color: rgb(255, 255, 255);
+    margin: 100px;
+
+}
+#article {
+    grid-area: article;
+    text-align: center;
+
+}
+#article2 {
+    grid-area: article2;
+    text-align: center;
+    
+}
+#article3 {
+    grid-area: article3;
+    text-align: center;
+    
+}
+#right {
+    grid-area: aside;
 }
