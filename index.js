@@ -4,7 +4,9 @@ const currentWeather = document.getElementById("currentWeather");
 const prevSearches = document.getElementById("prevSearches");
 const hideMe = document.getElementById("noSearches");
 const prevSearchList = document.getElementById("searchList");
-const threeDayForcast = document.getElementById("threeDayForcast");
+const threeDayForecast = document.getElementById("threeDayForecast");
+
+let searches = [];
 
 const searchForm = document.getElementById("form");
 searchForm.addEventListener("submit", (e) => {
@@ -78,27 +80,43 @@ const prevSearchPopulation = ((currentTemp, nearestArea, location) => {
     //Prev search population
     /* Todo:
         Make prev. searches a clickable link
-        Display temperature to the right of prev. search
+        Display temperature to the right of prev. search (DONE)
     */
-    let prevSearchItem = document.createElement("li");
-    prevSearchItem.setAttribute("id", "lineItem");
+    if (document.getElementById("noSearches")) {
+        document.getElementById("noSearches").remove();
+    }
 
     let searchLocation = location;
-
     if (!searchLocation) {
         searchLocation = nearestArea;
     }
 
+    
+    if (!(searches.includes(searchLocation))) {
+        searches.push(searchLocation);
+
+        let prevSearchItem = document.createElement("li");
+        let linkAnchor = document.createElement('a');
+
+        linkAnchor.textContent = `${searchLocation} - ${currentTemp}ºF`;
+        linkAnchor.setAttribute("href",`javascript:apiCall('${searchLocation}')`);
+        prevSearchItem.setAttribute("class", "lineItem");
+
+        //prevSearchItem.textContent = `${searchLocation} - ${currentTemp}ºF`;
+        prevSearchItem.append(linkAnchor);
+        prevSearchList.append(prevSearchItem);
+        prevSearchList.removeAttribute("hidden"); //Display the ul
+    } else {
+        console.log("What?");
+    }
+    //console.log(searches);
     //console.log(searchLocation);
-    prevSearchItem.textContent = `${searchLocation} - ${currentTemp}ºF`;
-    prevSearchList.append(prevSearchItem);
-    prevSearches.append(prevSearchList);
-    prevSearchList.removeAttribute("hidden"); //Display the ul
-    hideMe.remove(); //Remove that default text
+    //console.log(searchLocation);
+    
 });
 
 const threeDayPopulation = (weather) => {
-    console.log("test", weather);
+    //console.log("test", weather);
 
     let bomb = document.querySelectorAll("aside article p");
     for (let p of bomb) {
@@ -106,8 +124,11 @@ const threeDayPopulation = (weather) => {
     }
 
     let day1 = document.getElementById("day1");
+    day1.removeAttribute("hidden");
     let day2 = document.getElementById("day2");
+    day2.removeAttribute("hidden");
     let day3 = document.getElementById("day3");
+    day3.removeAttribute("hidden");
 
     let todayAvg = weather.weather[0].avgtempF;
     let todayMax = weather.weather[0].maxtempF;
@@ -161,7 +182,7 @@ const threeDayPopulation = (weather) => {
     todayMinElement.prepend(labelAvg3);
 
     let tomorAvgElement = document.createElement("p");
-    labelAvg4.textContent=`Average Temperature : `;
+    labelAvg4.textContent = `Average Temperature : `;
     tomorAvgElement.textContent = `${tomorAvg}`;
     let tomorMaxElement = document.createElement("p");
     labelAvg5.textContent = `Maximum Temperature : `;
