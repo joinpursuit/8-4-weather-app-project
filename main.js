@@ -41,6 +41,7 @@ function getWeatherData (input) {
     // console.log(data);
     findWeatherInfo(data,input);
     previousHistory(data,input);
+
     //run function that actually use the data to find stuff and fill it to the HTML 
     })
     .catch((err) => {
@@ -155,6 +156,7 @@ currentWeather.append(snow);
 //update info for futureWeather
 const futureWeather = document.querySelectorAll(".futureWeather");//get nodelist of all the article for futureWeather
 
+
 //console.log(futureWeather);
 //select all of the individual article/box.
 const futureWeather1 = futureWeather[0];
@@ -162,6 +164,8 @@ const futureWeather2 = futureWeather[1];
 const futureWeather3 = futureWeather[2];
 
 futureWeather1.innerHTML = "";//clears the today temp box
+futureWeather1.style = "border: 1px solid #237474";
+
 
 //info for furtureWeather.
 const today = document.createElement("h2");//add today
@@ -186,6 +190,8 @@ futureWeather1.append(minTemp);
 
 
 futureWeather2.innerHTML = "";//clears the today temp box
+futureWeather2.style = "border: 1px solid #237474";
+
 
 //info for furtureWeather.
 const tomorrowWeather = document.createElement("h2");//add today
@@ -207,6 +213,7 @@ futureWeather2.append(tomorrowMinTemp);
 
 
 futureWeather3.innerHTML = "";//clears the today temp box
+futureWeather3.style = "border: 1px solid #237474";
 
 //info for furtureWeather.
 const dayAfterTomorrow = document.createElement("h2");//add today
