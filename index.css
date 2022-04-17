@@ -1,0 +1,65 @@
+.hidden {
+    display: none;
+}
+
+body {
+    display: grid;
+    grid-template-areas:
+        "header header header header header"
+        "izquierda main main main derecha"
+        "izquierda upcoming upcoming upcoming derecha";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 130px 1fr 1fr;
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+    background-color: rgb(48, 126, 100);
+    border: 1px solid black;
+    color: white;
+    margin-left: 250px;
+    margin-right: 250px;
+    margin-top: 5px;
+}
+
+#izquierda {
+    grid-area: izquierda;
+}
+
+main {
+    grid-area: main;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#currentMain{
+    background-color: rgb(227, 224, 224);
+    border: 1px solid green; 
+}
+#deracha {
+    grid-area: derecha;
+    text-align: center;
+}
+
+#upcoming {
+    grid-area: upcoming;
+    display: grid;
+    grid-template-areas:
+        "today tomorrow dat"; 
+}
+
+#today {
+    grid-area: today;
+    text-align: center;
+}
+
+#tomorrow {
+    grid-area: tomorrow;
+    text-align: center;
+}
+
+#dat {
+    grid-area: dat;
+    text-align: center;
+}

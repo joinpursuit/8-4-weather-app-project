@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./index.css" rel="stylesheet" />
+    <script defer src="./index.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Weather App</h1>
+        <form>
+            <label for="city"> Pick a Location</label>
+            <input id="userInput" type="text" name="city" placeholder="Input City Name"></input>
+            <input type="submit" value="Get Weather"></input>
+        </form>
+    </header>
+    <aside id="izquierda"></aside>
+    <main>
+        <article id="currentMain">
+            <p id='poof'>Choose a location to view the weather</p>
+            <h2 id="ciudad"></h2>
+            <p id="area"></p>
+            <p id="region"></p>
+            <p id="country"></p>
+            <p id="currently"></p>
+        </article>
+        <aside id="upcoming">
+            <article class="hidden" id="today">
+                <h3>Today</h3>
+                <p id="avg"></p>
+                <p id="max"></p>
+                <p id="min"></p>
+            </article>
+            <article class="hidden" id="tomorrow">
+                <h3>Tomorrow</h3>
+                <p id="avg1"></p>
+                <p id="max1"></p>
+                <p id="min1"></p>
+            </article>
+            <article class="hidden" id="dat">
+                <h3>Day After Tommorow</h3>
+                <p id="avg2"></p>
+                <p id="max2"></p>
+                <p id="min2"></p>
+            </article>
+        </aside>
+    </main>
+    <aside id="derecha">
+        <section>
+            <h4 id="previous">Previous Searches</h4>
+            <ul>
+                <p id="noPre">No previous searches</p>
+            </ul>
+        </section>
+
+    </aside>
+</body>
+
+</html>
