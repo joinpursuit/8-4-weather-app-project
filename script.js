@@ -44,21 +44,13 @@ function getWeatherInfo(location){
         var currentCondition = data.current_condition[0].FeelsLikeF
 
         console.log(cityLocation)
-        // console.log(countryName)
-        // console.log(region)
-        // console.log(currentCondition)
-        // const h2 = document.createElement('h2')
-        // const h2Text = document.createTextNode(`${cityLocation}`)
-        // h2.appendChild(h2Text)
-        // main =  document.getElementsByClassName("main")[1]
-        // main.appendChild(h2)
 
         
         cloc.innerHTML=`${location}`
         carea.innerHTML =`<b>Nearest Area</b> : ${cityLocation}`
         cregion.innerHTML =`<b>Region</b> : ${region}`
         ccountry.innerHTML =`<b>Country </b>: ${countryName}`
-        ccurrent.innerHTML=`<b>Currently : </b>Feels like ${currentCondition} F`
+        ccurrent.innerHTML=`<b>Currently : </b> Feels like ${currentCondition} F`
 
 
         // CREATE 3 DIVS WITH TODAY TOMORROW AND THE DAYAFTER TOMORROW TEMPERATURES
@@ -91,7 +83,7 @@ function getWeatherInfo(location){
         th1 =document.createElement("strong")
         th1.textContent="Today"
         p1=document.createElement("p")
-        p1.innerHTML=`<strong>Average Temperature :</strong> ${todayAvgTemp} F`
+        p1.innerHTML=`<strong>Average Temperature :</strong> ${todayAvgTemp}F`
         p2=document.createElement("p")
         p2.innerHTML=`<strong>Max Temperature : </strong> ${todayMaxTemp} F`
         p3=document.createElement("p")
@@ -127,7 +119,7 @@ function getWeatherInfo(location){
         p8=document.createElement("p")
         p8.innerHTML=`<strong>Max Temperature : </strong> ${tomorrowMaxTemp} F`
         p9=document.createElement("p")
-        p9.innerHTML=`<strong>Min Temperature : </strong>${tomorrowMinTemp} F`
+        p9.innerHTML=`<strong>Min Temperature : </strong> ${tomorrowMinTemp} F`
 
         dayAfter.appendChild(th1)
         dayAfter.appendChild(p7)
@@ -140,7 +132,6 @@ function getWeatherInfo(location){
         // console.log(previousSearches)
 
         previousSearch(data,location);
-        iconData(data,location);
         
 
 
@@ -149,6 +140,31 @@ function getWeatherInfo(location){
     .catch((err => alert(err)))
 
 }
+const convertForm = document.getElementById("convertForm")
+convertForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const tempInput = document.getElementById("temp-to-convert");
+    let value = tempInput.value;
+
+    if(!value){
+        alert("Temperature value cannot be empty")
+        return;
+    }
+    let cRadio = document.getElementById("to-c");
+    let fRadio = document.getElementById("to-f");
+
+    if(cRadio.checked){
+        let cel = (value - 32) * (5 / 9);
+        cel = cel.toFixed(2);
+        tempCalcResult.textContent = cel;
+    } else if (fRadio.checked){
+        let fah = (value * 9) / 5 + 32;
+        fah = fah.toFixed(2);
+        tempCalcResult.textContent = fah;
+    } else {
+        alert("Please select a unit");
+    }
+});
 
 
 function  previousSearch(data,location) {
@@ -168,29 +184,31 @@ function  previousSearch(data,location) {
     })
     
 }
+
+
     
-function iconData(data, location){
+// function iconData(data, location){
 
- const article = document.getElementById("icon")
+//  const article = document.getElementById("icon")
 
- const img = document.createElement(img)
+//  const img = document.createElement(img)
 
- if(data.wearher[0].hourly.chanceofsunchsine >= 50){
-     img.src = "./assets/icons8-summer.gif";
-     img.alt = "sun";
-    //  article.append(img);
- } else if (data.weather[0].hourly.chanceofrain >=50){
-     img.src = "./assets/icons8-torrential-rain.gif"
-     img.alt = "rain"
-    //  article.append(img)
- } else if (data.weather[0].hourly.chanceofsnow >=50){
-    img.src = "./assets/icons8-light-snow.gif"
-    img.alt = "snow"
-    // article.append(img)
- }
-
-
+//  if(data.wearher[0].hourly.chanceofsunchsine >= 50){
+//      img.src = "./assets/icons8-summer.gif";
+//      img.alt = "sun";
+//     //  article.append(img);
+//  } else if (data.weather[0].hourly.chanceofrain >=50){
+//      img.src = "./assets/icons8-torrential-rain.gif"
+//      img.alt = "rain"
+//     //  article.append(img)
+//  } else if (data.weather[0].hourly.chanceofsnow >=50){
+//     img.src = "./assets/icons8-light-snow.gif"
+//     img.alt = "snow"
+//     // article.append(img)
+//  }
 
 
 
-}
+
+
+// }

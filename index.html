@@ -6,21 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>8-4-Weather-Application-Project</title>
     <!-- add bootstrap for css styling -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="style.css"/>
     <script defer src="script.js"></script>
 </head>
 <body>
-    <!-- create a container for the header section  -->
-    <header class="container">
-        <!-- one row across -->
-        <div class="row">
-            <!-- one column -->
-            <div class="col"></div>
-            <!-- 6 columns w/ margin top 3 and 5 padding to the HEADER -->
-            <div class="col-6 mt-3 header p-5">
+
+    <div class="container">
+                <header>
                 <h1>Weather App</h1>
-        <form class='location'>
+        <form class='event'>
             <section>
             <label for='location'>
                 Pick a location
@@ -31,19 +26,29 @@
         </section>
         </form>
             </div>
-            </div>
             </header>
-            <!-- create a container to manipulate the main display section  -->
-            <div class="container">
-            <div class="row">
-                <div class="col"></div>
-                <div class="col-6 main">
-                    <div class="row">
-                        <div class="col-10">
+            
                             <div id='main'>
-                                <main class='main display data'>
-                                    <span id="main-loc">Choose a location to view the weather</span>
+                                <aside>
+                                    <form class="convert-form" id="convertForm">
+                                        <label for="temp-to-convert">Convert the temperture:</label>
+                                        <input type="number" name="temp-to-convert" id="temp-to-convert"/>
+                                        <label for="to-c">
+                                            To Celsius
+                                            <input type="radio" name="convert-temp" value="c" id="to-c"/>
+                                        </label>
+                                        <label for="to-f">
+                                            To Fahrenheit
+                                            <input type="radio" name="convert-temp" value="f" id="to-f"/>
+                                        </label>
+                                        <input type="submit" value="Convert"/>
+                                        <h4 id="tempCalcResult">0.00</h4>
+                                    </form>
+                                </aside>
+                                <main class="display">
+                                    <span id="main-loc" class="display-placholder">Choose a location to view the weather</span>
                                     <article id="icon"> 
+                                    <aside class="weather-info">
                                         <h2 id="citylocation"></h2>
                                         <p id="cityarea"></p>
                                         <p id="cityregion"></p>
@@ -55,20 +60,17 @@
                                         <p>Chance of Rain</p>
                                         <p>Chance of Snow</p>
                                     
-                                    <div class="col-4" id="today">
+                                    <div  id="today">
                                     
                                     </div>
-                                    <div class="col-4" id="tomorrow">
+                                    <div id="tomorrow">
                                         
                                     </div>
-                                    <div class="col-4" id="dayAfter">
+                                    <div  id="dayAfter">
                                         
-                                    </div>
+                                    </aside>
                                 </article>
                                 </main>
-                            </div>
-                        </div>
-                        <div class="col-2">
                             <aside id='previous search' class='past'>
                                 <section>
                                     <h3>Previous Searches</h3> 
@@ -77,24 +79,6 @@
                                 </section>
                             </aside>
                         </div>
-                    </div>
-                </div>
-                <!-- <div class="col"></div> -->
-                
-                </div>
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col"></div>
-                        <div class="col-6">
-                            <div class="row">
-                                
-                            </div>
-                        </div>
-                        <div class="col"></div>
-                    </div>
-                </div>
-                
-            </div>
+                   
 </body>
 </html>
