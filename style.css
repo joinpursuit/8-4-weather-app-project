@@ -14,7 +14,7 @@ h1 {
   display: grid;
   grid-column: 2/8;
   text-align: center;
-  background-color: #237478;
+  background-color: transparent;
   border: 3px solid black;
   font-family: sans-serif;
   font-style: normal;
@@ -35,13 +35,20 @@ main {
   text-align: center;
   margin: 15px;
   border: 2px teal solid;
-  background-color: lightgray;
+  background: lightgray;
+  opacity: .7;
+  color: black;
+  
 }
 
 #sideBar {
+  margin-top: 15px;
   display: inline-block;
   grid-column: 6/8;
   text-align:left;
+  color: black;
+  background-color:lightgray;
+  opacity: .8;
 }
 
 .wrap3 {
@@ -52,8 +59,13 @@ main {
   display: inline-block;
   text-align: center;
   margin: 10px;
+  background-color: lightgray;
+  opacity: .7;
 }
 
 h4 {
   text-align: left;
+}
+body {
+    background-image: url(https://source.unsplash.com/1600x900/?landscape);
 }
