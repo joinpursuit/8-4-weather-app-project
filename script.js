@@ -1,13 +1,13 @@
 
 const form = document.querySelector('form');
-var cloc = document.getElementById("citylocation")
-var carea = document.getElementById("cityarea")
-var cregion = document.getElementById("cityregion")
-var ccountry= document.getElementById("citycountry")
-var ccurrent= document.getElementById("citycurrent")
+const cloc = document.getElementById("citylocation")
+const carea = document.getElementById("cityarea")
+const cregion = document.getElementById("cityregion")
+const ccountry= document.getElementById("citycountry")
+const ccurrent= document.getElementById("citycurrent")
 const ps=document.querySelector(".previous-search")
 const ul=document.querySelector(".previous-search-list")
-var s=document.getElementsByTagName("span")
+const s=document.getElementsByTagName("span")
 // previousSearches = [];
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -35,13 +35,13 @@ function getWeatherInfo(location){
         // ASSIGN VARIABLES TO THE DATA RECEIVED FROM API VIA FETCH .THEN .. WHICH ARE ARRANGED AS AN ARRAY OF OBJECTS
 
         // create a variable for the city location which in API form is access through nearest_area array first element areaName array first element key value - MELBORNE
-        var cityLocation  = data.nearest_area[0].areaName[0].value
+        let cityLocation  = data.nearest_area[0].areaName[0].value
         // create a variable for the country name which in API form is access through nearest_area array first element country array first element key value - AUSTRALIA
-        var countryName = data.nearest_area[0].country[0].value
+        let countryName = data.nearest_area[0].country[0].value
         // create a variable for the region which in API form is access through nearest_area array first element region array first element key value - ONTARIO
-        var region = data.nearest_area[0].region[0].value
+        let region = data.nearest_area[0].region[0].value
         // create a variable for the current condition which in API form is access through current_consition array first element areaName array second element key value - FeelsLikeF 
-        var currentCondition = data.current_condition[0].FeelsLikeF
+        let currentCondition = data.current_condition[0].FeelsLikeF
 
         console.log(cityLocation)
 
@@ -105,10 +105,10 @@ function getWeatherInfo(location){
         p6=document.createElement("p")
         p6.innerHTML=`<strong>Min Temperature : </strong>${dayAfterMinTemp} F`
 
-        tomorrow.appendChild(th1)
-        tomorrow.appendChild(p4)
-        tomorrow.appendChild(p5)
-        tomorrow.appendChild(p6)
+        tomorrow.append(th1)
+        tomorrow.append(p4)
+        tomorrow.append(p5)
+        tomorrow.append(p6)
 
         const dayAfter=document.getElementById("dayAfter")
 
@@ -121,10 +121,10 @@ function getWeatherInfo(location){
         p9=document.createElement("p")
         p9.innerHTML=`<strong>Min Temperature : </strong> ${tomorrowMinTemp} F`
 
-        dayAfter.appendChild(th1)
-        dayAfter.appendChild(p7)
-        dayAfter.appendChild(p8)
-        dayAfter.appendChild(p9)
+        dayAfter.append(th1)
+        dayAfter.append(p7)
+        dayAfter.append(p8)
+        dayAfter.append(p9)
         
         const p = document.createElement('p')
         // previous_city = {"cityName":cityLocation,"currentCondition":currentCondition}
