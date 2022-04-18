@@ -288,6 +288,9 @@ function tempWidget(data) {
     input.id = "temp-to-convert";
     formForWidget.append(input);
 
+    const br1 = document.createElement('br');
+    formForWidget.append(br1);
+
     //label for to-c
     const labelToC = document.createElement("label");
     labelToC.textContent = "To Celsius";
@@ -304,8 +307,8 @@ function tempWidget(data) {
     formForWidget.append(inputRadioC);
 
     //add break
-    const br = document.createElement('br');
-    formForWidget.append(br);
+    const br2 = document.createElement('br');
+    formForWidget.append(br2);
 
     //label for to-f
     const labelToF = document.createElement("label");
@@ -325,8 +328,8 @@ function tempWidget(data) {
     //make submit button
     const inputForWidget = document.createElement("input");
     inputForWidget.type = "submit";
-    const br2 = document.createElement('br');//break so submit is on new line. 
-    formForWidget.append(br2);
+    const br3 = document.createElement('br');//break so submit is on new line. 
+    formForWidget.append(br3);
     formForWidget.append(inputForWidget);
 
     //make h4 that shows result
