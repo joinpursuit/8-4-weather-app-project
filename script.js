@@ -16,7 +16,7 @@ const weatherToday = document.getElementById("weatherToday");
 const weatherTomorrow = document.getElementById("weatherTomorrow");
 // creat a variable for the weather for the day after accessed by ID
 const weatherDayAfter = document.getElementById("weatherDayAfter");
-// create a GLOBAL variable for the user location search
+// create a variable for the box that dispays user location info
 const displayPlaceHolder = document.getElementsByClassName(
   "display-placeholder"
 )[0];
@@ -44,7 +44,7 @@ searchForm.addEventListener("submit", (e) => {
     // else run the function get weather search with the search location
     getWeatherSearch(locationSearch, true);
   }
-  // with the user input value
+  // after search is done the text box will return blank 
   input.value = "";
 });
 
@@ -150,7 +150,7 @@ function parseNeededData(jsonData, createPrevSearch) {
   let chanceOfSnow = jsonData.weather[0].hourly[0].chanceofsnow;
   let chanceOfSunshine = jsonData.weather[0].hourly[0].chanceofsunshine;
 
-  // call the functionall with the parameters we created that will update with the users specific location search --------------- ACTION TO UPDATE THOSE PARAMTERS WITH USER SEARCH 
+  // call the functional with the parameters we created that will update with the users specific location search --------------- ACTION TO UPDATE THOSE PARAMTERS WITH USER SEARCH 
   updateHTML({
     feelsLike,
     area,
@@ -185,7 +185,7 @@ function updateHTML({
   displayPlaceHolder.style.display = "none";
   // the location search display will be centered in block form
   locationInfo.style.display = "block";
-  // create a variable for imperfect user location search
+  // create a variable for imperfect user location search with conditional for lower case text
   let isImperfect = area.toLowerCase() !== locationSearch.toLowerCase();
   // create a variable to display all the user location search information as follows;
   // call the function to add icon with the parameters from max values
@@ -267,11 +267,11 @@ function addWeatherIcon(rain, snow, sunshine) {
   // create a variable equal to the max value of rain, snow or sunshine 
   let maxValue = Math.max(rain, snow, sunshine);
   // conditional statement to assign an icon on the max value 
-  if (maxValue == sunshine)
+  if (maxValue === sunshine)
     return '<img src="./assets/icons8-summer.gif" alt="sun" />';
-  if (maxValue == rain)
+  if (maxValue === rain)
     return '<img src="./assets/icons8-torrential-rain.gif" alt="rain" />';
-  if (maxValue == snow)
+  if (maxValue === snow)
     return '<img src="./assets/icons8-light-snow.gif" alt="snow" />';
 }
 
