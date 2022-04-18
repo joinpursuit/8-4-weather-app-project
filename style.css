@@ -5,14 +5,35 @@ header {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
     display: grid;
-    
+    padding-bottom: 30px;
+    width: 800px;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
 }
 
-main {
+#current-weather {
     background-color: lightgray;
     border: 1px solid teal;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
 
 
     display: grid;
+    width: 600px;
+    grid-template-columns: auto;
+    grid-auto-flow: column;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
 
+
+section {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+p {
+    text-indent: 10px;
 }
