@@ -1,0 +1,72 @@
+body {
+  display: grid;
+  grid-template-areas:
+    "header header header header"
+    "converter preload preload aside"
+    "days days days aside";
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 130px 1fr 1fr;
+  border: 2px solid yellow;
+  padding: auto, 10px;
+  margin: auto 140px;
+}
+
+header{
+  grid-area: header;
+  background-color: rgb(48, 126, 100);
+  border: 1px solid black;
+  color: white;
+  text-align: center;
+}
+
+#preload{
+  grid-area: preload;
+  text-align: center;
+  border: 1px solid green;
+  background-color: rgb(227, 224, 224);
+  margin: 10px;
+  text-align: center;
+  padding: 40px;
+}
+
+
+#grid-item {
+grid-area: aside;
+border: 2px solid yellow;
+text-align: left;
+}
+
+main{
+border: 2px solid blue;
+text-align: center;
+}
+
+#days{
+background-color: rgb(227, 224, 224);
+display: grid;
+grid-area: days;
+grid-template-columns: repeat(3, 1fr);
+text-align: center; 
+border: 2px dashed green;
+}
+
+#converter{
+grid-area: converter;
+border: 2px solid red;
+
+}
+
+/* #today{
+  grid-area: today;
+  border: 2px solid yellow;
+}
+
+#tomorrow{
+  grid-area:tomorrow;
+  border: 2px solid yellow;
+}
+
+#after{
+  grid-area: after;
+  border: 2px solid yellow;
+} */
