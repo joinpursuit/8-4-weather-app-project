@@ -9,7 +9,7 @@
     "a a a a"
     "b c c d"
     "b c c d"
-    "e e e e";
+    "b c c e";
 }
 
 header {
@@ -46,25 +46,32 @@ main {
     border: dotted green;
 }
 
-.forecast #today {
+
+.today {
+    
+}
+.tmrrw
+.afterTmrw 
+
+/* .forecast #today {
     border: dashed yellow;
-    /* padding: 2%; */
+    /* padding: 2%; 
     background: pink;
 }
 
 .forecast #tmrrw {
     /* display: */
-    /* padding: 2%; */
+    /* padding: 2%; 
     border: dashed grey;
     background: rgb(158, 58, 75);
 }
 
 .forecast #afterTmrw {
-    /* padding: 2%; */
+    /* padding: 2%; 
     border: dashed;
     background: rgb(202, 117, 131);
 }
-
+ */
 
 /* Original formating
 body {

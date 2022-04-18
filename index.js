@@ -35,27 +35,28 @@ form.addEventListener("submit", (event) => {
     form.reset();
 });
 
+
 // ------------------------- FOR MAIN WEATHER CONTENT ------------------------- //
 function locationWeather(cityAPIData) {
-    deleteContent('article') //> deletes section content & needs a string
+    deleteContent('article section') //> deletes section content & needs a string
     const objCity = cityAPIData['nearest_area'][0];
     const cityName = objCity['areaName'][0]['value'];
-    const article = document.querySelector('article');
+    const article = document.querySelector('article section');
     const weather = cityAPIData['weather'][0]['hourly'][0]
     // ----------------- Creates Header using function ----------------- //
-    createHeader('article', cityName);
+    createHeader('article section', cityName);
     // ----------------- Creates PTags using function ----------------- //
 
-    createPTags("article", "Area", cityName);
-    createPTags("article", "Region", objCity['region'][0]['value']);
-    createPTags("article", "Country", objCity['country'][0]['value']);
+    createPTags("article section", "Area", cityName);
+    createPTags("article section", "Region", objCity['region'][0]['value']);
+    createPTags("article section", "Country", objCity['country'][0]['value']);
     // Sentence is different so I did not use the createPTags function !
     const temp = cityAPIData['current_condition'][0]['FeelsLikeF']
     article.innerHTML += `<p><span class='bolded'>Currently:</span> Feels like ${temp}°F </p>`
     // ------------------- Additional Data Needed ------------------- //
-    createPTags("article", "Chance of Sunshine", weather['chanceofsunshine']);
-    createPTags("article", "Chance of Rain", weather['chanceofrain']);
-    createPTags("article", "Chance of Snow", weather['chanceofsnow']);
+    createPTags("article section", "Chance of Sunshine", weather['chanceofsunshine']);
+    createPTags("article section", "Chance of Rain", weather['chanceofrain']);
+    createPTags("article section", "Chance of Snow", weather['chanceofsnow']);
     // ---------------- Previous Search Saving data ----------------- //
     previousSearches[objCity['areaName'][0]['value']] = temp;
 
@@ -64,28 +65,27 @@ function locationWeather(cityAPIData) {
 }
 
 function locationClosestWeather(cityAPIData, city) {
-    deleteContent('article') //> deletes section content & needs a string
+    deleteContent("article section") //> deletes section content & needs a string
     const objCity = cityAPIData['nearest_area'][0];
     const cityName = objCity['areaName'][0]['value'];
-    const article = document.querySelector('article');
+    const article = document.querySelector('article section');
     const weather = cityAPIData['weather'][0]['hourly'][0]
-    const inputCity = city.charAt(0).toUpperCase() + city.slice(1); // <---- does not pass test because it capitalizes the first letter in the city input BUT it is NOT WRONG!!
+    const inputCity = city.charAt(0).toUpperCase() + city.slice(1); // <---- **does not pass test because it capitalizes the first letter in the city input BUT it is NOT WRONG!!
     
     console.log(city.slice(1))
     // ----------------- Creates Header using function ----------------- //
-    createHeader('article', inputCity);
+    createHeader("article section", inputCity);
     // ----------------- Creates PTags using function ----------------- //
-
-    createPTags("article", "Nearest Area", cityName);
-    createPTags("article", "Region", objCity['region'][0]['value']);
-    createPTags("article", "Country", objCity['country'][0]['value']);
+    createPTags("article section", "Nearest Area", cityName);
+    createPTags("article section", "Region", objCity['region'][0]['value']);
+    createPTags("article section", "Country", objCity['country'][0]['value']);
     // Sentence is different so I did not use the createPTags function !
     const temp = cityAPIData['current_condition'][0]['FeelsLikeF']
     article.innerHTML += `<p><span class='bolded'>Currently:</span> Feels like ${temp}°F </p>`
     // ------------------- Additional Data Needed ------------------- //
-    createPTags("article", "Chance of Sunshine", weather['chanceofsunshine']);
-    createPTags("article", "Chance of Rain", weather['chanceofrain']);
-    createPTags("article", "Chance of Snow", weather['chanceofsnow']);
+    createPTags("article section", "Chance of Sunshine", weather['chanceofsunshine']);
+    createPTags("article section", "Chance of Rain", weather['chanceofrain']);
+    createPTags("article section", "Chance of Snow", weather['chanceofsnow']);
     // ---------------- Previous Search Saving data ----------------- //
     previousSearches[inputCity] = temp;
 
@@ -145,7 +145,7 @@ function forecast(cityAPIData) {
 
 // ----------------------- For Weather Images ----------------------- //
 function getImage(weather) {
-    const imagePlacement = document.querySelector('main');
+    const imagePlacement = document.querySelector("article section");
     const imgTag = document.createElement('img')
     document.querySelectorAll('img').forEach(x => x.remove());
     // CHANCE OF SUN SHINEEEEE
@@ -184,9 +184,7 @@ function getImage(weather) {
         imgTag.setAttribute('alt', 'windy');
         imagePlacement.prepend(imgTag)
     }
-
 }
-
 
 // ---------------------- PREVIOUS SEARCHES ---------------------- //
 function previousSearch(previousSearches) {
@@ -206,7 +204,6 @@ function previousSearch(previousSearches) {
         }
     }
 }
-
 // ------------------------------------------------------------------ //
 
 // ------------------ WORKING TEMPERATURE CONVERTER ------------------ //
