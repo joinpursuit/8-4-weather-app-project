@@ -1,5 +1,5 @@
 const BASE_URL = `https://wttr.in/`;
-
+//query select all elements needed
 const input = document.querySelector("#userInput");
 const result = document.querySelector("#preload");
 const form = document.querySelector("form");
@@ -8,8 +8,8 @@ const tomorrow = document.querySelector(`#tomorrow`);
 const after = document.querySelector(`#after`);
 const previous = document.querySelector("#previous");
 const list = document.querySelector("#list");
-const img = document.createElement("img");
-
+const converter = document.querySelector("#converter");
+//create main output
 const p1 = document.createElement("p");
 const p2 = document.createElement("p");
 const p3 = document.createElement("p");
@@ -29,14 +29,25 @@ const pIII = document.createElement(`p`);
 const pa = document.createElement(`p`);
 const pb = document.createElement(`p`);
 const pc = document.createElement(`p`);
+const img = document.createElement("img");
+//create widget
 const change = document.createElement("form");
-
-
+const fp = document.createElement("p");
+const finput = document.createElement("input");
+const fdiv = document.createElement("div");
+const finput2 = document.createElement("input");
+const flabel = document.createElement("label");
+const fdiv2 = document.createElement("div");
+const finput3 = document.createElement("input");
+const flabel2 = document.createElement("label");
+const finput4 = document.createElement("input");
+const fp2 = document.createElement("p");
+//add first event listener
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   preload.textContent = "";
   const uI = event.target.city.value;
-
+//check if input is truthy
   if (uI) {
     fetch(`${BASE_URL}${uI}?format=j1`)
       .then((response) => response.json())
@@ -79,20 +90,33 @@ form.addEventListener("submit", (event) => {
           img.setAttribute("alt", "sun");
           result.prepend(img);
         }
-
         if (response.weather[0].hourly[0].chanceofrain > 50) {
           img.setAttribute("src", "./assets/icons8-torrential-rain.gif");
           img.setAttribute("alt", "rain");
-
           result.prepend(img);
         }
-
         if (response.weather[0].hourly[0].chanceofsnow > 50) {
           img.setAttribute("src", "./assets/icons8-light-snow.gif");
           img.setAttribute("alt", "snow");
-
           result.prepend(img);
         }
+        fp.innerHTML = "Convert the temperature:";
+        finput.setAttribute("type", "number");
+        finput2.setAttribute("type", "radio");
+        finput2.setAttribute("id", "celcius");
+        flabel.setAttribute("for", "celcius")
+        flabel.innerHTML = "To Celcius";
+        finput3.setAttribute("type", "radio");
+        finput3.setAttribute("id", "fahrenheit");
+        flabel2.setAttribute("for", "fahrenheit");
+        flabel2.innerHTML = "To Fahrenheit";
+        finput4.setAttribute("type", "submit");
+        fp2.innerHTML = "<strong>0.00</strong>";
+        converter.append(change);
+        change.append(fp, finput, fdiv, fdiv2, finput4, fp2);
+        fdiv.append(finput2, flabel);
+        fdiv2.append(finput3, flabel2);
+
       })
       .catch((error) => {
         console.log(error);
