@@ -3,6 +3,7 @@ let BASE_URL = "http://wttr.in/";
 const form = document.querySelector("form");
 const input = document.querySelector("#location");
 //main article variables
+const image = document.querySelector("img");
 const result = document.querySelector("#result");
 const message = document.querySelector("#message");
 const display = document.querySelector("#display");
@@ -52,7 +53,11 @@ form.addEventListener("submit", (event) => {
       message.classList.add("hidden");
       display.classList.remove("hidden");
       cityMain.innerHTML = city;
-      area.innerHTML = `<strong>Area: </strong>${weatherFile.nearest_area[0].areaName[0].value}`;
+      if (city != `${weatherFile.nearest_area[0].areaName[0].value}`) {
+        area.innerHTML = `<strong>Nearest Area: </strong>${weatherFile.nearest_area[0].areaName[0].value}`;
+      } else {
+        area.innerHTML = `<strong>Area: </strong>${weatherFile.nearest_area[0].areaName[0].value}`;
+      }
       region.innerHTML = `<strong>Region: </strong>${weatherFile.nearest_area[0].region[0].value}`;
       country.innerHTML = `<strong>Country: </strong>${weatherFile.nearest_area[0].country[0].value}`;
       currently.innerHTML = `<strong>Currently: </strong>Feels Like ${weatherFile.current_condition[0].FeelsLikeF}°F`;
@@ -85,22 +90,25 @@ form.addEventListener("submit", (event) => {
 
       //Weather icon, if certain weather, display certain icon.
       if (weatherFile.weather[0]["hourly"][0]["chanceofsunshine"] > 50) {
-        image = document.createElement("img");
+        // image = document.createElement("img");
+        image.classList.remove("hidden");
         image.setAttribute("src", "./assets/icons8-summer.gif");
         image.setAttribute("alt", "sun");
         display.prepend(image);
-      }
-      if (weatherFile.weather[0]["hourly"][0]["chanceofrain"] > 50) {
-        image = document.createElement("img");
+      } else if (weatherFile.weather[0]["hourly"][0]["chanceofrain"] > 50) {
+        // image = document.createElement("img");
+        image.classList.remove("hidden");
         image.setAttribute("src", "./assets/icons8-torrential-rain.gif");
         image.setAttribute("alt", "rain");
         display.prepend(image);
-      }
-      if (weatherFile.weather[0]["hourly"][0]["chanceofsnow"] > 50) {
-        image = document.createElement("img");
+      } else if (weatherFile.weather[0]["hourly"][0]["chanceofsnow"] > 50) {
+        // image = document.createElement("img");
+        image.classList.remove("hidden");
         image.setAttribute("src", "./assets/icons8-light-snow.gif");
         image.setAttribute("alt", "snow");
         display.prepend(image);
+      } else {
+        image.classList.add("hidden");
       }
     })
     .catch((error) => {
@@ -110,16 +118,16 @@ form.addEventListener("submit", (event) => {
 });
 
 //temperature conversion
-convert.addEventListener("submit", (e) =>{
-    e.preventDefault();
+convert.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-    let result = 0
-    if(toC.checked){
-    result = (tempToConvert.value - 32) * (5/9)
-    }
-    if(toF.checked){
-    result = (tempToConvert.value * 9/5) + 32 
-    }
+  let result = 0;
+  if (toC.checked) {
+    result = (tempToConvert.value - 32) * (5 / 9);
+  }
+  if (toF.checked) {
+    result = (tempToConvert.value * 9) / 5 + 32;
+  }
 
-    converted.innerHTML = result.toFixed(2)
-})
+  converted.innerHTML = result.toFixed(2);
+});
