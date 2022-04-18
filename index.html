@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App Project</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
     <link rel="stylesheet" href="css/styles.css" />
+
     <script defer src="js/script.js"></script>
 </head>
 <body>
@@ -20,22 +22,22 @@
                 </label>
             </form>
         </header>
-        <aside class="widget">
+        <aside class="child2 widget">
             <form>
                 <label>
-                    Convert the temperature: 
+                    Convert the<br> temperature: 
                     <br>
                     <input  id="temp-to-convert" name="convert" type="number" />
                 </label>     
                 <br><br>
                 <label>
                     To Celsius
-                    <input id="to-c" name="convert-temp" type="radio" value="c" />
+                    <input id="to-c" name="convert" type="radio" value="c" />
                 </label>
                 <br><br>
                 <label>
                     To Fahrenheit
-                    <input id="to-f" name="convert-temp" type="radio" value="f" />
+                    <input id="to-f" name="convert" type="radio" value="f" />
                 </label>
 
                 <br><br>
@@ -44,24 +46,24 @@
                 <h4></h4>
             </form>
         </aside>
-        <main class="child2">
+        <main class="child3">
             <p>Choose a location to view the weather.</p>
             <article></article>
             
         </main>
         <aside class="next">
-            <article id="today">
+            <article id="today" class="child5">
         
             </article>
-            <article id="tomorrow">
+            <article id="tomorrow" class="child6">
         
             </article>
-            <article id="after">
+            <article id="after" class="child7">
         
             </article>
         </aside>
         
-        <aside class="child3"> 
+        <aside class="child4"> 
             <section>
                 <h4>Previous Searches</h4>
                 <ul></ul>

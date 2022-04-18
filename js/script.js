@@ -2,23 +2,25 @@ const form = document.querySelector('#weather');
 const widget = document.querySelector('.widget form');
 const h4 = document.querySelector('h4');
 widget.append(h4);
-console.log(widget);
+const img1 = document.createElement('img');
+const img2 = document.createElement('img');
+const img3 = document.createElement('img');
 const h2 = document.createElement('h2');
 const main = document.querySelector('main');
-main.prepend(h2);
 const mainArticle = document.querySelector('main article');
-const mainPara = document.querySelector('.child2 p');
+main.prepend(h2);
+const mainPara = document.querySelector('main p');
 const ul = document.querySelector('aside section ul');
 const para2 = document.createElement('p');
-const child3Section = document.querySelector('.child3 section');
-child3Section.append(para2);
+const child4Section = document.querySelector('aside section');
+child4Section.append(para2);
 para2.textContent = 'No previous searches';
-console.log(child3Section);
+
 let response;
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  console.log(event.target);
+
   const city = document.querySelector('#search-weather').value;
 
   fetch(`https://wttr.in/${city}?format=j1`)
@@ -32,43 +34,38 @@ form.addEventListener('submit', (event) => {
     const chanceOfSun = weatherData.weather[0].hourly[1].chanceofsunshine;
     const chanceOfRain = weatherData.weather[0].hourly[1].chanceofrain;
     const chanceOfSnow = weatherData.weather[0].hourly[1].chanceofsnow;
-    const img1 = document.createElement('img');
-    img1.setAttribute('class', 'chanceofsun');
-    const img2 = document.createElement('img');
-    img2.setAttribute('class', 'chanceofrain');
-    const img3 = document.createElement('img');
-    img3.setAttribute('class', 'chanceofsnow');
-    const img4 = document.createElement('img');
-    img4.setAttribute('class', 'chanceofsun');
-    
     
     form.reset();
 
     mainPara.remove();
 
-    mainArticle.innerHTML = `<h2>${area}</h2><br><strong>Area:</strong> ${area}<br><strong>Region:</strong> ${region}<br><strong>Country:</strong> ${country}<br><strong>Currently:</strong> Feels Like ${currently}ºF<br><strong>Chance of Sunshine:</strong> ${chanceOfSun}<br><strong>Chance of Rain:</strong> ${chanceOfRain}<br><strong>Chance of Snow:</strong> ${chanceOfSnow}`;
+    mainArticle.innerHTML = `<h2>${area}</h2><p><strong>Area:</strong> ${area}</p><p><strong>Region:</strong> ${region}</p><p><strong>Country:</strong> ${country}</p><p><strong>Currently:</strong> Feels Like ${currently}ºF</p><p><strong>Chance of Sunshine:</strong> ${chanceOfSun}</p><p><strong>Chance of Rain:</strong> ${chanceOfRain}</p><p><strong>Chance of Snow:</strong> ${chanceOfSnow}</p>`;
 
+    
+
+    
     // Found this solution at: `https://stackoverflow.com/questions/12274748/setting-multiple-attributes-for-an-element-at-once-with-javascript`, line 145
     // Helper function
+    
     const setAttributes = (elem, attrs) => {
       for(let key in attrs) {
         elem.setAttribute(key, attrs[key]);
       }
     }
-
-    setAttributes(img1, {'src': 'assets/icons8-summer.gif', 'alt': 'sun'});
-    setAttributes(img2, {'src': 'assets/icons8-torrential-rain.gif', 'alt': 'rain'});
-    setAttributes(img3, {'src': 'assets/icons8-light-snow.gif', 'alt': 'snow'});
-    setAttributes(img4, {'src': 'assets/icons8-rain-cloud.gif', 'alt': 'partly cloudy'});
-
-
+    
+    setAttributes(img1, {'src': './assets/icons8-summer.gif', 'alt': 'sun'});
+    setAttributes(img2, {'src': './assets/icons8-torrential-rain.gif', 'alt': 'rain'});
+    console.log(img2)
+    setAttributes(img3, {'src': './assets/icons8-light-snow.gif', 'alt': 'snow'});
+    console.log(img3)
+    
     if (Number(chanceOfSun) > 50) {
       mainArticle.prepend(img1);
-    } else if (Number(chanceOfSun) <= 50 && Number(chanceOfSun) > 0) {
-      mainArticle.prepend(img4);
-    } else if (Number(chanceOfRain) > 50) {
+    } 
+    if (Number(chanceOfRain) > 50) {
       mainArticle.prepend(img2);
-    } else if (Number(chanceOfSnow) > 50) {
+    }
+    if (Number(chanceOfSnow) > 50) {
       mainArticle.prepend(img3);
     }
 
@@ -102,7 +99,7 @@ form.addEventListener('submit', (event) => {
     
 
     // Call the helper function
-    setAttributes(a, {'href': `https://wttr.in/${city}?format=j1`, 'target': '_blank'});
+    setAttributes(a, {'href': '#'});
 
     li.append(a);
     ul.append(li);
@@ -110,26 +107,43 @@ form.addEventListener('submit', (event) => {
     a.textContent = city;
     li.innerHTML += ` - ${currently}ºF`;
 
-    console.log(ul)
-    console.log(ul.childNodes)
-
     if(ul.childNodes.length >= 1) {
       para2.remove();
     }
+
+
     
   })
   
 
 });
 
-widget.addEventListener('change', (event) => {
+widget.addEventListener('submit', (event) => {
   event.preventDefault();
-  const idC = document.querySelector('#to-c');
-  const idF = document.querySelector('#to-f');
-  idC ? console.log(idC) : console.log(idF);
+
+  const degrees = event.target.convert.value;
+  console.log(degrees)
+  let temp = document.querySelector('#temp-to-convert').value;
+  temp = Number(temp);
+  const convertTemp = document.querySelector('.widget h4');
+
+  let celsius = (temp - 32) * 5 / 9;
+  celsius = celsius.toFixed(2);
+    
+  let fahrenheit = (temp * 1.8) + 32;
+  fahrenheit = fahrenheit.toFixed(2);
+  console.log(celsius, fahrenheit)
+  if (degrees === 'c') {
+    convertTemp.innerHTML = celsius;
+  }
+  if (degrees === 'f') { 
+    convertTemp.innerHTML = fahrenheit;
+  }
+
+  widget.reset();
   
+
 });
 
-console.log(mainArticle)
-console.log(widget)
+
 
