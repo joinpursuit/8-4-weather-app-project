@@ -68,13 +68,13 @@ function weather (data){
     currentp4.textContent = `Currently: Feels Like ${data['current_condition'][0]['FeelsLikeF']}°F`
     current.append(currentp4)
     const currentp5 = document.createElement('p')
-    currentp5.textContent = `Chance of Sunshine: ${data.weather[0].hourly[0].chanceofsunshine}`
+    currentp5.textContent = `Chance of Sunshine: ${data.weather[0].hourly[0].chanceofsunshine}%`
     current.append(currentp5)
     const currentp6 = document.createElement('p')
-    currentp6.textContent = `Chance of Rain: ${data.weather[0].hourly[0].chanceofrain}`
+    currentp6.textContent = `Chance of Rain: ${data.weather[0].hourly[0].chanceofrain}%`
     current.append(currentp6)
     const currentp7 = document.createElement('p')
-    currentp7.textContent = `Chance of Snow: ${data.weather[0].hourly[0].chanceofsnow}`
+    currentp7.textContent = `Chance of Snow: ${data.weather[0].hourly[0].chanceofsnow}%`
     current.append(currentp7)
 
     //today- average, max, min temp
@@ -137,13 +137,13 @@ form2.addEventListener("submit", (event) => {
 function tempConverter (inputNumber){
     if(document.querySelector("#to-c").checked === true){
         let farenheit = (inputNumber * 9/5) +32
-        output.textContent =`${farenheit}`
+        output.textContent =`${farenheit.toFixed(2)}`
         widget.append(output)
         return farenheit
     }
     if(document.querySelector("#to-f").checked === true){
         let celsius = (inputNumber - 32) * 5/9
-        output.textContent =`${celsius}`
+        output.textContent =`${celsius.toFixed(2)}`
         widget.append(output)
         return celsius
     }
