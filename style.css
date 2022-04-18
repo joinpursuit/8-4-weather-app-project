@@ -20,7 +20,7 @@ header{
   /* linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%); */
   border: solid;
   border-color: black;
-  grid-column: 2/12;
+  grid-column: 1/10;
   padding-bottom: 40px;
 }
 main section{
@@ -49,6 +49,7 @@ padding-top: 20px;
   grid-column: 3/4;
 }
 .converter{
+  grid-column: 10/12;
   padding-top: 10px;
   border:black solid;
   background-color: rgb(46, 160, 150);

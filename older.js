@@ -85,12 +85,14 @@ console.log(current)
   const mainCountry = document.querySelector(".mainCountry");
   mainCountry.innerHTML = `<strong>Country:</strong> ${current.nearest_area[0].country[0].value}`;
   const mainTemperature = document.querySelector(".mainTemperature");
+
+
   
-  if(radioCelsius.checked){
-    mainTemperature.innerHTML = `<strong>Currently:</strong> ${current.current_condition[0].FeelsLikeC} C°`;
-  }else{
-    mainTemperature.innerHTML = `<strong>Currently:</strong> ${current.current_condition[0].FeelsLikeF} F°`
-  }
+  // if(radioFahrenheit.checked){
+    mainTemperature.innerHTML = `<strong>Currently:</strong> ${current.current_condition[0].FeelsLikeF} F°`;
+  // }else{
+  //   mainTemperature.innerHTML = `<strong>Currently:</strong> ${current.current_condition[0].FeelsLikeC} C°`
+  // }
 };
 
 //Calling Event Listener on Form
@@ -114,7 +116,7 @@ headerForm.addEventListener("submit", (event) => {
       forEachArticle(apiWeather);
       searchList(apiWeather,value)
       conversionCelsius(apiWeather)
-      
+      tempChangerCtoF()
 
     })
     .catch((error) => console.log(error));
@@ -213,11 +215,11 @@ console.log(input)
   const li = document.createElement('li')
   const a = document.createElement('a')
   a.setAttribute('href',`#`)
-  if(radioCelsius.checked === true){
-    a.textContent= `${input}-${location.current_condition[0].FeelsLikeC} C°`
-  }else{
+  // if(radioFahrenheit.checked === true){
     a.textContent= `${input}-${location.current_condition[0].FeelsLikeF} F°`
-  }
+  // }else{
+  //   a.textContent= `${input}-${location.current_condition[0].FeelsLikeC} C°`
+  // }
 
   li.append(a)
   ul.append(li)
@@ -235,7 +237,7 @@ console.log(input)
 //Change to Celsius or Farenhiet 
 const asideConvert = document.createElement('aside')
 asideConvert.setAttribute('class','converter')
-header.before(asideConvert)
+header.after(asideConvert)
 const convert = document.createElement('form')
 asideConvert.append(convert)
 const radioCelsius = document.createElement('input')
@@ -299,7 +301,7 @@ const conversionCelsius = (temperature) =>{
 
     }else{
       mainTemperature.innerHTML = `<strong>Currently:</strong> ${temperature.current_condition[0].FeelsLikeF} F°`
-      console.log(temperature.weather[0].avgtempF)
+      
       averageToday.innerHTML = `<strong>Average Temperature:</strong> ${temperature.weather[0].avgtempF} F°`;
       maxToday.innerHTML = `<strong>Max Temperature:</strong> ${temperature.weather[0].maxtempF} F°`;
       minToday.innerHTML = `<strong>Min Temperature:</strong> ${temperature.weather[0].mintempF} F°`;
@@ -315,4 +317,61 @@ const conversionCelsius = (temperature) =>{
     
   })
 }
+
+
+//Aside Form that allows the viewer to see the conversion of a specific temperature of their choosing to Celsius or Fahrenheit
+
+
+// const formTemplate = ()=>{
+//   const aside = document.createElement('aside')
+//   const formTemp = document.createElement('form')
+//   formTemp.setAttribute('id','convert')
+  
+//   aside.append(formTemp)
+//   aside.after(header)
+//   //needs to be appended to correct location in the body
+//   const number = document.createElement('input')
+//   number.setAttribute('type','number')
+//   number.setAttribute('id','temp-to-convert')
+    
+  
+//     const inputCelsius = document.createElement('input')
+//     inputCelsius.setAttribute('type','radio')
+//     inputCelsius.setAttribute('name','convert-temp')
+//     inputCelsius.setAttribute('value','c')
+    
+//     const inputFahrenhiet = document.createElement('input')
+//     inputFahrenhiet.setAttribute('type','radio')
+//     inputFahrenhiet.setAttribute('name','convert-temp')
+//     inputFahrenhiet.setAttribute('value','f')
+//     inputFahrenhiet.setAttribute('checked',true)
+  
+//     const submit = document.createElement('input')
+//     submit.setAttribute('type','submit')
+
+// }
+  
+//   const h4 = document.createElement('h4')
+//   h4.setAttribute('id','converted')
+//   h4.textContent = 0.00
+//   form.append(number, inputCelsius, inputFahrenhiet, submit, h4)
+
+//   const tempChangerCtoF = () =>{
+
+//   formTemp.addEventListener('submit',(event)=>{
+//     event.defaultPrevented()
+
+//     let temp = number.value;
+//     let result = 0
+//     if(toC.checked){
+//     result = (number.value - 32) * (5/9)
+//     }
+//     if(toF.checked){
+//     result = (number.value * 9/5) + 32 
+//     }
+//     h4.textContent = result
+//     form.reset()
+//   })
+
+// }
 
