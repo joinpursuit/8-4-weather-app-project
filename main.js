@@ -1,14 +1,15 @@
 const BASE_URL = "https://wttr.in/"
 const input = document.querySelector("#location")
 let data
-const form = document.querySelector("form")
+const form = document.querySelector("#getWeather")
 const main = document.querySelector("main")
 const current = document.querySelector("#current")
+const three = document.querySelector("#three")
 const today = document.querySelector("#today")
+const tomorrow = document.querySelector("#tomorrow")
 const dayAfter = document.querySelector("#dayAfter")
 const sidebar = document.querySelector(".sidebar")
 const ul = document.querySelector(".sidebar ul")
-
 
 form.addEventListener("submit", (event) => {
     event.preventDefault()
@@ -17,12 +18,32 @@ form.addEventListener("submit", (event) => {
     .then((response) => response.json())
     .then((json) => {
         data = json
-        weather(data)
         console.log(data)
+        current.innerHTML = "";
+        today.innerHTML = "";
+        tomorrow.innerHTML = "";
+        dayAfter.innerHTML = "";
+        chanceOf(data)
+        weather(data)
         const li = document.createElement("li")
-        li.textContent = `${inputText.charAt(0).toUpperCase() + inputText.slice(1)}`
+        li.innerHTML = `<a href="#">${inputText.charAt(0).toUpperCase() + inputText.slice(1)}</a>`+`<span> - ${data['current_condition'][0]['FeelsLikeF']}°F</span>`
         ul.append(li)
+        const myList = [...document.querySelectorAll('li')]
+        if(myList.length === 0){
+            document.querySelector(".sidebar section p").textContent = "No previous searches"
+        }
         form.reset()
+        // li.addEventListener("click", (event) => {
+        //     event.preventDefault()
+        //     fetch(`${BASE_URL}${inputText}?format=j1`)
+        // .then((response) => response.json())
+        // .then((json) => {
+        //     data = json
+        //     weather(data)
+        // })
+        // .catch((error) => {
+        //     alert(error)
+        // })
     })
     .catch((error) => {
         alert(error)
@@ -46,6 +67,15 @@ function weather (data){
     const currentp4 = document.createElement('p')
     currentp4.textContent = `Currently: Feels Like ${data['current_condition'][0]['FeelsLikeF']}°F`
     current.append(currentp4)
+    const currentp5 = document.createElement('p')
+    currentp5.textContent = `Chance of Sunshine: ${data.weather[0].hourly[0].chanceofsunshine}`
+    current.append(currentp5)
+    const currentp6 = document.createElement('p')
+    currentp6.textContent = `Chance of Rain: ${data.weather[0].hourly[0].chanceofrain}`
+    current.append(currentp6)
+    const currentp7 = document.createElement('p')
+    currentp7.textContent = `Chance of Snow: ${data.weather[0].hourly[0].chanceofsnow}`
+    current.append(currentp7)
 
     //today- average, max, min temp
     const todayh2 = document.createElement('h2')
@@ -90,4 +120,52 @@ function weather (data){
     dayAfter.append(dayAfterp3)
     //sidebar for previous searches- link and temp
    
+}
+
+const input2 = document.querySelector("#temp-to-convert")
+const widget = document.querySelector("#widget")
+const output = document.querySelector("#output")
+
+const form2 = document.querySelector("#convertTemp")
+form2.addEventListener("submit", (event) => {
+    event.preventDefault()
+    const inputNumber = event.target.degrees.value
+    tempConverter(inputNumber)
+    form2.reset()
+})
+
+function tempConverter (inputNumber){
+    if(document.querySelector("#to-c").checked === true){
+        let farenheit = (inputNumber * 9/5) +32
+        output.textContent =`${farenheit}`
+        widget.append(output)
+        return farenheit
+    }
+    if(document.querySelector("#to-f").checked === true){
+        let celsius = (inputNumber - 32) * 5/9
+        output.textContent =`${celsius}`
+        widget.append(output)
+        return celsius
+    }
+}
+
+function chanceOf (data) {
+    if(Number(data.weather[0].hourly[0].chanceofsunshine) > 50){
+        const sunny = document.createElement("img")
+        sunny.setAttribute('src', './assets/icons8-summer.gif')
+        sunny.setAttribute('alt', 'sun')
+        current.append(sunny)
+    }
+    else if(Number(data.weather[0].hourly[0].chanceofrain) > 50){
+        const rainy = document.createElement("img")
+        rainy.setAttribute('src', './assets/icons8-torrential-rain.gif')
+        rainy.setAttribute('alt', 'rain')
+        current.append(rainy)
+    }
+    else if(Number(data.weather[0].hourly[0].chanceofsnow) > 50){
+        const snowy = document.createElement("img")
+        snowy.setAttribute('src', './assets/icons8-light-snow.gif')
+        snowy.setAttribute('alt', 'snow')
+        current.append(snowy)
+    }
 }

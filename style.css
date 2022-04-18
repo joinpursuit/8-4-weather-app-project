@@ -1,38 +1,47 @@
-header {
-    padding: 10px;  
+#header { 
     text-align: center;
-    border: solid black 2px;
+    border: solid black 3px;
     background-color: teal;
     color: white;
     font-family: Arial;
 }
-
-body {
-    display: grid;
+#container {
+    display: flex;
 }
 
-main {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: flex-start;
-    height: auto;
-    align-items: stretch;
+#mainContent {
+   flex: 2
+}
+
+
+#sidebar {
+    font-family: Arial;
+    flex: 1;
+    position: fixed;
+}
+#widget {
+    position:fixed;
+    font-family: Arial;
+    flex: 1;
 }
 
 #current {
     border: solid teal 1px;
     text-align: center;
     background-color: rgb(220, 223, 225);
-    padding: 5px;
-    width: 75%;
-    height: auto;
-}
-#today {
-    text-align: center;
+    padding: 10x;
+    font-family: Arial;
 }
 
-#sidebar {
-    width: 25%;
-    height: auto;
+
+#three {
+   display: grid;
+   grid-template-columns:1fr 1fr 1fr;
+   text-align: center;
+   font-family: Arial;
+}
+
+
+#output {
+    font-weight: bold;
 }
