@@ -113,7 +113,6 @@ form.addEventListener("submit", (event) => {
 convert.addEventListener("submit", (e) =>{
     e.preventDefault();
 
-    let temp = tempToConvert.value;
     let result = 0
     if(toC.checked){
     result = (tempToConvert.value - 32) * (5/9)

@@ -53,10 +53,21 @@ main {
 
 #left {
   grid-area: left;
+  margin-top: 10px;
+
 }
+
 
 #days {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  background-color: rgb(227, 224, 224)
+  background-color: rgb(227, 224, 224);
+}
+
+div{
+  margin-bottom: 10px;
+}
+
+#to-f{
+  align-items: right;
 }
