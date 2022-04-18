@@ -42,7 +42,7 @@ searchForm.addEventListener("submit", (e) => {
     alert("Location cannot be empty");
   } else {
     // else run the function get weather search with the search location
-    getWeatherSearch(locationSearch, createPrevSearch);
+    getWeatherSearch(locationSearch, true);
   }
   // with the user input value
   input.value = "";
