@@ -325,6 +325,8 @@ function tempWidget(data) {
     //make submit button
     const inputForWidget = document.createElement("input");
     inputForWidget.type = "submit";
+    const br2 = document.createElement('br');//break so submit is on new line. 
+    formForWidget.append(br2);
     formForWidget.append(inputForWidget);
 
     //make h4 that shows result
