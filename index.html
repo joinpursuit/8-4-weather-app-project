@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyWeatherApp</title>
+    <link rel="stylesheet" href="index.css" />
+    <script defer src="index.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Weather App</h1>
+      <form>
+        <label for="Adnan">
+          Pick a Location
+          <input type="text" id="Adnan" name="Adnan" />
+          <input type="submit" value="Get Weather" />
+        </label>
+      </form>
+    </header>
+    <!-- <aside></aside> -->
+    <main>
+      <article id="result">
+        <p id="placeholder">Choose a location to view the weather</p>
+        <section id="display" class="hidden">
+          <h2 id="Accra"></h2>
+          <p id="area"></p>
+          <p id="region"></p>
+          <p id="country"></p>
+          <p id="currently"></p>
+          <p id="sunshine"></p>
+          <p id="rain"></p>
+          <p id="snow"></p> 
+        </section>
+      </article>
+    
+    <!-- <aside id="below" class="hidden"> -->
+    <article id="today" class="hidden">
+      <h3>Today</h3>
+      <p id="avgtemp1"></p>
+      <p id="maxtemp1"></p>
+      <p id="mintemp1"></p>
+    </article>
+    <article id="tomorrow" class="hidden">
+      <h3>Tomorrow</h3>
+      <p id="avgtemp2"></p>
+      <p id="maxtemp2"></p>
+      <p id="mintemp2"></p>
+    </article>
+    <article id="dayAfter" class="hidden">
+      <h3>Day After Tomorrow</h3>
+      <p id="avgtemp3"></p>
+      <p id="maxtemp3"></p>
+      <p id="mintemp3"></p>
+    </article>
+  </main>
+    <!-- </aside> -->
+    <!-- aside that shows previous searches -->
+    <aside id="prev">
+      <section>
+      <h4>Previous Searches</h4>
+      <ul id="ullist">
+        <p id="olds">No previous searches.</p>
+      </ul>
+    </section>
+    </aside>
+  </body>
+</html>

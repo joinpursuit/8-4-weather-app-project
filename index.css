@@ -1,0 +1,49 @@
+.hidden {
+  display: none;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "header header header header"
+    "main main main aside"
+    "today tomorrow dayAfter aside";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 130px 1fr 1fr 1fr;
+}
+
+header {
+  grid-area: header;
+  background-color: rgb(11, 123, 112);
+  border: 2px solid black;
+  color: white;
+  text-align: center;
+  /* justify-content: center; */
+  /* padding-bottom: 20px; */
+}
+main {
+  grid-area: main;
+  /* grid-template-areas: ; */
+  text-align: center;
+  border: 1px solid green;
+  background-color: rgb(227, 224, 224);
+  margin: 10px;
+}
+
+#today {
+  grid-area: today;
+  /* grid-template-columns: 1fr; */
+  text-align: center;
+}
+#tomorrow {
+  grid-area: tomorrow;
+  text-align: center;
+}
+#dayAfter {
+  grid-area: dayAfter;
+  text-align: center;
+}
+
+#prev {
+  grid-area: aside;
+}
