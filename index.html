@@ -1,54 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="stylesheet.css">
-    <script defer src="index.js"></script>
-</head>
-<body>
-    <header>
-        <h1>Weather App</h1>
-        <form>
-            <label for="locationID">Pick a Location</label>
-          <input id="locationID" name="location" type="text" />
-          <input type="submit" />
-          <!--<button type="submit">Get Weather</button>-->
-            
-        </form>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather App</title>
+        <link rel="stylesheet" href="stylesheet.css" />
+        <script defer src="index.js"></script>
+    </head>
+    <body>
+        <div class="container-1">
+        <header id="header">
+            <h1 >Weather App</h1>
+    
+            <form>
+                <label for="locationID" id="locationID">Pick a Location</label>
+                <input id="locationID" name="location" type="text" />
+                <br>
+                <br>
+                <input type="submit" onclick="toggle()"/>  
+            </form>
+        
+        </header>
+    </div>
+                <!--will contain a temperature conversion widget starts empty-->
+                <div class="container-2">
+            <aside id="widget" class="inactive">
+                    <form id="convert-temp">
+                        <label>Convert the temperature:</label>
+                        <input type="number" id="temp-to-convert"/>
+                        <label for="to-c">To Celsius</label>
+                        <input type="radio" id="to-c" name="convert-temp" value="c" />
+                        <br>
+                        <label>To Fahrenheit</label>
+                        <input type="radio" id="to-f" name="convert-temp" value="f"/>
+                        <br>
+                        <br>
+                        <input type="submit" id="temp-button"/>
+                        <!--store the result of the calculation below-->
+                        <h4 id="convert-h4">0.00</h4>
+                    </form>
 
-        <aside>will contain a temperature conversion widget starts empty</aside>
-        <main>
-            <!--contains current weather and it starts empty-->
-            <article></article>
-            <aside>
-                <!--upcoming weather-->
-                <article></article>
-                <article></article>
-                <article></article>
+
             </aside>
-                        
-                    <aside> Choose a location to view the weather
-                            <section>
-                                <p>No previous searches</p>
-                                <h4>Previous Searches</h4>
-                            </section>
-                    </aside>
-
-                            <sidebar>
-                    <ul></ul>
-                    <p>know no searches have been made yet</p>
-                </sidebar>
-
+        </div>
+       
+        
+        <main id="main">
+            
+            <!--contains current weather and it starts empty-->
+            <article  id="current-weather" >
+                <p id="current-weather-p" class="active">Choose a location to view the weather.</p>
+                <h4  id="input-location"></h4>
+                <p  id="area"></p>
+                <p  id="region"></p>
+                <p  id="country"></p>
+                <p  id="feels-like"></p>
+            </article>
+            <div class="for-future-weather">
+            <aside class="inactive" id="future-weather">
+                <!--upcoming weather-->
+                <article id="today">
+                    <h4 id="today-title">Today</h4>
+                    <p id="today-avg"></p>
+                    <p id="today-max"></p>
+                    <p id="today-min"></p>
+                </article>
+                <article id="tomorrow">
+                    <h4 id="tomorrow-title">Tomorrow</h4>
+                    <p id="tomorrow-avg"></p>
+                    <p id="tomorrow-max"></p>
+                    <p id="tomorrow-min"></p>
+                </article>
+                <article id="day-after">
+                    <h4 id="day-after-title">Day After Tomorrow</h4>
+                    <p id="day-after-avg"></p>
+                    <p id="day-after-max"></p>
+                    <p id="day-after-min"></p>
+                </article>
+            </aside>
+        </div>
         </main>
-
-    </header>
-
     
     
-</body>
+    <div class="container-4">
+        <aside id="aside"> 
+            <!-- Choose a location to view the weather -->
+                <section >
+                               
+                     <h4>Previous Searches</h4>
+                </section>
+        </aside>
+
+        <sidebar id="sidebar">
+            <p id="sidebar-ptag">No searches have been made yet</p>
+            <ul>
+                
+            </ul>
+        </sidebar> 
+    </div>
+    </body>
 </html>
 
 
+  
+
+        
+        
+    
