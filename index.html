@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Weather App</h1>
+      <form>
+        <label for="location">Pick a Location</label>
+        <input type="text" id="location" name="location" />
+        <input type="submit" value="Get Weather" />
+      </form>
+    </header>
+    <main>
+      <article id="result">
+        <p id="message">Choose a location to view the weather.</p>
+        <section id="display" class="hidden">
+          <h2 id="cityMain"></h2>
+          <p id="area"></p>
+          <p id="region"></p>
+          <p id="country"></p>
+          <p id="currently"></p>
+          <p id="sunshine"></p>
+          <p id="rain"></p>
+          <p id="snow"></p>
+        </section>
+      </article>
+      <aside id="days">
+        <article class="hidden" id="article1">
+          <h3>Today</h3>
+          <p id="average1"></p>
+          <p id="max1"></p>
+          <p id="min1"></p>
+        </article>
+        <article class="hidden" id="article2">
+          <h3>Tomorrow</h3>
+          <p id="average2"></p>
+          <p id="max2"></p>
+          <p id="min2"></p>
+        </article>
+        <article class="hidden" id="article3">
+          <h3>Day After Tomorrow</h3>
+          <p id="average3"></p>
+          <p id="max3"></p>
+          <p id="min3"></p>
+        </article>
+      </aside>
+    </main>
+    <!-- aside to the left -->
+    <aside id="left">
+      <form id="convert">
+        <label for="temp-to-convert">Convert the temperature:</label>
+        <input type="number" id="temp-to-convert"></input>
+        <br>
+        <label for="to-c">To Celsius</label>
+        <input type="radio" id="to-c" name="convert-temp" value="c" />
+        <br>
+        <label for="to-f">To Fahrenheit</label>
+        <input type="radio" id="to-f" name="convert-temp" value="f" />
+        <br>
+        <input type="submit"></input>
+        <h4 id="converted"></h4>
+      </form>
+
+    </aside>
+    <!-- aside to the right -->
+    <aside id="right">
+      <section>
+        <h4>Previous Searches</h4>
+        <ul id="list">
+          <p id="previous">No previous searches.</p>
+        </ul>
+      </section>
+    </aside>
+  </body>
+</html>

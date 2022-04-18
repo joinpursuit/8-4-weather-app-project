@@ -1,0 +1,62 @@
+.hidden {
+  display: none;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "header header header header header"
+    "left main main main aside"
+    "left days days days aside";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 130px 1fr 1fr 1fr;
+}
+
+header {
+  grid-area: header;
+  background-color: rgb(48, 126, 100);
+  border: 1px solid black;
+  color: white;
+  text-align: center;
+
+}
+
+main {
+  grid-area: main;
+  text-align: center;
+  margin: 10px;
+}
+
+#result{
+  padding-top: 20px;
+  border: 1px solid green;
+  margin-bottom: 10px;
+  background-color: rgb(227, 224, 224)
+}
+
+#article1 {
+  text-align: center;
+  border: 1px solid green;
+}
+#article2 {
+  text-align: center;
+  border: 1px solid green;
+}
+#article3 {
+  text-align: center;
+  border: 1px solid green;
+}
+
+#right {
+  grid-area: aside;
+}
+
+#left {
+  grid-area: left;
+}
+
+#days {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: rgb(227, 224, 224)
+}
