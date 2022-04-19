@@ -166,4 +166,4 @@ The [wttr.in API](https://github.com/ch tr.in) can be used from the command line
 
 The section below describes specifically how to make a request to the API so that it returns JSON.
 
-- [wttr.in: JSON Output](https://github.com/chubin/wttr.in#json-output)
+- [wttr.in: JSON Output](https://githxub.com/chubin/wttr.in#json-output)

@@ -6,43 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Project</title>
     <link rel="stylesheet" href="styles.css" />
-    <script defer src="./scripts/main.js"></script>
+    <script defer src="main.js"></script>
   </head>
 
-  <header>
-    <div class="wrapper">
-      <h1>Weather App</h1>
-      <form class="header">
-        <label class="pick-location" for="location">Pick a Location</label>
-        <input id="location" name="pick" type="text" />
-        <input type="submit" value="Get Weather"/>
-      </form>
-      <br />
-    </div>
-  </header>
   <body>
-    <aside class="convert-temp"></aside>
+    <header>
+        <div class="wrapper">
+          <h1>Weather App</h1>
+          <form id="search">
+            <label class="pick-location" for="location">Pick a Location</label>
+            <input id="location" name="location" type="text" />
+            <input type="submit" value="Get Weather" />
+          </form>
+          <br />
+        </div>
+      </header>
+    <aside class="Widget">
+      <form id="conform">
+        <label>Convert the temperature:</label>
+        <input type="number" id="temp-to-convert" name="temp" />
+        <label>to-c</label>
+        <input type="radio" id="to-c" name="convert-temp" value="c"/>
+        <label>to-f</label>
+        <input type="radio" id="to-f" name="convert-temp" value="f"/>
+        <input type="submit" />
+        <h4 id="conResult"></h4>
+      </form>
+    </aside>
 
     <main>
       <div class="wrapper2">
-        <p>Choose a location to view the weather.</p>
-        <article id="current-weather"></article>
-        <aside>
-          <article id="upcoming-weather"></article>
-          <article></article>
-          <article></article>
+        <article id="current-weather">
+          <p>Choose a location to view the weather.</p>
+        </article>
+      </div>
+      <aside class="weather-history">
+        <section id= previous>
+          <h4 class="pre-search">Previous Searches</h4>
+          <ul>
+            <p id="pre-search">No previous searches.</p>
+          </ul>
+        </section>
+      </aside>
+      <div id="position">
+        <aside id = forecast>
+          <article id="today" class="upcoming-weather"></article>
+          <article id="tomorrow" class="upcoming-weather"></article>
+          <article id="afterTomorrow" class="upcoming-weather"></article>
         </aside>
       </div>
-
-      <aside class="weather-history">
-        <div>
-          <section>
-            <h4 id="pre-search">Previous Searches</h4>
-            <ul></ul>
-            <p>No previous searches.</p>
-          </section>
-        </div>
-      </aside>
     </main>
   </body>
 </html>

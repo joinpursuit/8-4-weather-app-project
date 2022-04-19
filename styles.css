@@ -1,3 +1,7 @@
+body{
+    background-image: url(https://68.media.tumblr.com/861ee97200ec5a800bf8bbd6906e41f3/tumblr_odnf21oPGE1uhjffgo1_500.gif); 
+    background-size: cover;
+}
 header { 
     display :grid;
     grid-template-columns: repeat(8, 1fr);
@@ -12,6 +16,7 @@ border: 3px solid;
 main {
     display: grid;
     grid-template-columns: repeat(8,1fr);
+
 }
 
 h1{ 
@@ -33,16 +38,31 @@ h1{
     font-style: normal;
     font-weight: 500;
     text-align: center;
-    margin: 15px;
+    margin: 15px ;
     border: 2px lightseagreen solid;
     background-color: rgb(211, 211, 211);
     }
     .weather-history{
-    display:grid;
+    display:inline-block;
     grid-column: 6/8;
-    text-align: center;
     padding-left: 30px;
     }
-    #pre-search{
+.pre-search{
         text-align:left;
+
+    }
+    #position{
+    grid-column: 2/6;
+    }
+    .upcoming-weather{
+        text-align: center;
+        display: inline-block;
+        margin: 30px;
+        color: black;
+        background-color: rgb(211, 211, 211);
+        border: 4px lightseagreen solid
+    }
+    #previous{
+        color: white;
+
     }
