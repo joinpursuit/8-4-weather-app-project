@@ -1,0 +1,53 @@
+body {
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: grid;
+}
+
+header {
+    color: white;
+    background-color: rgb(35, 244, 244);
+    border-color: black;
+}
+
+header section {
+    margin: 5px;
+}
+
+#main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr)
+
+}
+
+.main  {
+    min-height: 200px;
+    margin: 10px;
+    grid-column: span 3;
+    align-items: center;
+    background-color: rgb(191, 210, 234);
+  
+}
+
+.location-img {
+    color: blue;
+ 
+}
+
+
+
+#previous-search-block {
+    margin: 10px;
+}
+
+#forecast {
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#icons {
+    grid-row: 2;
+}
+
