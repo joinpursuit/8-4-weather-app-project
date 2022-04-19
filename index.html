@@ -21,16 +21,17 @@
     </header>
     <aside>
       <form class="widget" id="widget">
-        <label for="temp">Convert the Temperature</label> 
-        <input type="number" name="temp" id="temp"/>
+        <label for="temp-to-convert">Convert the Temperature</label> 
+        <input type="number" name="temp-to-convert" id="temp-to-convert"/>
         <label for="celsius">
           Celsius
-          <input type="radio" name="convert" value="c" id="celsius"/>
+          <input type="radio" name="convert" value="to-c" id="celsius"/>
         </label>
         <label for="fare">
           Farenheit
-          <input type="radio" name="convert" value="f" id="fare"/>
+          <input type="radio" name="convert" value="to-f" id="fare"/>
         </label>
+        <input type="submit" value="Submit"/>
         <h4 id="tempResult">0.00</h4>
       </form>
     </aside>
