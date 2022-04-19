@@ -2,41 +2,41 @@ body {
     display: grid;
     grid-template-areas:
       "header header header header"
-      "converter current-weather current-weather aside"
+      "widget current current aside"
       "days days days aside";
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-rows: 130px 1fr 1fr;
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
     padding: auto, 10px;
     margin: auto 140px;
+    grid-row-gap: 30px;
 }
 
 header {
     grid-area: header;
     background-color: teal;
-    border: 1px solid black;
+    border: 2px solid black;
     color: white;
     text-align: center;
 }
 
-#current-weather {
-    grid-area: preload;
+#current {
+    grid-area: current;
     text-align: center;
-    border: 1px solid green;
+    border: 1px solid teal;
     background-color: lightgray;
     margin: 10px;
-    text-align: center;
     padding: 40px;
 }
 
 #previous {
     grid-area: aside;
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
     text-align: left;
 }
 
 main {
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     text-align: center;
 }
   
@@ -46,11 +46,10 @@ main {
     grid-area: days;
     grid-template-columns: repeat(3, 1fr);
     text-align: center; 
-    border: 2px dashed green;
+    /* border: 2px dashed green; */
 }
   
-#converter{
+#widget {
     grid-area: converter;
-    border: 2px solid red;
-    
+    /* border: 2px solid red; */
 }

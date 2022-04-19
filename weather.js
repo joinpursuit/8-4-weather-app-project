@@ -22,7 +22,7 @@ form.addEventListener('submit', (event) => {
 
 const getWeather = data => {
     if (userData) {
-        const article = document.querySelector('#current-weather')
+        const article = document.querySelector('#current')
         article.textContent = `${data.nearest_area[0].areaName[0].value.toUpperCase()}
         Area: ${data.nearest_area[0].areaName[0].value}
         Region: ${data.nearest_area[0].region[0].value}
@@ -38,8 +38,10 @@ const getWeather = data => {
         const article4 = document.querySelector('#day-after-tomorrow')
         article4.textContent = `TODAY \nAverage Temperature: ${data.weather[2].avgtempF} \nMax Temperature: ${data.weather[2].maxtempF} \nMin Temperature: ${data.weather[2].mintempF}`
 
-    } else {
-        error
+    }
+
+    if (userData) {
+
     }
 }
 
