@@ -22,11 +22,11 @@ h1 {
     /* display: inline-block; */
 }
 
-/* h4 {
-    /* text-align: end; */
-    /* margin-top: 0; */
-    /* display: inline-block; */
-/* } */ 
+ h4 {
+     text-align: right; 
+    /* margin-top: 0; 
+    display: inline-block;  */
+ } 
 
 main {
     background-color: lightgrey;
@@ -49,8 +49,16 @@ main {
 
 #after {
     display: inline-block;
+
+
 }
 
+
+.noPreSe {
+    text-align: right;
+    padding-top: 0%;
+
+}
 /* .grid-container {
     display: inline-block;
 } */
