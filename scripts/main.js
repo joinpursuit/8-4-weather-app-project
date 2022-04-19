@@ -26,8 +26,8 @@ let searches = {};
 const handleSubmit = (e) => {
     e.preventDefault();
     const { target } = e;
-
     const input = target.location.value.trim();
+    
     if (!input) return;
     target.location.value = '';
 
