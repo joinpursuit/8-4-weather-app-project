@@ -74,11 +74,11 @@ const threeDay = document.querySelector("#three-day");
 threeDay.append(today, tomorrow, dayAfter);
 
 function displayThreeDays(weather) {
-  today.innerHTML = `<strong>Today</strong> <br /> <strong>Average Temperature:</strong> ${weather.weather[0].avgtempF}\u00B0F <br /> <strong>Max Temperature:</strong> ${weather.weather[0].maxtempF}\u00B0F <br /> <strong>Min Temperature:</strong> ${weather.weather[0].mintempF}\u00B0F`;
+  today.innerHTML = `<strong>Today</strong> <br /><br /> <strong>Average Temperature:</strong> ${weather.weather[0].avgtempF}\u00B0F <br /> <br /><strong>Max Temperature:</strong> ${weather.weather[0].maxtempF}\u00B0F <br /><br /> <strong>Min Temperature:</strong> ${weather.weather[0].mintempF}\u00B0F`;
 
-  tomorrow.innerHTML = `<strong>Tomorrow</strong> <br /> <strong>Average Temperature:</strong> ${weather.weather[1].avgtempF}\u00B0F <br /> <strong>Max Temperature: </strong> ${weather.weather[1].maxtempF}\u00B0F <br /> <strong>Min Temperature: </strong> ${weather.weather[1].mintempF}\u00B0F`;
+  tomorrow.innerHTML = `<strong>Tomorrow</strong> <br /><br /> <strong>Average Temperature:</strong> ${weather.weather[1].avgtempF}\u00B0F <br /> <br /><strong>Max Temperature: </strong> ${weather.weather[1].maxtempF}\u00B0F <br /><br /> <strong>Min Temperature: </strong> ${weather.weather[1].mintempF}\u00B0F`;
 
-  dayAfter.innerHTML = `<strong>Day After Tomorrow</strong> <br /> <strong>Average Temperature:</strong> ${weather.weather[2].avgtempF}\u00B0F <br /> <strong>Max Temperature: </strong> ${weather.weather[2].maxtempF}\u00B0F <br /> <strong>Min Temperature: </strong> ${weather.weather[2].mintempF}\u00B0F`;
+  dayAfter.innerHTML = `<strong>Day After Tomorrow</strong> <br /><br /> <strong>Average Temperature:</strong> ${weather.weather[2].avgtempF}\u00B0F <br /><br /> <strong>Max Temperature: </strong> ${weather.weather[2].maxtempF}\u00B0F <br /><br /> <strong>Min Temperature: </strong> ${weather.weather[2].mintempF}\u00B0F`;
 }
 
 const previousList = document.querySelector(".previous ul");
@@ -91,27 +91,27 @@ function addListItem(input, weather) {
   searchLink.innerHTML = `<a href='#'>${input}</a> - ${weather.current_condition[0].FeelsLikeF}\u00B0F`;
 
   listItem.append(searchLink);
-  previousP.textContent = "";
+  previousP.remove();
   previousList.prepend(listItem);
 
   searchLink.addEventListener("click", (event) => {
-    event.preventDefault();
-    const inputTwo = event.target.textContent;
-    getWeather(inputTwo);
+    getWeather(event.target.textContent);
   });
 }
 
 function removeDulplicateLi(input) {
-  const searchList = document.querySelectorAll("aside section ul li a");
-  let hasInput = false;
-
-  searchList.forEach((el) => {
-    if (el.textContent.includes(input)) {
-      hasInput = true;
+    const searchList = document.querySelectorAll("aside section ul li a");
+    let hasInput = false;
+  
+    searchList.forEach((el) => {
+      if (el.textContent.includes(input)) {
+        hasInput = true;
+      }
+    });
+  
+    if (!hasInput) {
+      addListItem(input, weather);
     }
-  });
-
-  if (!hasInput) {
-    addListItem(input, weather);
   }
-}
+
+
