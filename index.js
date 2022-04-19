@@ -6,6 +6,7 @@ const input = document.querySelector("#Adnan");
 
 // Query selecting the articles from the main
 const result = document.querySelector("#result");
+const img = document.querySelector("img");
 const placeholder = document.querySelector("#placeholder");
 const display = document.querySelector("#display");
 const Accra = document.querySelector("#Accra");
@@ -19,10 +20,12 @@ const today = document.querySelector("#today");
 const tomorrow = document.querySelector("#tomorrow");
 const dayAfter = document.querySelector("#dayAfter");
 
+// Query selectiing additional features with the chances of sunshine, rain, or snow
 const sunshine = document.querySelector("#sunshine");
 const rain = document.querySelector("#rain");
 const snow = document.querySelector("#snow");
 
+// Query selecting the html elements that will display the values of today, tomorrow and dayAfterTomorrow
 const avgtemp1 = document.querySelector("#avgtemp1");
 const maxtemp1 = document.querySelector("#maxtemp1");
 const mintemp1 = document.querySelector("#mintemp1");
@@ -38,7 +41,16 @@ const right = document.querySelector("#right");
 const ullist = document.querySelector("#ullist");
 const olds = document.querySelector("#olds");
 
+// Query selecting the aside that contains the convertions details
+const converter = document.querySelector("#converter");
+const convert = document.querySelector("#convert");
+const tempToConvert = document.querySelector("#temp-to-convert");
+const toC = document.querySelector("#to-c");
+const toF = document.querySelector("#to-f");
+const converted = document.querySelector("#converted");
+
 // let weatherData;
+// starting up with the event listener
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   let userEntry = input.value;
@@ -54,7 +66,7 @@ form.addEventListener("submit", (event) => {
       Accra.innerHTML = city;
       // area.innerHTML = `<strong>Area: </strong>${weatherData.nearest_area[0].areaName[0].value}`;
       const cityName = weatherData.nearest_area[0].areaName[0].value;
-      if (cityName.toLowerCase() === city.toLowerCase()) {
+      if (cityName.toLowerCase() === userEntry.toLowerCase()) {
         area.innerHTML = `<strong>Area: </strong>${weatherData.nearest_area[0].areaName[0].value}`;
       } else {
         area.innerHTML = `<strong>Nearest Area: </strong>${weatherData.nearest_area[0].areaName[0].value}`;
@@ -66,7 +78,7 @@ form.addEventListener("submit", (event) => {
       rain.innerHTML = `<strong>Chance of Rain: </strong> ${weatherData.weather[0]["hourly"][0]["chanceofrain"]}`;
       snow.innerHTML = `<strong>Chance of Snow: </strong> ${weatherData.weather[0]["hourly"][0]["chanceofsnow"]}`;
 
-      // aside with 3 articles
+      // reomving the hidden style from the 3 forecast days so it can show inside after the event listening
       today.classList.remove("hidden");
       tomorrow.classList.remove("hidden");
       dayAfter.classList.remove("hidden");
@@ -89,24 +101,27 @@ form.addEventListener("submit", (event) => {
       list.innerHTML = `<a href="#${city}">${city}</a> - ${weatherData.current_condition[0].FeelsLikeF}°F`;
       ullist.append(list);
 
-      // if certain weather, display certain condition
+      // conditionals to display the right image for a particular weather condition
       if (weatherData.weather[0]["hourly"][0]["chanceofsunshine"] > 50) {
-        img = document.createElement("img");
+        // img = document.createElement("img");
+        img.classList.remove("hidden")
         img.setAttribute("src", "./assets/icons8-summer.gif");
         img.setAttribute("alt", "sun");
         display.prepend(img);
-      }
-      if (weatherData.weather[0]["hourly"][0]["chanceofrain"] > 50) {
-        img = document.createElement("img");
+      }else if (weatherData.weather[0]["hourly"][0]["chanceofrain"] > 50) {
+        // img = document.createElement("img");
+        img.classList.remove("hidden")
         img.setAttribute("src", "./assets/icons8-torrential-rain.gif");
         img.setAttribute("alt", "rain");
         display.prepend(img);
-      }
-      if (weatherData.weather[0]["hourly"][0]["chanceofsnow"] > 50) {
-        img = document.createElement("img");
+      }else if (weatherData.weather[0]["hourly"][0]["chanceofsnow"] > 50) {
+        // img = document.createElement("img");
+        img.classList.remove("hidden")
         img.setAttribute("src", "./assets/icons8-light-snow.gif");
         img.setAttribute("alt", "snow");
         display.prepend(img);
+      } else {
+        img.classList.add("hidden");
       }
     })
     .catch((error) => {
@@ -114,9 +129,22 @@ form.addEventListener("submit", (event) => {
     });
   form.reset();
 });
-// const main = document.createElement("main");
-// const article1 = document.createElement("article");
-// const article2 = document.createElement("article");
-// const article3 = document.createElement("article");
-// main.append(article1, article2, article3);
-// const aside = document.createElement("aside");
+
+// An event listener for the convertion of temperatures
+convert.addEventListener("submit", (event) =>{
+  event.preventDefault();
+
+  let result = 0
+  if(toC.checked){
+  result = (tempToConvert.value - 32) * (5/9)
+  }
+  if(toF.checked){
+  result = (tempToConvert.value * 9/5) + 32 
+  }
+
+  converted.innerHTML = result.toFixed(2);
+})
+
+
+
+
