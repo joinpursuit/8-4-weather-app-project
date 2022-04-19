@@ -85,7 +85,7 @@ form.addEventListener("submit", (event) => {
       //________________________________________________
       previous.classList.add("hidden");
       const listItem = document.createElement("li");
-      listItem.innerHTML = `<a href="#${userInput}">${userInput}</a> - ${weatherFile.current_condition[0].FeelsLikeF}°F`;
+      listItem.innerHTML = `<a href="#${userInput}">${city}</a> - ${weatherFile.current_condition[0].FeelsLikeF}°F`;
       list.append(listItem);
 
       //Weather icon, if certain weather, display certain icon.
