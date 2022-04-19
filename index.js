@@ -44,7 +44,7 @@ function acqWea2(weaInfo, input) {
 
         const h2 = document.createElement("h2");
         const area = document.createElement("p");
-            h2.textContent = input;
+            h2.textContent = input
             area.innerHTML = `<strong> Nearest Area: </strong> ${nArea}`;//
             currentWeather.append(h2, area);
     
