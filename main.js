@@ -1,28 +1,31 @@
+document.body.style.backgroundSize = 'cover'
 const locationSearch = document.querySelector("#search");
 locationSearch.addEventListener("submit", (event) => {
   event.preventDefault();
   const searchInput = event.target.location.value;
-
+  
   let appropoSearchSyntax =
-    searchInput.charAt(0).toUpperCase() + searchInput.slice(1);
-
+  searchInput.charAt(0).toUpperCase() + searchInput.slice(1);
+  
   getApiData(appropoSearchSyntax, searchInput);
   event.target.location.value = "";
 });
 
 function getApiData(appropoSearchSyntax, searchInput) {
   fetch("https://wttr.in/" + searchInput + "?format=j1")
-    .then((response) => response.json())
-    .then((json) => {
-      const listArr = [];
-      showTheWeather(json, listArr, appropoSearchSyntax, searchInput);
-    });
+  .then((response) => response.json())
+  .then((json) => {
+    const listArr = [];
+    showTheWeather(json, listArr, appropoSearchSyntax, searchInput);
+  });
 }
 
 function showTheWeather(json, listArr, appropoSearchSyntax, searchInput) {
+  document.querySelector('.wrap3').style.visibility = 'visible'
   document.querySelector("#current-weather").textContent = "";
   document.querySelector(".wrap2 p").style.display = "none";
   document.querySelector("#sideBar p").style.display = "none";
+  document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + searchInput + "')"
   
   let h2 = document.createElement("h2");
   let area = document.createElement("p");
@@ -69,6 +72,8 @@ function showTheWeather(json, listArr, appropoSearchSyntax, searchInput) {
     .querySelector("#current-weather")
     .prepend(img);
   }
+  
+  
 
   document
   .querySelector("#current-weather")
@@ -127,6 +132,7 @@ function showTheWeather(json, listArr, appropoSearchSyntax, searchInput) {
   const link = document.createElement("a");
   link.textContent = json.nearest_area[0].areaName[0].value;
   link.setAttribute("href", "#");
+  link.style.color = 'white'
   
   const previousSearches = document.createElement("li");
   previousSearches.textContent = ` - ${json.current_condition[0].FeelsLikeF}°F`;
@@ -141,5 +147,7 @@ function showTheWeather(json, listArr, appropoSearchSyntax, searchInput) {
   showTheWeather(json, listArr, appropoSearchSyntax, searchInput)
   );
 
-  document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + searchInput + "')"
+ 
+
 }
+
