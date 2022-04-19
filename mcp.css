@@ -30,7 +30,7 @@
   grid-row: 1 / 2;
   display: flex;
   box-shadow: -5px 5px silver;
-  background: rgba(211, 211, 211, 0.68);
+  background:#414240;
   margin: 5px;
   border-radius: 5px;
   align-items: center;
@@ -105,4 +105,12 @@ body {
 }
 .label {
   font-weight: bold;
+}
+input{
+  background-color:#151615;
+  border-color:#625a4d;
+  color:#c9c1b3;
+}
+a{
+  color:#4377b2;
 }
