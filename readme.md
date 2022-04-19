@@ -83,7 +83,7 @@ In particular, make sure the following is true:
 
 After searching, your page should look similar to the screenshot below.
 
-![Weather App after making a single search.](./assets/single-search.png)
+![Weather App after making a single search.](./assets/si,,,,,,,,,,,,,ngle-search.png)
 
 In particular, make sure to include the following:
 
