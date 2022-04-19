@@ -17,7 +17,7 @@ h6 {
 header{
     border: 3px black solid;
     text-align: center;
-    background-color: cadetblue;
+    background-color: rgba(50, 91, 205, 0.246);
     color: white;
     margin-left: 10%;
     margin-right: 10%;
@@ -33,7 +33,7 @@ header{
     margin-left: 5%;
     width: 80%;
     height: 100%;
-    border: 3px rgb(114, 166, 168) solid;
+    border: 3px rgb(168, 164, 114) solid;
     background-color: rgb(240, 234, 234);
   }
 
@@ -50,7 +50,7 @@ header{
 }
 .weather{
   text-align: center;
-  border: 2px rgb(114, 166, 168) solid;
+  border: 2px rgba(50, 91, 205, 0.246) solid;
   background-color: rgb(240, 234, 234);
 
 }
