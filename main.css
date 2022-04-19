@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
+  background-color: rgb(243, 246, 216);
 }
 
 h1,
@@ -17,7 +18,7 @@ h6 {
 header{
     border: 3px black solid;
     text-align: center;
-    background-color: rgba(50, 91, 205, 0.246);
+    background-color: rgba(46, 94, 226, 0.246);
     color: white;
     margin-left: 10%;
     margin-right: 10%;
@@ -51,7 +52,7 @@ header{
 .weather{
   text-align: center;
   border: 2px rgba(50, 91, 205, 0.246) solid;
-  background-color: rgb(240, 234, 234);
+  background-color: rgb(213, 220, 185);
 
 }
 .widget{
