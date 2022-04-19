@@ -5,8 +5,8 @@ const urlFormat = "?format=j1";
 
 let data;
 const form = document.querySelector('form'); // <= selecting form 
-const currentWeather = document.querySelector("#currentWeather");
 const ul = document.querySelector("ul"); 
+const currentWeather = document.querySelector("#currentWeather");
 const previousSearch = document.querySelector("section p");//no previous searches 
 
 //temperature widget =>

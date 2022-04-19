@@ -19,18 +19,16 @@ main {
     grid-template-rows: 1fr 1fr;
 }
 
-.days {
-    opacity: 80%;
-    display:grid;
-    grid-template-columns:1fr 1fr 1.50fr;
-    text-align: center;
-}
-
-
 #infoBoxes {
     opacity: 90%;
     display: grid;
     grid-column: 3/6;
+}
+
+#previousSearch {
+    opacity: 90%;
+text-align: left;
+background-color: cyan;
 }
 
 #currentWeather {
@@ -45,15 +43,6 @@ main {
     height: auto;
 
 }
-
-#upcoming {
-   
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    height:auto;
-    background-color: cyan;
-}
-
 
 .futureWeather {
     display:grid;
@@ -70,15 +59,24 @@ main {
     background-color: cyan;
 }
 
-#previousSearch {
-    opacity: 90%;
-text-align: left;
-background-color: cyan;
-}
-
 ul {
     text-align: left; 
     background-color: cyan;
+}
+
+#upcoming {
+   
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height:auto;
+    background-color: cyan;
+}
+
+.days {
+    opacity: 80%;
+    display:grid;
+    grid-template-columns:1fr 1fr 1.50fr;
+    text-align: center;
 }
 
 img {
