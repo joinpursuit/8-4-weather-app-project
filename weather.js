@@ -39,10 +39,6 @@ const getWeather = data => {
         article4.textContent = `TODAY \nAverage Temperature: ${data.weather[2].avgtempF} \nMax Temperature: ${data.weather[2].maxtempF} \nMin Temperature: ${data.weather[2].mintempF}`
 
     }
-
-    if (userData) {
-
-    }
 }
 
 

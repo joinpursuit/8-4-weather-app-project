@@ -10,11 +10,13 @@ body {
     padding: auto, 10px;
     margin: auto 140px;
     grid-row-gap: 30px;
+    background-image: url("https://images.theconversation.com/files/232705/original/file-20180820-30593-1nxanpj.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop")
 }
 
 header {
     grid-area: header;
     background-color: teal;
+    opacity: 0.8;
     border: 2px solid black;
     color: white;
     text-align: center;
@@ -25,6 +27,7 @@ header {
     text-align: center;
     border: 1px solid teal;
     background-color: lightgray;
+    opacity: 0.8;
     margin: 10px;
     padding: 40px;
 }
@@ -50,6 +53,6 @@ main {
 }
   
 #widget {
-    grid-area: converter;
+    grid-area: widget;
     /* border: 2px solid red; */
 }
