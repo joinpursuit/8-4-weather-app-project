@@ -1,3 +1,6 @@
+body {
+  background-color: ivory;
+}
 
 header {
     text-align: center;
@@ -47,6 +50,7 @@ header {
     background: rgb(243, 243, 243);
     padding: 30px 0;
     text-align: center;
+    background-color: grey;
   }
   
   .weather-info {
@@ -75,5 +79,4 @@ header {
     text-decoration: underline;
     cursor: pointer;
   }
-  
   

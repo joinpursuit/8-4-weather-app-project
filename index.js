@@ -130,7 +130,7 @@ function updateHTML({
         ${createItem("Country", country)}
         ${createItem(
           "Currently",
-          `Feels Like ${feelsLikeF}°F / ${feelsLikeC}°C`
+          `Feels Like ${feelsLikeF}°F`
         )}
         ${createItem("Chance of Sunshine", chanceOfSunshine + "%")}
         ${createItem("Chance of Rain", chanceOfRain + "%")}
