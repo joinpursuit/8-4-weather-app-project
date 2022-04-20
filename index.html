@@ -15,15 +15,36 @@
         <h1>Weather App</h1>
         <form id="search">
           <label for="location-picker"></label>
-          <input id="location-picker" name="location" type="text" placeholder="Search a city" />
-          <label for="submit" ></label>
-          <input id="submit" type="submit" value="Get Weather" />
+          <input
+            id="location-picker"
+            name="location"
+            type="text"
+            placeholder="Search a city"
+          />
+          <label for="submit"></label>
+          <input class="submit" type="submit" value="Get Weather" />
         </form>
-        <br/>
+        <br />
       </div>
     </header>
-    <aside id="conversion-widget"></aside>
     <main>
+      <aside>
+        <form id="convert-tool">
+          <div id="convertPWrap">
+            <p>Click here to convert the temp</p>
+          </div>
+          <div id="convert-panel">
+            <label>Conversion Tool</label>
+            <input type="number" id="convertInput" name="temp" />
+            <input type="radio" id="celsius" name="convert-temp" />
+            <label>°C</label>
+            <input type="radio" id="farenheight" name="convert-temp" />
+            <label>°F</label>
+            <input class="submit" type="submit" />
+            <h4 id="conResult"></h4>
+          </div>
+        </form>
+      </aside>
       <div class="wrap2">
         <p>Choose a location to view the weather.</p>
         <article id="current-weather"></article>
