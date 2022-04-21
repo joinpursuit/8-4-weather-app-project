@@ -8,11 +8,10 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const searchInput = event.target.location.value;
   //4
-  if(searchInput === ""){
-      alert("Input Location")
-  }
-  else{
-  getApiData(searchInput);
+  if (searchInput === "") {
+    alert("Input Location");
+  } else {
+    getApiData(searchInput);
   }
 });
 
@@ -179,9 +178,16 @@ const convertForm = document.querySelector("#conform");
 convertForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const tempConvert = event.target.temp.value;
-  convertTemp(tempConvert);
+  convertTemp(tempConvert, event);
 });
-function convertTemp(tempConvert) {
-    
-  
+function convertTemp(tempConvert, event) {
+  const result = document.querySelector("#conResult");
+  if (tempConvert === "") {
+    alert("Please add Conversion");
+  }
+  if (event.target[2].checked) {
+    result.textContent = (tempConvert * (9 / 5) + 32).toFixed(2);
+  } else {
+    result.textContent = ((tempConvert - 32) * (5 / 9)).toFixed(2);
+  }
 }
