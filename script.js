@@ -44,7 +44,7 @@ const converted = document.querySelector("#converted");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   let userInput = input.value;
-  let city = userInput[0].toUpperCase() + userInput.slice(1);
+  let city = userInput;
   fetch(`https://wttr.in/${userInput}?format=j1`)
     .then((response) => response.json())
     .then((response) => {
