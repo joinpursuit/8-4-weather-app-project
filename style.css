@@ -116,5 +116,15 @@ body {
   border-radius: 15px;
 }
 
+#conResult {
+  text-align: center;
+}
 
-
+input#temp-to-convert {
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  background: #7c7c7c5b;
+  color: white;
+  font-size: 85%;
+}
