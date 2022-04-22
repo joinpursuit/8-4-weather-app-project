@@ -1,0 +1,77 @@
+.hidden {
+  display: none;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "header header header header header"
+    "converter main main main aside"
+    "converter below below below aside";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 130px 1fr 1fr 1fr;
+}
+
+header {
+  grid-area: header;
+  background-color: rgb(48, 126, 100);
+  border: 1px solid black;
+  color: white;
+  text-align: center;
+}
+
+main {
+  grid-area: main;
+  text-align: center;
+  margin: 10px;
+}
+
+#result {
+  border: 1px solid green;
+  margin-bottom: 10px;
+  background-color: rgb(227, 224, 224);
+  padding-top: 20px;
+}
+
+#below {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* border: 1px solid green; */
+  background-color: rgb(227, 224, 224);
+  column-gap: 5px;
+}
+#today {
+  /* grid-area: today; */
+  /* grid-template-columns: 1fr; */
+  /* background-color: rgb(227, 224, 224); */
+  text-align: center;
+  border: 1px solid green;
+}
+#tomorrow {
+  /* grid-area: tomorrow; */
+  /* background-color: rgb(227, 224, 224); */
+  text-align: center;
+  border: 1px solid green;
+}
+#dayAfter {
+  /* grid-area: dayAfter; */
+  /* background-color: rgb(227, 224, 224); */
+  text-align: center;
+  border: 1px solid green;
+}
+
+#prev {
+  grid-area: aside;
+}
+#below {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* border: 1px solid green; */
+  background-color: rgb(227, 224, 224);
+}
+
+#converter {
+  grid-area: converter;
+  margin-top: 10px;
+
+}
