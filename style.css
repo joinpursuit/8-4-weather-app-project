@@ -1,0 +1,181 @@
+html {
+    /* background-color: black; */
+    font-family: monospace;
+    font-size: larger
+
+}
+
+header {
+    background-color: #407e7f;
+    border: 3px solid black;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+#locationForm {
+    margin-bottom: 20px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    margin-top: 15px;
+}
+
+/* GRID LAYOUTS */
+#mainWeather {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+#previousSearches {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+}
+
+#previousSearches section ul li a {
+    text-decoration: none;
+}
+
+#previousSearches section ul li a:hover {
+    color: green;
+}
+
+#threeDay {
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+}
+
+#tempWidget {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+
+/* Styling */
+#mainWeather {
+    background-color: lightgray;
+    border: 2px solid #407e7f;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 8px;
+}
+
+.mainWeatherP {
+    margin: 5px;
+}
+
+#locationP {
+    font-size: 2vw;
+}
+
+#icon {
+    max-height: 150px;
+    max-width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    
+}
+
+
+#previousSearches {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: lightgray;
+    border: 2px solid #407e7f;
+    border-radius: 5px;
+    margin: 8px;
+}
+
+#tempWidget {
+    background-color: lightgray;
+    border: 2px solid #407e7f;
+    border-radius: 5px;
+    margin: 8px;
+}
+
+#tempForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#tempLabel {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#temp-to-convert {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+#tempRadios {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#tempButton {
+    margin-top: 10px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+#tempResult {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#threeDay {
+    display: flex;
+    justify-content: space-around;
+}
+
+.three {
+    border-radius: 5px;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 8px;
+}
+
+.three p {
+    margin: 5px;
+    text-align: center;
+}
+
+.three h3 {
+    text-align: center;
+    margin: 5px;
+}
+
+/* FOR SEARCH HISTORY */
+
+#searchHistory {
+    /* list-style: none; */
+}
+
+#searchHistory li {
+    margin-left: 0px;
+    text-align: left;
+}
+
