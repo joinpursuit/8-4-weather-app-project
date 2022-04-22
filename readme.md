@@ -69,13 +69,16 @@ In particular, make sure the following is true:
 - [ ] There is a header that includes
   - [ ] The application's title
   - [ ] a search form with a label, text input, and submit input
+
 - [ ] `aside` (will contain a temperature conversion widget), starts empty
 - [ ] The `main `section of the page contains placeholder text and contain the following elements:
+
   - [ ] `article` - this will contain the current weather (starts empty)
   - [ ] `aside` - this will contain 3 `article` elements that will have upcoming weather (starts empty)
 - [ ] `aside` (will contain weather history)
   - [ ] `section`
   - [ ] `h4` with the text `Previous Searches`
+  
 - [ ] The sidebar includes an empty `ul` and a message inside a `p` element that lets the user know no searches have been made yet
 - [ ] CSS Grid should be used to structure the page
 
@@ -83,10 +86,9 @@ In particular, make sure the following is true:
 
 After searching, your page should look similar to the screenshot below.
 
-![Weather App after making a single search.](./assets/single-search.png)
+![Weather App after making a single search.](./assets/si,,,,,,,,,,,,,ngle-search.png)
 
 In particular, make sure to include the following:
-
 - [ ] The main section of the page should be filled in with relevant information received from the API. (More detailed information below.)
 - [ ] Three sections below the main section should show information for the next few days.
 - [ ] CSS Grid should be used throughout to structure the page.
