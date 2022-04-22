@@ -54,7 +54,7 @@ const converted = document.querySelector("#converted");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   let userEntry = input.value;
-  let city = userEntry[0].toUpperCase() + userEntry.slice(1);
+  let city = userEntry;
   fetch(`https://wttr.in/${userEntry}?format=j1`)
     .then((response) => response.json())
     .then((response) => {
@@ -70,7 +70,7 @@ form.addEventListener("submit", (event) => {
         area.innerHTML = `<strong>Area: </strong>${weatherData.nearest_area[0].areaName[0].value}`;
       } else {
         area.innerHTML = `<strong>Nearest Area: </strong>${weatherData.nearest_area[0].areaName[0].value}`;
-      };
+      }
       region.innerHTML = `<strong>Region: </strong>${weatherData.nearest_area[0].region[0].value}`;
       country.innerHTML = `<strong>Country: </strong>${weatherData.nearest_area[0].country[0].value}`;
       currently.innerHTML = `<strong>Currently: </strong>Feels Like ${weatherData.current_condition[0].FeelsLikeF}°F`;
@@ -104,19 +104,19 @@ form.addEventListener("submit", (event) => {
       // conditionals to display the right image for a particular weather condition
       if (weatherData.weather[0]["hourly"][0]["chanceofsunshine"] > 50) {
         // img = document.createElement("img");
-        img.classList.remove("hidden")
+        img.classList.remove("hidden");
         img.setAttribute("src", "./assets/icons8-summer.gif");
         img.setAttribute("alt", "sun");
         display.prepend(img);
-      }else if (weatherData.weather[0]["hourly"][0]["chanceofrain"] > 50) {
+      } else if (weatherData.weather[0]["hourly"][0]["chanceofrain"] > 50) {
         // img = document.createElement("img");
-        img.classList.remove("hidden")
+        img.classList.remove("hidden");
         img.setAttribute("src", "./assets/icons8-torrential-rain.gif");
         img.setAttribute("alt", "rain");
         display.prepend(img);
-      }else if (weatherData.weather[0]["hourly"][0]["chanceofsnow"] > 50) {
+      } else if (weatherData.weather[0]["hourly"][0]["chanceofsnow"] > 50) {
         // img = document.createElement("img");
-        img.classList.remove("hidden")
+        img.classList.remove("hidden");
         img.setAttribute("src", "./assets/icons8-light-snow.gif");
         img.setAttribute("alt", "snow");
         display.prepend(img);
@@ -131,20 +131,16 @@ form.addEventListener("submit", (event) => {
 });
 
 // An event listener for the convertion of temperatures
-convert.addEventListener("submit", (event) =>{
+convert.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  let result = 0
-  if(toC.checked){
-  result = (tempToConvert.value - 32) * (5/9)
+  let result = 0;
+  if (toC.checked) {
+    result = (tempToConvert.value - 32) * (5 / 9);
   }
-  if(toF.checked){
-  result = (tempToConvert.value * 9/5) + 32 
+  if (toF.checked) {
+    result = (tempToConvert.value * 9) / 5 + 32;
   }
 
   converted.innerHTML = result.toFixed(2);
-})
-
-
-
-
+});

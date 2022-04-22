@@ -38,20 +38,24 @@ main {
   grid-template-columns: 1fr 1fr 1fr;
   /* border: 1px solid green; */
   background-color: rgb(227, 224, 224);
+  column-gap: 5px;
 }
 #today {
   /* grid-area: today; */
   /* grid-template-columns: 1fr; */
+  /* background-color: rgb(227, 224, 224); */
   text-align: center;
   border: 1px solid green;
 }
 #tomorrow {
   /* grid-area: tomorrow; */
+  /* background-color: rgb(227, 224, 224); */
   text-align: center;
   border: 1px solid green;
 }
 #dayAfter {
   /* grid-area: dayAfter; */
+  /* background-color: rgb(227, 224, 224); */
   text-align: center;
   border: 1px solid green;
 }
@@ -68,5 +72,6 @@ main {
 
 #converter {
   grid-area: converter;
+  margin-top: 10px;
 
 }
