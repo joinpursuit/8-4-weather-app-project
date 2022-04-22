@@ -1,0 +1,107 @@
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "header header header header header"
+        "aside main main main aside2"
+        "aside main main main aside2";
+}
+
+header {
+    grid-area: header;
+    background-color: rgb(51, 123, 122);
+    text-align: center;
+    padding: 20px;
+    color: white;
+    border-radius: 10px;
+}
+
+aside {
+    grid-area: aside;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(211, 219, 219);
+    padding: 0 20px;
+}
+
+main {
+    grid-area: main;
+    border-radius: 10px;
+
+}
+
+main img{
+    border-radius: 10px;
+}
+#history {
+    grid-area: aside2;
+    text-align: center;
+}
+
+.article {
+    display: inline-block;
+    text-align: center;
+    border: 1px solid salmon;
+
+}
+
+.shaded {
+    background-color: rgb(211, 219, 219);
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 25px;
+    border-radius: 10px;
+
+}
+
+.threeDay {
+    display: flex;
+    border: 1px solid rgb(51, 123, 122);
+    margin-bottom:20px;
+}
+
+.three {
+    
+    width: 100%;
+    text-align: center;
+    padding: 20px 0px;
+}
+.convert{
+    padding-top: 20px;
+}
+
+@media (max-width: 850px) and (min-width: 700px) {
+    .threeDay {
+        display: flex;
+        flex-direction: column;
+        
+    }
+  
+}
+@media (max-width:700px) {
+    .container {
+        display: flex;
+     flex-direction: column;
+    } 
+    .convert {
+        margin-top: 20px;
+    }
+}
+@media (max-width:355px) {
+    .container {
+        display: flex;
+     flex-direction: column;
+    } 
+    .threeDay {
+    
+        flex-direction: column;
+    
+    }
+    .convert {
+        padding-top: 20px;
+        margin-top: 20px;
+    }
+}
