@@ -162,8 +162,8 @@ You will need to research the conversion formulas. Limit the results to no more 
 
 ### API
 
-The [wttr.in API](https://github.com/chubin/wttr.in) can be used from the command line to display weather information in your terminal. However, you will need to use the JSON format to integrate it into your web application. Read the documentation on the linked GitHub to see how to use the API.
+The [wttr.in API](https://github.com/ch tr.in) can be used from the command line to display weather information in your terminal. However, you will need to use the JSON format to integrate it into your web application. Read the documentation on the linked GitHub to see how to use the API.
 
 The section below describes specifically how to make a request to the API so that it returns JSON.
 
-- [wttr.in: JSON Output](https://github.com/chubin/wttr.in#json-output)
+- [wttr.in: JSON Output](https://githxub.com/chubin/wttr.in#json-output)
