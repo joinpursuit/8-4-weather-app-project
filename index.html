@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather App</title>
+        <link rel="stylesheet" href="style.css" />
+    <script defer src="main.js"></script>
+    </head>
+        <header id="header">
+            <h1>Weather App</h1>
+            <form id="getWeather">
+                <label>Pick a Location</label>
+                <input id="location" name="location" type="text"/>
+                <input type="submit" value="Get Weather">
+            </form>
+        </header>
+        <body>
+            <div id="container">
+                <!-- SECTION ONE #widget-->
+            <aside id="widget">
+                <!-- cotains temp conversion widget -->
+                <form id=convertTemp>
+                    <label for="temp-to-convert">Convert The Temperature:</label>
+                    <br>
+                    <input name="degrees" id="temp-to-convert" type="number">
+                    <br>
+                        <input type="radio" name="to-c" id="to-c">°C
+                        <br>
+                        <input type="radio" name="to-f" id="to-f">°F
+                        <br>
+                    <input type="submit" value="submit">
+                    <br>
+                </form>
+                <h4 id="output"></h4>
+            </aside>
+             <!-- SECTION TWO #mainConent-->
+            <main id="mainContent"> 
+                <article id="current">
+                    <!-- contains current weather on top -->
+                </article>
+                <aside id="three">
+                    <article id="today">
+                        <!-- article 1 -->
+                    </article>
+                    <article id="tomorrow">
+                        <!-- article 2 -->
+                    </article>
+                    <article id="dayAfter">
+                        <!-- article 3 -->
+                    </article>
+                </aside>
+            </main>
+               <!-- SECTION THREE #sidebar-->
+            <aside class="sidebar">
+                <!-- weather history -->
+                <section>
+                    <h4>Previous Searches</h4>
+                    <ul id="myList">
+                        <!-- empty ul -->
+                    </ul>
+                    <p>No previous searches</p>
+                </section>
+            </aside>
+            </div>
+        </body>
+        </html>

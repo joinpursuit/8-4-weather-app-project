@@ -1,0 +1,47 @@
+#header { 
+    text-align: center;
+    border: solid black 3px;
+    background-color: teal;
+    color: white;
+    font-family: Arial;
+}
+#container {
+    display: flex;
+}
+
+#mainContent {
+   flex: 2
+}
+
+
+#sidebar {
+    font-family: Arial;
+    flex: 1;
+    position: fixed;
+}
+#widget {
+    position:fixed;
+    font-family: Arial;
+    flex: 1;
+}
+
+#current {
+    border: solid teal 1px;
+    text-align: center;
+    background-color: rgb(220, 223, 225);
+    padding: 10x;
+    font-family: Arial;
+}
+
+
+#three {
+   display: grid;
+   grid-template-columns:1fr 1fr 1fr;
+   text-align: center;
+   font-family: Arial;
+}
+
+
+#output {
+    font-weight: bold;
+}
