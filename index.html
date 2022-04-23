@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App Project</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="child1">
+            <h1>Weather App</h1>
+            <form id="weather">
+                <label>
+                    Pick a Location
+                    <input id="search-weather" name="search" type="text" />
+                    <input type="submit" value="Get Weather" />
+                </label>
+            </form>
+        </header>
+        <aside class="child2 widget">
+            <form>
+                <label>
+                    Convert the<br> temperature: 
+                    <br>
+                    <input  id="temp-to-convert" name="convert" type="number" />
+                </label>     
+                <br><br>
+                <label>
+                    To Celsius
+                    <input id="to-c" name="convert" type="radio" value="c" />
+                </label>
+                <br><br>
+                <label>
+                    To Fahrenheit
+                    <input id="to-f" name="convert" type="radio" value="f" />
+                </label>
+
+                <br><br>
+                <input type="submit" value="Submit" />
+                <br></br>
+                <h4></h4>
+            </form>
+        </aside>
+        <main class="child3">
+            <p>Choose a location to view the weather.</p>
+            <article></article>
+            
+        </main>
+        <aside class="next">
+            <article id="today" class="child5">
+        
+            </article>
+            <article id="tomorrow" class="child6">
+        
+            </article>
+            <article id="after" class="child7">
+        
+            </article>
+        </aside>
+        
+        <aside class="child4"> 
+            <section>
+                <h4>Previous Searches</h4>
+                <ul></ul>
+            </section>
+        </aside>
+    </div>
+</body>
+</html>
