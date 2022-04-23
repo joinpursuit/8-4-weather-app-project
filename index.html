@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8-4-Weather-Application-Project</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <!-- create a div with a class CONTAINER to manipulate this section in CSS -->
+    <div class="container">
+      <header>
+        <h1>Weather App</h1>
+        <!-- give the form an id "searchForm" to access in event listener and a class EVENT to manipulate in CSS -->
+        <form id="searchForm" class="event">
+          <section>
+            <label for="location"> Pick a location </label>
+            <input type="text" name="location" id="location" />
+            <input type="submit" value="Get Weather" />
+          </section>
+        </form>
+      </header>
+      <!-- create another div with the id "main" to access in HTML  -->
+      <div id="main">
+        <!-- aside for the Farenheit to Celcius conversion -->
+        <aside>
+          <!-- create a form tag with the id "convertForm" to access in event listener and class CONVERTFORM to manipulate in CSS -->
+          <form class="convert-form" id="convertForm">
+            <label for="temp-to-convert">Convert the temperature:</label>
+            <input type="number" name="temp-to-convert" id="temp-to-convert" />
+            <label for="to-c">
+              To Celsius
+              <!-- create radio buttons to convert Celcius to Farenheit  -->
+              <input type="radio" name="convert-temp" value="c" id="to-c" />
+            </label>
+            <label for="to-f">
+              <!-- create radio buttons to convert Farenheit to Celcius -->
+              To Fahrenheit
+              <input type="radio" name="convert-temp" value="f" id="to-f" />
+            </label>
+            <input type="submit" value="Convert" />
+            <!-- create a h4 tag to give the conversion result -->
+            <h4 id="tempCalcResult">0.00</h4>
+          </form>
+        </aside>
+        <!--  give main w/ info from API the class of DISPLAY to manipulate in CSS -->
+        <main class="display">
+          <!-- create a p tag with the class of DIPLAY-HOLDER to mainpulate in CSS with picture and area info-->
+          <p class="display-placeholder">
+            Choose a location to view the weather.
+          </p>
+          <article id="locationInfo"></article>
+          <!-- create another side to display 3 days of weather with article tags under the main display -->
+          <aside class="weather-info">
+            
+            <article id="weatherToday"></article>
+            <article id="weatherTomorrow"></article>
+            <article id="weatherDayAfter"></article>
+          </aside>
+        </main>
+        <!-- create another side tp give a link to the Previous search listing w/ the id "previousSearch" and the class of PAST fpr CSS manipulation -->
+        <aside id="previousSearch" class="past">
+          <section>
+            <h4>Previous Searches</h4>
+            <ul id="previousSearchUl">
+              <p id="previousSearchP">No previous searches</p>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </body>
+</html>
+
