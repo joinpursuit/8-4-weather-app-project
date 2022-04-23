@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App Project</title>
+    <link rel="stylesheet" href="./main.css" />
+    <script defer src="./main.js"></script>
+  </head>
+  <body>
+    <div class="grid-container">
+      <header>
+        <h1>Weather App</h1>
+        <form id="weather">
+          <label>
+            Pick a Location.
+            <input id="city" name="search" type="text" />
+            <input type="submit" value="Get Weather" />
+          </label>
+        </form>
+      </header>
+      <aside class="widget">
+        <form>
+          <label>
+            Convert the<br> temperature:
+            <br>
+            <input id="convert-to-temp" name="convert" type="number" />
+          </label>
+          <br><br>
+          <label>
+            To Celsius
+            <input id="to-cel" name="convert" type="radio" value="c" />
+          </label>
+          <br><br>
+          <label>
+            To Fahrenheit
+            <input id="to-fah" name="convert" type="radio" value="f" />
+          </label>
+
+          <br><br>
+          <input type="submit" value="Submit" />
+          <br><br>
+          <h4></h4>
+        </form>
+
+      </aside>
+      <main>
+        <h2></h2>
+        <article></article>
+      </main>
+        <aside>
+            <article id="today"></article>
+            <article id="tomorrow"></article>
+            <article id="after"></article>
+        </aside>
+        
+        <aside>
+           
+          </aside>
+          
+          <aside>
+            <section>
+              <h4>Previous Searches</h4>
+              <ul></ul>
+            </section>
+      </aside>
+    </div>
+  </body>
+</html>

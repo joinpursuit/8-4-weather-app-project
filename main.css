@@ -1,0 +1,64 @@
+header {
+    text-align: center;
+    border: 3px solid black;
+    background-color: rgb(23, 128, 128);
+    color: whitesmoke;
+    font-family: sans-serif;
+    font-weight: bold;
+    width: 70%;
+    /* margin: 25px auto; */
+    display: inline-block;
+    
+    
+}
+
+form {
+    padding-bottom: 30px;
+    display: inline-block;
+}
+
+h1 {
+    padding-top: 5px;
+    /* display: inline-block; */
+}
+
+ h4 {
+     text-align: right; 
+    /* margin-top: 0; 
+    display: inline-block;  */
+ } 
+
+main {
+    background-color: lightgrey;
+    text-align: center;
+    border: 1px solid green;
+    
+    width: 55%;
+    /* margin: 75px auto; */
+    display: inline-block;
+ 
+}
+
+#today {
+    display: inline-block;
+}
+
+#tomorrow {
+    display: inline-block;
+}
+
+#after {
+    display: inline-block;
+
+
+}
+
+
+.noPreSe {
+    text-align: right;
+    padding-top: 0%;
+
+}
+/* .grid-container {
+    display: inline-block;
+} */
