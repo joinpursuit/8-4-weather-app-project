@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Project</title>
+    <script defer src="./index.js"></script>
+    <link rel="stylesheet" href="./mcp.css">
+</head>
+
+<body>
+    <header id="search">
+        <h1>Weather App</h1>
+        <form id="form">
+            <label for="location">Pick a location</label>
+            <input id="location" name="location" type="text" />
+            <input type="submit" value="Get the weather">
+        </form>
+    </header>
+    <main id="primaryContainer">
+        <article id="currentWeather">
+            <p>Choose a location to view the weather</p>
+        </article>
+        <aside id="conversion">
+            <form id="widget">
+                <label for="temperature">Convert the temperature:</label>
+                <input id="temp-to-convert" name="temperature" type="number" />
+                <input type="submit" value="to" />
+                <p>
+                    <input type="radio" id="to-f" name="convert-temp" value="f"> ºF
+                    <input type="radio" id="to-c" name="convert-temp" value="c" checked> ºC
+                </p>
+                <h4 id="converted"></h4>
+            </form>
+
+        </aside>
+        <aside id="prevAside">
+            <section id="prevSearches">
+                <p id="prevSearchTitle"><strong>Previous Searches</strong></p>
+                <p id="noSearches">No previous searches</p>
+                <ul hidden id="searchList"></ul>
+            </section>
+        </aside>
+        <aside id="threeDayForecast">
+            <article hidden id="day1" class="threeDay">
+                <h3>Today</h4>
+            </article>
+            <article hidden id="day2" class="threeDay">
+                <h3>Tomorrow</h3>
+            </article>
+            <article hidden id="day3" class="threeDay">
+                <h3>Day After Tomorrow</h3>
+            </article>
+        </aside>
+    </main>
+</body>
+
+</html>
