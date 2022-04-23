@@ -20,11 +20,35 @@
           </label>
         </form>
       </header>
-      <aside></aside>
+      <aside class="widget">
+        <form>
+          <label>
+            Convert the<br> temperature:
+            <br>
+            <input id="convert-to-temp" name="convert" type="number" />
+          </label>
+          <br><br>
+          <label>
+            To Celsius
+            <input id="to-cel" name="convert" type="radio" value="c" />
+          </label>
+          <br><br>
+          <label>
+            To Fahrenheit
+            <input id="to-fah" name="convert" type="radio" value="f" />
+          </label>
+
+          <br><br>
+          <input type="submit" value="Submit" />
+          <br><br>
+          <h4></h4>
+        </form>
+
+      </aside>
       <main>
         <h2></h2>
         <article></article>
-    </main>
+      </main>
         <aside>
             <article id="today"></article>
             <article id="tomorrow"></article>
@@ -32,14 +56,14 @@
         </aside>
         
         <aside>
-            <!-- will contain weather history -->
-            <section></section>
-            
-            <h4>Previous Searches</h4>
-        </aside>
-        <aside>
-            <p class="noPreSe">No previous searches.</p>
-        <ul></ul>
+           
+          </aside>
+          
+          <aside>
+            <section>
+              <h4>Previous Searches</h4>
+              <ul></ul>
+            </section>
       </aside>
     </div>
   </body>
