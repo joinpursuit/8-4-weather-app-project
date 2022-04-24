@@ -1,0 +1,128 @@
+body {
+    background-color: #bdc3c7  ;
+    background-image: 
+    linear-gradient(
+        to right,
+        #bdc3c7  , #2c3e50
+    );
+}
+
+
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: .50fr 1fr 1fr 1fr;
+    grid-auto-columns: minmax(10px, auto);
+    grid-gap: 5px;
+    font-family: Georgia, serif;
+    grid-template-areas: 
+    "a a a a"
+    "b main main d"
+    "b main main d"
+    "b main main d";
+}
+
+span {
+    font-weight: bold;
+}
+
+header {
+    text-align: center;
+    padding: 2%;
+    border:double black;
+    border-width: 5px;
+    grid-area: a;
+    background: rgba(179, 227, 245, 0.323);
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-area: main;
+    width: auto;
+    grid-template-areas: 
+    "c c"
+    "c c"
+    "ef ef";
+}
+
+.view_weather { /* Main with search info */
+    padding-top: 5px;
+    text-align: center;
+    border: solid black;
+    grid-area: c;
+    /* width:auto;
+    height:auto; */
+    background: rgba(179, 227, 245, 0.323);
+}
+
+.forecast {
+    grid-area: ef;
+    display:grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-columns: auto;
+    grid-gap: 2px;
+}
+
+
+#one {
+    padding-left: 10%;
+    grid-area: d;
+}
+
+#two {
+    padding-left: 5%;
+    grid-area: b;
+} 
+
+
+.forecast > div {
+    border:solid #060708;
+    background:  rgba(179, 227, 245, 0.323);
+    padding: 5px;
+}
+
+@media (min-width: 662px) and (max-width: 850px) {
+    .forecast  {
+      font-size: 80%;
+      width: auto;
+      height: max-content;
+    }
+  }
+
+@media only screen and (max-width: 671px){
+    .container {
+        width: auto;
+        height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: .50fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        "a"
+        "main"
+        "main"
+        "main"
+        "b"
+        "d";
+    }
+
+    main {
+        grid-area: 
+        "c c"
+        "c c"
+        "ef ef";
+    }
+
+    #one {
+        padding-left: 30%;
+        text-align: justify;
+        border: solid black;
+    }
+    #two {
+        padding-left: 30%;
+        text-align: justify;
+        border: solid black;
+    }
+
+}

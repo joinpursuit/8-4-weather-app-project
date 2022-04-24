@@ -1,0 +1,142 @@
+
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-columns: minmax(10px, auto);
+    /* grid-template-rows: 1.25fr 1.5fr 1.5fr 1.5fr; */
+    grid-template-areas: 
+    "a a a a"
+    "b c c d"
+    "b c c d"
+    "b c c e";
+}
+
+header {
+    text-align: center;
+    padding: 2%;
+    background: turquoise;
+    border-style: double;
+    grid-area: a;
+}
+
+main {
+    text-align: center;
+    border: dotted red;
+    grid-area: c;
+
+}
+#one {
+    padding-left: 2%;
+    border: dotted purple;
+    grid-area: d;
+}
+
+#two {
+    padding-left: 2%;
+    border: dotted navy;
+    grid-area: b;
+}
+
+.forecast {
+    grid-area: e;
+    display:grid;
+    text-align: center;
+    /* grid-template-areas:unset; */
+    border: dotted green;
+}
+
+
+.today {
+    
+}
+.tmrrw
+.afterTmrw 
+
+/* .forecast #today {
+    border: dashed yellow;
+    /* padding: 2%; 
+    background: pink;
+}
+
+.forecast #tmrrw {
+    /* display: */
+    /* padding: 2%; 
+    border: dashed grey;
+    background: rgb(158, 58, 75);
+}
+
+.forecast #afterTmrw {
+    /* padding: 2%; 
+    border: dashed;
+    background: rgb(202, 117, 131);
+}
+ */
+
+/* Original formating
+body {
+    background-color: #add8e6;
+    margin: 20px;
+}
+
+.container {
+    display:grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 5px;
+    grid-auto-rows: minmax(80px, auto);
+    row-gap: 1ch; 
+    height: auto;
+}
+
+span {
+    font-weight: bold;
+}
+
+header {
+    background-color: turquoise;
+    padding: 20px;
+    height: auto;
+    grid-area: 1 / 1 / span 1 / span 7;
+    text-align: center;
+    border-style: double;
+}
+
+.view_weather {
+    padding: 5px;
+    text-align:center;
+    border: dotted;
+    grid-area: 2 / 2 / span 2 / span 4;
+}
+
+
+.previous_searches{
+    text-align:center;
+    grid-area: 2 / 6 / span 2 / span 2;
+    border: dotted purple;
+    height: auto;
+}
+
+.forecast {
+    display: grid;
+    grid-area: 4 / 1 / span 1 / span 7;
+    grid-template-areas: "a b c";
+    border: double red;
+}
+
+/* TODAY TMRRW & NEXT DAY DOESN'T work */
+
+/* .today 
+.tmrrw
+.afterTmrw {
+    text-align: center;
+    width: 100%;
+    height: auto;
+    float: left;
+    border: dotted black; 
+}  
+.convertTemp {
+    padding-left: 5px;
+    grid-area: 2 / 1 / span 1 / span 1;
+    border: dotted purple;
+} */

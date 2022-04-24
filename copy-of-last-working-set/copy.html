@@ -12,6 +12,7 @@
 
 <body>
     <div class="container">
+        <!-- header -->
         <header>
             <h1>Weather App</h1>
             <form>
@@ -22,24 +23,23 @@
             </form>
         </header>
         </br>
-        <main>
-            <article>
-                <section class="view_weather">
-                    <p>Choose a location to view the weather
-                    </p>
-                </section>
-                <div class="forecast">
-                    <div id="today"></div>
-                    <div id="tmrrw"></div>
-                    <div id="afterTmrw"></div>
-                </div>
-            </article>
+        <!-- main .view_weather -->
+        <main class="view_weather">
+            <p>Choose a location to view the weather</p>
         </main>
-    </br>
-        <aside id='one' class="previous_searches">
+        <main class="forecast">
+            <div class="threeDay">
+                <div id="today"></div>
+                <div id="tmrrw"></div>
+                <div id="afterTmrw"></div>
+            </div>
+        </main>
+
+        <aside id='one'class="previous_searches">
             <section>
                 <h4>Previous Searches</h4>
                 <p>No previous searches</p>
+
                 <ul>
 
                 </ul>
@@ -51,7 +51,7 @@
             <form class="convertTemp">
                 <p>Convert the temperature:</p>
                 <input type="number" id="temp-to-convert">
-                </br>
+            </br>
                 <label>To Celcius
                     <input type="radio" id="to-c" name="convert-temp" value="c" required>
                 </label>
