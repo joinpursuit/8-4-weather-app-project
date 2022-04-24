@@ -1,0 +1,67 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <script defer src="./script.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>Weather App</h1>
+        <form>
+            <label for="city">
+                Pick a Location
+                <input type="text" name="city" id="userInput"></label></label>
+                <input type="submit" value="Get Weather"></input>    
+            </label>
+        </form>
+    </header>
+    <aside id="converter">
+
+    <!-- <form id="convert">
+      <div>
+      <label for="temp-to-convert">Convert the temperature:</label>
+      <input type="number" id="temp-to-convert"></input>
+      </div>
+
+      <div>
+      <label for="to-c">To Celsius</label>
+      <input type="radio" id="to-c" name="convert-temp" value="c" />
+      </div>
+
+      <div>
+      <label for="to-f">To Fahrenheit</label>
+      <input type="radio" id="to-f" name="convert-temp" value="f" />
+      </div>
+
+      <input type="submit"></input>
+      <div>
+      <h4 id="converted"></h4>
+      </div>
+    </form> -->
+
+    </aside>
+    <main id="grid">
+        <article id="preload">Choose a location to view the weather.</article>
+    <aside id="days">
+            <article id="today"></article>
+            <article id="tomorrow"></article>
+            <article id="after"></article>
+    </aside>
+    </main>
+    <aside>
+        <section id="grid-item">
+        <h4>Previous Searches</h4>
+          <ul id="list">
+            <p id="previous">No previous searches</p>
+          </ul>
+          </section>
+    </aside>
+    
+</body>
+</html>
