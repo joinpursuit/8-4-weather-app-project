@@ -9,6 +9,10 @@ const after = document.querySelector(`#after`);
 const previous = document.querySelector("#previous");
 const list = document.querySelector("#list");
 const converter = document.querySelector("#converter");
+const toC = document.querySelector("#to-c");
+const toF = document.querySelector("#to-f")
+const imput2 = document.querySelector("#convert");
+const converted = document.querySelector("#converted");
 //create main output
 const p1 = document.createElement("p");
 const p2 = document.createElement("p");
@@ -32,16 +36,16 @@ const pc = document.createElement(`p`);
 const img = document.createElement("img");
 //create widget
 const change = document.createElement("form");
-const fp = document.createElement("p");
+const flabel = document.createElement("label");
 const finput = document.createElement("input");
 const fdiv = document.createElement("div");
 const finput2 = document.createElement("input");
-const flabel = document.createElement("label");
+const flabel2 = document.createElement("label");
 const fdiv2 = document.createElement("div");
 const finput3 = document.createElement("input");
-const flabel2 = document.createElement("label");
+const flabel3 = document.createElement("label");
 const finput4 = document.createElement("input");
-const fp2 = document.createElement("p");
+const h4 = document.createElement("h4");
 //add first event listener
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -100,42 +104,62 @@ form.addEventListener("submit", (event) => {
           img.setAttribute("alt", "snow");
           result.prepend(img);
         }
-        fp.innerHTML = "Convert the temperature:";
-        finput.setAttribute("type", "number");
-        finput2.setAttribute("type", "radio");
-        finput2.setAttribute("id", "celcius");
-        flabel.setAttribute("for", "celcius")
-        flabel.innerHTML = "To Celcius";
-        finput3.setAttribute("type", "radio");
-        finput3.setAttribute("id", "fahrenheit");
-        flabel2.setAttribute("for", "fahrenheit");
-        flabel2.innerHTML = "To Fahrenheit";
-        finput4.setAttribute("type", "submit");
-        fp2.innerHTML = "<strong>0.00</strong>";
-        converter.append(change);
-        change.append(fp, finput, fdiv, fdiv2, finput4, fp2);
-        fdiv.append(finput2, flabel);
-        fdiv2.append(finput3, flabel2);
+        //convert temperature widget
 
+        flabel.innerHTML = "Convert the temperature:";
+        flabel.setAttribute("for", "temp-to-convert");
+        finput.setAttribute("type", "number");
+        finput.setAttribute("id", "temp-to-convert");
+        finput2.setAttribute("type", "radio");
+        finput2.setAttribute("id", "to-c");
+        finput2.setAttribute("name", "convert-temp");
+        finput2.setAttribute("value", "c");
+        flabel2.innerHTML = "To Celcius";
+        flabel2.setAttribute("for", "to-c");
+        finput3.setAttribute("type", "radio");
+        finput3.setAttribute("id", "to-f");
+        finput3.setAttribute("name", "convert-temp");
+        finput3.setAttribute("value", "f");
+        flabel3.setAttribute("for", "to-f");
+        flabel3.innerHTML = "To Fahrenheit";
+        finput4.setAttribute("type", "submit");
+        h4.setAttribute("id", "converted");
+        // h4.innerHTML = "<strong>0.00</strong>";
+        converter.append(change);
+        change.append(flabel, finput, fdiv, fdiv2, finput4, h4);
+        fdiv.append(finput2, flabel2);
+        fdiv2.append(finput3, flabel3); 
       })
       .catch((error) => {
         console.log(error);
       });
-    form.reset();
-  } else {
-    alert("Please enter a Location");
-    h3i.textContent = "";
-    h3ii.textContent = "";
-    h3iii.textContent = "";
-    pi.textContent = "";
-    pii.textContent = "";
-    piii.textContent = "";
-    pI.textContent = "";
-    pII.textContent = "";
-    pIII.textContent = "";
-    pa.textContent = "";
-    pb.textContent = "";
-    pc.textContent = "";
-  }
-});
+      form.reset();
+    } else {
+      alert("Please enter a Location");
+      h3i.textContent = "";
+      h3ii.textContent = "";
+      h3iii.textContent = "";
+      pi.textContent = "";
+      pii.textContent = "";
+      piii.textContent = "";
+      pI.textContent = "";
+      pII.textContent = "";
+      pIII.textContent = "";
+      pa.textContent = "";
+      pb.textContent = "";
+      pc.textContent = "";
+    }
+  });
 
+  change.addEventListener("submit", (e) => {
+    e.preventDefault();
+  
+    let result = 0;
+    if (toC.checked) {
+      result = (tempToConvert.value - 32) * (5 / 9);
+    }
+    if (toF.checked) {
+      result = (tempToConvert.value * 9) / 5 + 32;
+    }
+    converted.innerHTML = result.toFixed(2);
+  });
