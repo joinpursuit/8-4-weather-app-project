@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script defer src="weather.js"></script>
+    <title>Taji's Weather App</title>
+  </head>
+  <body>
+    <header>
+      <form>
+        <h1>Weather App</h1>
+        <label>
+          Pick a Location
+          <input id="userInput" name ="userInput" type="text" />
+          <input type="submit" value="Get Weather" />
+        </label>
+      </form>
+    </header>
+    <aside>
+      <form class="widget" id="widget">
+        <label for="temp-to-convert">Convert the Temperature</label> 
+        <input type="number" name="temp-to-convert" id="temp-to-convert"/>
+        <label for="celsius">
+          Celsius
+          <input type="radio" name="convert" value="to-c" id="celsius"/>
+        </label>
+        <label for="fare">
+          Farenheit
+          <input type="radio" name="convert" value="to-f" id="fare"/>
+        </label>
+        <input type="submit" value="Submit"/>
+        <h4 id="tempResult">0.00</h4>
+      </form>
+    </aside>
+    <br />
+    <main>
+      <article id="current">Choose a location to view the weather.</article>
+      <aside id="days">
+        <article id="today"></article>
+        <article id="tomorrow"></article>
+        <article id="day-after-tomorrow"></article>
+      </aside>
+    </main>
+    <aside>
+      <section id="previous">
+        <h4>Previous Searches</h4>
+        <p>No previous searches.</p>
+        <ul></ul>
+      </section>
+    </aside>
+  </body>
+</html>
