@@ -7,7 +7,6 @@ searchLocationForm.addEventListener('submit', (event) => {
     event.preventDefault()
     const input = event.target.location.value;
     // console.log(input)
-    
     getData(input) 
     
 })
@@ -72,7 +71,7 @@ resultBox.append(area, reg, temp, feel)
 temperature.textContent = ' ';
 
 let today = document.createElement('h2')
-today.textContent = 'Today';
+today.textContent = `Today (${location})`;
 
 let todayAvgTemp = document.createElement('h4')
 todayAvgTemp.textContent = `Average Temp: ${todayAvgtempF} °F`;
@@ -84,7 +83,7 @@ let todaymaxtemp = document.createElement('h4')
 todaymaxtemp.textContent = `Max Temp: ${todayMaxTemp} °F`;
 
 let tommorow = document.createElement('h2')
-tommorow.textContent = "Tommorow";
+tommorow.textContent = `Tommorow (${location})`;
 
 let tomAvgTemp = document.createElement('h4')
 tomAvgTemp.textContent = `Average Temp: ${tmmAvgTemp} °F`;
@@ -96,7 +95,7 @@ let tomMaxTemp = document.createElement('h4')
 tomMaxTemp.textContent = `Max Temp: ${tmmMaxTemp} °F`;
 
 let dayAfterTmm = document.createElement('h2')
-dayAfterTmm.textContent = 'Day After Tommorow';
+dayAfterTmm.textContent = `Day After Tommorow (${location})`;
 
 let dayaftavgtemp = document.createElement('h4')
 dayaftavgtemp.textContent = `Average Temp: ${dayAfterAvgTemp} °F`;
@@ -107,8 +106,11 @@ dayaftmintemp.textContent = `Min Temp: ${dayAfterMinTemp} °F`;
 let dayaftmaxtemp = document.createElement('h4')
 dayaftmaxtemp.textContent = `Max Temp: ${dayAfterMaxTemp} °F`;
 
+let seperator = document.createElement('p')
+seperator.textContent = '------------------------------------';
 
-temperatureBox.append(today, todayAvgTemp, todaymintemp, todaymaxtemp, tommorow, tomAvgTemp, tomMinTemp, tomMaxTemp, dayAfterTmm, dayaftavgtemp, dayaftmintemp, dayaftmaxtemp)
+
+temperatureBox.append(today, todayAvgTemp, todaymintemp, todaymaxtemp, tommorow, tomAvgTemp, tomMinTemp, tomMaxTemp, dayAfterTmm, dayaftavgtemp, dayaftmintemp, dayaftmaxtemp, seperator)
 
 
 const previous = document.querySelector('#previous-search aside p')
@@ -117,7 +119,7 @@ const previousBox = document.querySelector('#previous-search aside')
 previous.textContent = ' ';
 
 let prevSearch = document.createElement('h3')
-prevSearch.textContent = `${location}`;
+prevSearch.textContent = `${location}: ${todayAvgtempF} °F`;
 
 previousBox.append(prevSearch)
 
@@ -154,8 +156,30 @@ if(wind > 10){
 
 // document.getElementById('resultBox').reset();
 
+
 return '';
 
+
+})
+
+
+const converter = document.querySelector('#converter form')
+converter.addEventListener('submit', (event) => convert(event))
+
+const convert = ((event) =>{
+event.preventDefault()
+
+const conInput = event.target.convert.value
+// console.log(conInput)
+const result = document.querySelector('#converter form p')
+const resultBox = document.querySelector('#converter form')
+
+let number;
+
+number = (5/9) * (conInput - 32);
+number = Math.floor(number)
+
+result.textContent = `${number}°C`;
 
 })
 

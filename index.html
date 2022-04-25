@@ -16,7 +16,7 @@
     <article id="search-location">
         <form>
             <p>Pick a Location</p>
-            <input id="search-location" name="location" type="text"/>
+            <input id="search-location" name="location" type="text" placeholder="Type a location"/>
             <button type="submit">Get Weather</button>
         </form>
     </article>
@@ -27,15 +27,26 @@
     </article>
     <article id="temperature">
         <aside>
+            <h3>Future Forcast</h3>
             <p>Temperatures will show here.</p>
         </aside>
     </article>
 
     <article id="previous-search">
         <aside>
+            <h3>History</h3>
             <p>No previous searches</p>
         </aside>
     </article>
+
+    <section id="converter">
+     <h3>Tempature Converter °F to °C</h3>
+     <form> 
+         <input id="convert" name="convert" type="number" placeholder="0°F"/>
+         <button type="submit">Convert °F to °C</button>
+         <p>0</p>
+     </form>
+    </section>
 </main>
 </body>
 </html>
