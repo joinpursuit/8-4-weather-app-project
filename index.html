@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="./scripts/main.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Weather App</h1>
+        <form name = "location"> 
+            <label for = "encode-phrase">Pick a Location</label>
+            <input id = "location-pick" name = "location-pick" type = "text" placeholder = "enter a city or location"/>
+            <input type = "submit" value = "Get Weather!"></input>
+        </form>
+        <br>
+    </header>
+    <main>
+        <article class = "display resultBox card">
+            <div class="results">Choose a location to view the weather</div>
+        </article>
+        
+        <article class = "history">
+            <aside>
+                    <section>
+                        <h4>Previous Searches</h4>
+                            <p>No previous searches</p>
+                    </section> 
+                </aside>
+                <ul></ul>
+            </article>
+                <article class = "days display card">
+
+                </article>
+                <article class = "extra">
+
+                </article>
+    </main>
+</body>
+</html>
