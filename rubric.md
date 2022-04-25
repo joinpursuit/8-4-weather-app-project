@@ -1,4 +1,4 @@
-# Rubric
+https://github.com/Kenyamighty/8-4-weather-app-project.git# Rubric
 
 The following is the rubric for this project. To get a full score, you must meet the **Proficient** standard for all of the criteria.
 
