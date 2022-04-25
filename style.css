@@ -1,49 +1,80 @@
-/* body is the face the user sees, lets make the body of our weather 
-app look a peeling  */
-body {
-    display: grid;
-    grid-template-areas: 
-        "header header header header"
-        "main main main main"
-        "article article2 article3 aside"; 
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 130px 1fr 1fr;     
-    }
+
 header {
-    grid-area: header;
-    background-color:  rgb(138, 88, 214);
-    border: 10px solid black;
-    color: white;
+    width: 80%;
+    padding: 10px 0px;
+    border: 3px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(239, 150, 239);
     text-align: center;
-    }
-h1 {
-    color:rgb(54, 209, 57);
-   
+    color: white;
+    display: block;
+    font-family: sans-serif;
 }
 
 main {
-    grid-area: main;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 1fr;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#infoBoxes {
+    display: grid;
+    grid-column: 2/6;
+}
+
+#currentWeather {
+    display: grid;
+    grid-row: 1/2;
+    padding-left: 30px;
     text-align: center;
-    border: 10px solid black;
-    background-color: rgb(255, 255, 255);
-    margin: 100px;
+    border: 5px solid ;
+    margin: 10px;
+    background-color:whitesmoke;
+    height: auto;
 
 }
-#article {
-    grid-area: article;
-    text-align: center;
 
+#upcoming {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height:auto;
 }
-#article2 {
-    grid-area: article2;
+
+
+.futureWeather {
+    display:grid;
+    grid-column: repeat(3,1fr);
     text-align: center;
-    
 }
-#article3 {
-    grid-area: article3;
+
+#history {
+    display: grid;
+    grid-column: 6/8;
     text-align: center;
-    
+    padding-left: 30px;
 }
-#right {
-    grid-area: aside;
+
+#previousSearch {
+text-align: left;
+}
+
+ul {
+    text-align: left; 
+}
+
+img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Widget {
+    display: grid;
+    grid-column: 2/3;
+    background-color: #c096e9;
+    color: black;
+    padding: 5px;
 }

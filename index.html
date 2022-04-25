@@ -1,57 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script defer src="main.js"></script>
-    <link rel="stylesheet" href="./style.css"/>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Kenya's Weather App</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+        <script defer src="main.js"></script>
+    </head>
 </head>
-<body>
-   <header>
-        <h1>Weather App</h1>
+
+
+<header>
+    <div class = "header">
+        <h1>Kenya's Weather App</h1>
         <form>
             <label for="location">Pick a Location</label>
-            <input type="text" id="location" name="location"> 
-            <input type="submit">
-        </form>
-    </header>
-    <main>
-        <article id="result"> 
-            <p>"Choose a location to view the weather."</p>
-            <section id="display">
-                <h2 id="city">City</h2>
-                <p id="area">Area</p>
-                <p id="region">Region</p>
-            </section>
-        </article>
-    </main>
-    <!-- *********************set to column to the right ************************** -->
-            <aside>
-            <section id="right">
-                "Previous Searches"
-                <p>No previous searches"</p>
-            </section>
-        </aside>
-    <article class="dia" id="article">
-        <h3>Today</h3>
-        <p id="average1"><strong>Average Temperature:</strong></p>
-        <p id="max1"><strong>Max Temperature:</strong></p>
-        <p id="min"><strong>Min Temperature:</strong></p>
+            <input id="location" name="location" type="text" />
+            <input type="submit" value="Get Weather">
+          </form>
+          <br>
+    </div>
+</header>
 
-    </article>   
-    <article class="dia" id="article2">
-        <h3>Tomorrow</h3>
-        <p id="average2"><strong>Average Temperature:</strong></p>
-        <p id="max2"><strong>Max Temperature:</strong></p>
-        <p id="min2"><strong>Min Temperature:</strong></p>
-    </article>   
-    <article class="dia" id="article3">
-        <h3>Day After Tomorrow</h3>
-        <p id="average3"><strong>Average Temperature:</strong></p>
-        <p id="max3"><strong>Max Temperature:</strong></p>
-        <p id="min3"><strong>Min Temperature:</strong></p>
-    </article>   
-  </body>
+<body>
+
+ <aside id="Widget"></aside>
+
+<main>
+    <div id="infoBoxes">
+        <article id="currentWeather">
+            <p>Choose a location to view the weather</p>
+           
+        </article>
+
+
+
+    <aside id="upcoming">
+        <article class = "futureWeather"></article>
+        <article class = "futureWeather"></article>
+        <article class = "futureWeather"></article>
+    </aside>
+
+
+</div>
+
+<aside id = "history">
+    <section>
+        <h4 id = "previousSearch">Previous Searches</h4>
+        <ul></ul>
+        <p>No previous searches</p>
+    </section>
+</aside>
+
+
+
+</main>
+
+</body>
 </html>
+
