@@ -47,7 +47,13 @@ header section {
     grid-template-columns: repeat(3, 1fr);
 }
 
-#icons {
-    grid-row: 2;
+section.convert {
+  text-align: center;
+}
+
+h4 {
+  text-align: center;
+  font-family: sans-serif;
+  color: black;
 }
 
