@@ -5,22 +5,21 @@ body{
   grid-column: 1/12;
   margin: auto;
   padding: 50px;
+
 }
 main{
-  /* display: grid; */
-  /* grid-template-columns: 2fr, 1fr; */
+  
   text-align: center;
-  grid-column: 1/9;
+  grid-column: 1/8;
   width: 110%;
   margin-top: 20px;
+
 }
 header{ 
   text-align: center;
-  background-color: rgb(46, 160, 150);
   /* linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%); */
   border: solid;
-  border-color: black;
-  grid-column: 1/10;
+  grid-column: 2/10;
   padding-bottom: 40px;
 }
 main section{
@@ -28,15 +27,42 @@ main section{
   grid-column: 1/4;
   grid-row: auto;
 }
+aside{
+  grid-column: 9/10;
+}
+section{
+  grid-column: 8/9;
+}
+
+.list section {
+  border: #1282A2 solid;
+  text-align: center;
+  margin-left: 50px;
+  padding-top: 10px;
+
+  
+  height: 140px;
+  overflow-y: scroll;
+  scrollbar-width: thin
+}
+
+#convert{ 
+ text-align: center;
+ background-color: #a2c9d3;
+ grid-column: 8/9;
+ margin-left: 50px;
+ padding: 20px;
+}
+
 
 
 .searched-location{
   background-color: rgb(186, 181, 181);
   border: solid;
-  border-color: rgb(46, 160, 150);
+  color: rgb(1, 67, 67);
+  border-color: whitesmoke;
 }
 .list{
-margin-left: 160px;
 padding-top: 20px;
 }
 .article0{
@@ -49,10 +75,85 @@ padding-top: 20px;
   grid-column: 3/4;
 }
 .converter{
-  grid-column: 10/12;
-  padding-top: 10px;
+  grid-column: 1/2;
+  padding-top: 20px;
   border:black solid;
-  background-color: rgb(46, 160, 150);
 }
 
-/* aside sec */
+/* Media queries */
+
+@media screen and (max-width: 855px) {
+  body{
+    text-align: center;
+    display: grid;
+    grid-column: 1/3;
+    padding:10px
+  }
+  .converter{
+    grid-column: 1/1;
+  }
+  header{
+    grid-column: 2/3;
+    padding: 10px;
+    /* padding-right: 20px; */
+    width:100%
+  }
+  main{
+    grid-column: 1/3;
+    width: 100%;
+    padding-right: 20px;
+    /* create a media query in Javascript to clear my animation */
+    /* background-image: none;
+    background-repeat: no-repeat; */
+  }
+.searched-location{
+  width: 100%;
+  padding-right:10px;
+  padding-left: 10px;
+}
+.list{
+  grid-column: 1/3;
+  display: grid;
+  padding:0%;
+  grid-column: 1/3;
+  /* grid-column: 1/3; */
+}
+main section{
+  display: grid;
+  grid-column: 1/3;
+  width: 110%;
+  height: 190px;
+  
+
+  overflow: scroll;
+}
+.article0{
+ grid-column: 1/3;
+ padding: 2px;
+ width: 100%;
+}
+.article1{
+  grid-column: 1/3;
+  padding:2px;
+  width: 100%;
+}
+.article2{
+  grid-column: 1/3;
+  padding: 2px;
+  width: 100%;
+}
+.list section{
+
+  width: 100%;
+  margin: 0px;
+  grid-column: 1/3;
+  height: 250px;
+  grid-column: 2fr ;
+  
+  /* margin-left: 0px; */
+}
+.list form{
+  grid-column: 1fr;
+  
+}
+}
