@@ -18,8 +18,19 @@
             <input type="submit" value="Get Weather"/>
         </form>
     </label>
+    <aside>
+        <form class="converter">
+            <label>
+                Fahrenheit
+                <input type='radio' id='temp-to-f' name="temp" checked/>
+            </label>
+            <label>
+                Celsius
+                <input type='radio' id='temp-to-c' name='temp' />
+            </label>
+        </form>
+    </aside>
     </header>
-    <aside></aside>
     <main id="location">
         <article class="current-weather">
             <p>Choose a location to view the weather.</p>
@@ -29,8 +40,11 @@
     <aside class="previous">
         <section>
             <h4>Previous Searches</h4>
-            <p>No previous searches</p>
-            <ul></ul>
+            <!-- <p>No previous searches</p> -->
+            <select id='list' name='list'>
+                <option value="no-previous">No previous searches</option>
+            </select>
+            <!-- <ul></ul> -->
         </section>
     </aside>
 </body>

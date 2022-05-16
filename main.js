@@ -18,15 +18,19 @@ function getWeather(input) {
     .then((res) => res.json())
     .then((data) => {
       weather = data;
-      //   console.log(weather);
+      // console.log(weather);
       displayWeather(weather, input);
       displayThreeDays(weather);
 
-      if (!document.querySelector("aside section ul li")) {
+      // previous code for ul & li
+      //document.querySelector("aside section ul li")
+
+      if (!document.querySelector("aside section select option")) {
         addListItem(input, weather);
       } else {
         removeDulplicateLi(input);
       }
+
     });
 }
 
@@ -36,16 +40,18 @@ const country = document.createElement("p");
 const currently = document.createElement("p");
 
 function displayWeather(weather, input) {
-  // if(input !== weather.nearest_area[0].areaName[0].value){
-  //     console.log(input, weather.nearest_area[0].areaName[0].value)
-  //     area.innerHTML = '<strong>Nearest Area:</strong> ' + weather.nearest_area[0].areaName[0].value;
-  // } else if(input === weather.nearest_area[0].areaName[0].value){
-  //     area.innerHTML = '<strong>Area:</strong> ' + weather.nearest_area[0].areaName[0].value;
-  // }
+  if (
+    input.toLowerCase() ===
+    weather.nearest_area[0].areaName[0].value.toLowerCase()
+  ) {
+    area.innerHTML =
+      "<strong>Area:</strong> " + weather.nearest_area[0].areaName[0].value;
+  } else {
+    area.innerHTML =
+      "<strong>Nearest Area:</strong> " +
+      weather.nearest_area[0].areaName[0].value;
+  }
 
-  area.innerHTML =
-    "<strong>Nearest Area:</strong> " +
-    weather.nearest_area[0].areaName[0].value;
   region.innerHTML =
     "<strong>Region: </strong>" + weather.nearest_area[0].region[0].value;
   country.innerHTML =
@@ -76,42 +82,84 @@ threeDay.append(today, tomorrow, dayAfter);
 function displayThreeDays(weather) {
   today.innerHTML = `<strong>Today</strong> <br /><br /> <strong>Average Temperature:</strong> ${weather.weather[0].avgtempF}\u00B0F <br /> <br /><strong>Max Temperature:</strong> ${weather.weather[0].maxtempF}\u00B0F <br /><br /> <strong>Min Temperature:</strong> ${weather.weather[0].mintempF}\u00B0F`;
 
+  today.style.border = "2px solid white";
+  today.style.backgroundColor = "rgb(146, 188, 244)";
+  today.style.borderRadius = "25px";
+
   tomorrow.innerHTML = `<strong>Tomorrow</strong> <br /><br /> <strong>Average Temperature:</strong> ${weather.weather[1].avgtempF}\u00B0F <br /> <br /><strong>Max Temperature: </strong> ${weather.weather[1].maxtempF}\u00B0F <br /><br /> <strong>Min Temperature: </strong> ${weather.weather[1].mintempF}\u00B0F`;
 
+  tomorrow.style.border = "2px solid white";
+  tomorrow.style.backgroundColor = "rgb(146, 188, 244)";
+  tomorrow.style.borderRadius = "25px";
+
   dayAfter.innerHTML = `<strong>Day After Tomorrow</strong> <br /><br /> <strong>Average Temperature:</strong> ${weather.weather[2].avgtempF}\u00B0F <br /><br /> <strong>Max Temperature: </strong> ${weather.weather[2].maxtempF}\u00B0F <br /><br /> <strong>Min Temperature: </strong> ${weather.weather[2].mintempF}\u00B0F`;
+
+  dayAfter.style.border = "2px solid white";
+  dayAfter.style.backgroundColor = "rgb(146, 188, 244)";
+  dayAfter.style.borderRadius = "25px";
 }
 
-const previousList = document.querySelector(".previous ul");
-const previousP = document.querySelector(".previous p");
+// const previousList = document.querySelector(".previous ul");
+// const previousP = document.querySelector(".previous p");
+
+const select = document.querySelector('#list');
+const defaultOption = document.querySelector('option');
 
 function addListItem(input, weather) {
-  const searchLink = document.createElement("a");
-  const listItem = document.createElement("li");
 
-  searchLink.innerHTML = `<a href='#'>${input}</a> - ${weather.current_condition[0].FeelsLikeF}\u00B0F`;
+  const option = document.createElement('option');
+  option.value = input;
+  option.text = `${input} - ${weather.current_condition[0].FeelsLikeF}\u00B0F`;
 
-  listItem.append(searchLink);
-  previousP.remove();
-  previousList.prepend(listItem);
+  select.append(option);
+  // defaultOption.replaceWith(defaultOption, option);
 
-  searchLink.addEventListener("click", (event) => {
-    getWeather(event.target.textContent);
-  });
+//previous code for ul & li
+  // const searchLink = document.createElement("a");
+  // const listItem = document.createElement("li");
+
+  // searchLink.innerHTML = `<a href='#'>${input}</a> - ${weather.current_condition[0].FeelsLikeF}\u00B0F`;
+
+  // listItem.append(searchLink);
+  // previousP.remove();
+  // previousList.prepend(listItem);
+
+  // searchLink.addEventListener("click", (event) => {
+  //   getWeather(event.target.textContent);
+  // });
 }
 
-function removeDulplicateLi(input) {
-    const searchList = document.querySelectorAll("aside section ul li a");
-    let hasInput = false;
-  
-    searchList.forEach((el) => {
-      if (el.textContent.includes(input)) {
-        hasInput = true;
-      }
-    });
-  
-    if (!hasInput) {
-      addListItem(input, weather);
-    }
-  }
+select.addEventListener('change', (event) => {
+  getWeather(event.target.value);
+})
 
+function removeDulplicateLi(input) {
+
+  const searchList = document.querySelectorAll("aside section select option");
+  let hasInput = false;
+
+  searchList.forEach((el) => {
+    if (el.textContent.includes(input)) {
+      hasInput = true;
+    }
+  });
+
+  if (!hasInput) {
+    addListItem(input, weather);
+  }
+  
+  //previous code for ul & li
+  // const searchList = document.querySelectorAll("aside section ul li a");
+  // let hasInput = false;
+
+  // searchList.forEach((el) => {
+  //   if (el.textContent.includes(input)) {
+  //     hasInput = true;
+  //   }
+  // });
+
+  // if (!hasInput) {
+  //   addListItem(input, weather);
+  // }
+}
 
