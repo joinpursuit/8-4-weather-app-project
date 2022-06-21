@@ -45,14 +45,21 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   let userInput = input.value;
   let city = userInput;
+  // city and UserInput are  equal to the same thing
   fetch(`https://wttr.in/${userInput}?format=j1`)
+  // always convert to json again even if it's in json format. or it's going to be in json format.
     .then((response) => response.json())
     .then((response) => {
       let weatherFile = response;
+      
+
   
       message.classList.add("hidden");
+      // the classList.add removes the message once the choose a location has been clicked.
       display.classList.remove("hidden");
+      // then we use this classLis.remove to make it display(Not hidden) the content.
       addy.innerHTML = city;
+      // this is what the user typed in the input.
       if (city != `${weatherFile.nearest_area[0].areaName[0].value}`) {
         area.innerHTML = `<strong>Nearest Area: </strong>${weatherFile.nearest_area[0].areaName[0].value}`;
       } else {
@@ -90,6 +97,7 @@ form.addEventListener("submit", (event) => {
 
       if (weatherFile.weather[0]["hourly"][0]["chanceofsunshine"] > 50) {
         
+        
         image.classList.remove("hidden");
         image.setAttribute("src", "./assets/icons8-summer.gif");
         image.setAttribute("alt", "sun");
@@ -102,6 +110,7 @@ form.addEventListener("submit", (event) => {
         display.prepend(image);
       } else if (weatherFile.weather[0]["hourly"][0]["chanceofsnow"] > 50) {
         
+
         image.classList.remove("hidden");
         image.setAttribute("src", "./assets/icons8-light-snow.gif");
         image.setAttribute("alt", "snow");
