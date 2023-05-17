@@ -4,6 +4,7 @@
 
 body {
   background-image:url('https://images.unsplash.com/reserve/bOvf94dPRxWu0u3QsPjF_tree.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80');
+  /* background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.entrepreneur.com%2Fcontent%2F3x2%2F2000%2F1661266965-shutterstock-2144631851.jpg&f=1&nofb=1&ipt=ebcb035da714baf9d88a8c5caabe617d577d0b612b253a2fa60a6e9d72e4e014&ipo=images');  */
   display: grid;
   grid-template-areas:
     "header header header header header"
@@ -11,6 +12,7 @@ body {
     "left days days days aside";
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 130px 1fr 1fr 1fr;
+  background-repeat: no-repeat;
 }
 
 

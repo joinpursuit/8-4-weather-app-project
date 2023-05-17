@@ -55,15 +55,15 @@ form.addEventListener("submit", (event) => {
 
   
       message.classList.add("hidden");
-      // the classList.add removes the message once the choose a location has been clicked.
+      // the classList.add removes the message once the choosen location has been clicked.
       display.classList.remove("hidden");
       // then we use this classLis.remove to make it display(Not hidden) the content.
       addy.innerHTML = city;
       // this is what the user typed in the input.
       if (city != `${weatherFile.nearest_area[0].areaName[0].value}`) {
-        area.innerHTML = `<strong>Nearest Area: </strong>${weatherFile.nearest_area[0].areaName[0].value}`;
+        area.innerHTML = `<h3>Nearest Area: </h3>${weatherFile.nearest_area[0].areaName[0].value}`;
       } else {
-        area.innerHTML = `<strong>Area: </strong>${weatherFile.nearest_area[0].areaName[0].value}`;
+        area.innerHTML = `<b>Area: </b>${weatherFile.nearest_area[0].areaName[0].value}`;
       }
       region.innerHTML = `<strong>Region: </strong>${weatherFile.nearest_area[0].region[0].value}`;
       country.innerHTML = `<strong>Country: </strong>${weatherFile.nearest_area[0].country[0].value}`;
